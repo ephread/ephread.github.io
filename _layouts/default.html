@@ -1,0 +1,120 @@
+<!doctype html>
+
+<!--
+                                                                                                           
+ _|    _|    _|_|    _|      _|    _|_|    _|      _|  _|_|_|
+ _|  _|    _|    _|  _|_|    _|  _|    _|  _|_|  _|_|    _|  
+ _|_|      _|    _|  _|  _|  _|  _|_|_|_|  _|  _|  _|    _|  
+ _|  _|    _|    _|  _|    _|_|  _|    _|  _|      _|    _|  
+ _|  _|_|    _|_|    _|      _|  _|    _|  _|      _|  _|_|_|
+
+                              _|
+                              _|                                                                                                    
+                          _|_|_|_|_|                                                                                             
+                              _|                                                                                                    
+                              _|                                                                                                    
+                      
+     _|_|_|_|  _|      _|  _|_|_|_|_|  _|_|_|_|  _|_|_|                                                        
+     _|        _|_|    _|      _|      _|        _|    _|                                                      
+     _|_|_|    _|  _|  _|      _|      _|_|_|    _|_|_|                                                        
+     _|        _|    _|_|      _|      _|        _|    _|                                                      
+     _|_|_|_|  _|      _|      _|      _|_|_|_|  _|    _|                                                      
+                                                      
+-->
+
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <title>{{ page.title }}</title>
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+
+
+        <!--[if IE 9]><!-->
+          {% stylesheet application %}
+        <!--<![endif]-->
+        
+        <!--[if lt IE 9]>
+          {% stylesheet ie6-8 %}
+        <![endif]-->
+        
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    </head>
+      
+    <!--[if IE 9]><!-->
+    <body data-easter-egg='[
+        "You are being watched.",
+        "You don&#39;t believe me?",
+        "I&#39;m dead serious!",
+        "What? You want some proof?",
+        "Fine… Here is a picture I found on your device.",
+        "You like dromedaries, don&#39;t you?",
+        "Me too!",
+        "Okay, fun&#39;s over. Gotta run.",
+        "Goodbye.",
+        "",
+        "",
+        "",
+        "Hell, you&#39;re a stubborn one.",
+        "I guess you now deserve a present.",
+        "On second thought, maybe not.",
+        "FINE. Here it is.",
+        "Happy with the dromadery?",
+        "Now, I&#39;m gone. Bye. Ciao. Tschüss."
+    ]' data-easter-first-image="{% asset_path dromedary.jpg %}"
+       data-easter-second-image="{% asset_path plush_dromedary.jpg %}"
+    >
+        <div id="all-sections" class="all-sections">
+            {{ content }}
+        </div>
+        
+        {% javascript application %}
+    </body>
+    <!--<![endif]-->
+    
+    <!--
+      Forbidden for old IE users, 'cause after all, my place, my rules, bro!
+    -->
+    <!--[if (IE 6)|(IE 7)]>
+    <body class="very-old-ie">
+      <div class="main">
+        <h1><span class="ugly-grey">Ephread</span></h1>
+        <p>
+        I am not friendly with an old Internet Explorer. If you are seing this screen, yours must be seriously old. There are two things you can do:
+        </p>
+        <ul>
+          <li>
+            * Update your system and then update Internet Explorer.
+          </li>
+          <li>
+            * Use Chrome, Firefox or any other browser that stays UP TO DATE.
+          </li>
+        </ul>
+
+        <p class="links">
+          Press any link to continue <span class="blinking">_</span>
+        </p>
+      </div>
+    </body>
+    <![endif]-->
+      
+    <!--[if (IE 8)]>
+    <body class="old-ie">
+      <section class="main">
+        <h1>:(</h1>
+        <h2 class="main-message">
+        Your browser is too old for me to be nice with him. You should update to a decent version of Internet Explorer, or pick the most recent one.
+        </h2>
+
+        <p>
+        Alternatively, you can also use browsers that stay up to date on all operating systems, such as Chrome or Firefox.
+        </p>
+      </section>
+    </body>
+    <![endif]-->
+</html>

@@ -1,0 +1,5 @@
+_site
+config/deploy
+config/deploy.rb
+lib/capistrano
+Capfile

@@ -1,0 +1,13 @@
+name: Your New Jekyll Site
+markdown: redcarpet
+pygments: true
+
+assets:
+  sources:
+    - _assets/fonts
+    - _assets/javascripts
+    - _assets/stylesheets
+    - _assets/images
+
+  js_compressor: yui
+  css_compressor: sass

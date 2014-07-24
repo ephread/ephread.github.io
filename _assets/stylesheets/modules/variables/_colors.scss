@@ -1,0 +1,29 @@
+// Colors
+////////////////////////////////////////////////////////////////////////////////
+$dark-white:  #FAFFFF;
+$black:       black;
+$light-black: #333;
+
+$grey:        #AAA;
+$blue:        #477DCA;
+
+// Layout colors
+////////////////////////////////////////////////////////////////////////////////
+$html-background-color: $dark-white;
+$body-background-color: $black;
+
+$landing-border-color: white;
+
+// Sections
+////////////////////////////////////////////////////////////////////////////////
+$about-background-color: $dark-white;
+$picture-border-color:   $light-black;
+
+// Typography colors
+////////////////////////////////////////////////////////////////////////////////
+$headline-text-color:    white;
+$subheadline-text-color: white;
+
+$base-font-color:  $light-black;
+$base-link-color:  $blue;
+$hover-link-color: darken($blue, 25);

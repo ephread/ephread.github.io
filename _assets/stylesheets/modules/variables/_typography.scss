@@ -1,0 +1,15 @@
+// Typography
+///////////////////////////////////////////////////////////////////////////////
+$primary-typeface:        "Lato";
+$secondary-typeface:      "Raleway";
+$tertiary-typeface:       "Inconsolata";
+
+$headline-font-family:    $primary-typeface, sans-serif;
+$subheadline-font-family: $secondary-typeface, sans-serif;
+$text-font-family:        $primary-typeface, sans-serif;
+$easter-egg-font-family:  $tertiary-typeface, monospace;
+
+// Sizes
+///////////////////////////////////////////////////////////////////////////////
+$base-font-size-px: 16px;
+$base-font-size: 1em;

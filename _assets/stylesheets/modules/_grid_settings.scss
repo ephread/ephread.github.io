@@ -1,0 +1,26 @@
+// Neat Overrides
+////////////////////////////////////////////////////////////////////////////////
+
+// Breakpoints
+////////////////////////////////////////////////////////////////////////////////
+$small-screen:                  em(320);
+$medium-screen:                 em(720);
+$large-screen:                  em(1024);
+$very-large-screen:             em(1440);
+                                
+$larger-than-small-screen:      em(321);
+$larger-than-medium-screen:     em(721);
+$larger-than-large-screen:      em(1025);
+$larger-than-very-large-screen: em(1441);
+
+// Media queries
+////////////////////////////////////////////////////////////////////////////////
+$small:                   new-breakpoint(max-width $small-screen 1);
+$medium:                  new-breakpoint(max-width $medium-screen 1);
+$large:                   new-breakpoint(max-width $large-screen 1);
+$very-large:              new-breakpoint(max-width $very-large-screen 1);
+                          
+$larger-than-small:       new-breakpoint(min-width $larger-than-small-screen 1);
+$larger-than-medium:      new-breakpoint(min-width $larger-than-medium-screen 1);
+$larger-than-large:       new-breakpoint(min-width $larger-than-large-screen 1);
+$larger-than-very-large:  new-breakpoint(min-width $larger-than-very-large-screen 1);
