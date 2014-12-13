@@ -11,4 +11,5 @@ This is public domain stuff, do whatever you want with it.
   [MorgueFile](http://www.morguefile.com/) and was uploaded by
   [sideshowmom](http://www.morguefile.com/creative/sideshowmom).
 
-- The leisuring dromedary picture was found on MorgueFile as well.
+- The leisuring dromedary picture was found on MorgueFile as
+  well (the file is not accessible anymore).

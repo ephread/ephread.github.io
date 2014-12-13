@@ -1,0 +1,12 @@
+{
+  "name": "ephread.com",
+  "version": "1.0.0",
+  "description": "Ephread.com",
+  "author": "Frédéric Maquin",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^0.6.0",
+    "grunt-contrib-sass": "^0.8.1",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}

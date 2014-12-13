@@ -34,11 +34,11 @@
 
 
         <!--[if IE 9]><!-->
-          {% stylesheet application %}
+          <link rel="stylesheet" href="/assets/stylesheets/application.css">
         <!--<![endif]-->
         
         <!--[if lt IE 9]>
-          {% stylesheet ie6-8 %}
+          <link rel="stylesheet" href="/assets/stylesheets/ie6-8.css">
         <![endif]-->
         
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
@@ -66,14 +66,14 @@
         "FINE. Here it is.",
         "Happy with the dromadery?",
         "Now, I&#39;m gone. Bye. Ciao. Tschüss."
-    ]' data-easter-first-image="{% asset_path dromedary.jpg %}"
-       data-easter-second-image="{% asset_path plush_dromedary.jpg %}"
+    ]' data-easter-first-image="assets/images/dromedary.jpg"
+       data-easter-second-image="assets/images/plush_dromedary.jpg"
     >
         <div id="all-sections" class="all-sections">
             {{ content }}
         </div>
         
-        {% javascript application %}
+        <script src="/assets/javascripts/application.js"></script>
     </body>
     <!--<![endif]-->
     
