@@ -20,12 +20,8 @@ module.exports = function(grunt) {
         },
         files: {
           'assets/javascripts/application.js': [
-            'assets/javascripts/vendor/konami.js',
-            'assets/javascripts/vendor/smooth_scroll.js',
+            'assets/javascripts/vendor/jquery-2.1.4.js',
             'assets/javascripts/vendor/viewport_units_buggyfill.js',
-            'assets/javascripts/lib/easter_egg.js',
-            //'assets/javascripts/modules/smooth_scroll_init.js',
-            'assets/javascripts/modules/easter_egg_init.js',
             'assets/javascripts/modules/viewport_units_buggyfill_init.js',
           ] 
         }
@@ -33,11 +29,11 @@ module.exports = function(grunt) {
     },
     watch: {
       css: {
-        files: '**/*.scss',
+        files: 'assets/**/*.scss',
         tasks: ['sass']
       },
       js: {
-        files: '**/*.js',
+        files: 'assets/**/*.js',
         tasks: ['uglify']
       }
     }

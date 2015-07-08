@@ -18,14 +18,20 @@ html {
 
 body {
   background-color: $body-background-color;
-  
-  // Easter-egg CSS preload
-  &:before {
-    content: url("/assets/images/dromedary.jpg") url("/assets/images/plush_dromedary.jpg");
-    display: none;
-  }
 }
 
 .hidden {
   display: none;
+}
+
+.invisible > div {
+  opacity: 0;
+  
+  @include transition (opacity .35s ease-in-out)
+}
+
+.visible > div {
+  opacity: 1;
+  
+  @include transition (opacity .35s ease-in-out)
 }

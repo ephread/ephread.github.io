@@ -6,7 +6,7 @@ body {
   font-size: $base-font-size-px;
   -webkit-font-smoothing: antialiased;
   
-  font-size: $base-font-size * 0.8;
+  font-size: $base-font-size * 0.7;
   
   @include media($larger-than-small) {
     font-size: $base-font-size;

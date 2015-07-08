@@ -1,11 +1,12 @@
 // Colors
 ////////////////////////////////////////////////////////////////////////////////
-$dark-white:  #FAFFFF;
+$dark-white:  #faffff;
 $black:       black;
 $light-black: #333;
 
-$grey:        #AAA;
-$blue:        #477DCA;
+$grey:        #aaa;
+$blue:        #477dca;
+$dark-grey:   #292e33;
 
 // Layout colors
 ////////////////////////////////////////////////////////////////////////////////
@@ -18,6 +19,15 @@ $landing-border-color: white;
 ////////////////////////////////////////////////////////////////////////////////
 $about-background-color: $dark-white;
 $picture-border-color:   $light-black;
+
+$abjapp-color:           #9060c1;
+$gimmicode-color:        #1a9bcf;
+
+$dark-section-first-color: #454d58;
+$dark-section-second-color: #21262a;
+
+$light-section-first-color: $about-background-color;
+$light-section-second-color: #e6e8ec;
 
 // Typography colors
 ////////////////////////////////////////////////////////////////////////////////
