@@ -13,7 +13,7 @@ title: Ephread's place
 
     <section id="about" class="about">
         <header>
-            <img src="/assets/images/me.jpg" class="me" />
+            <img src="/assets/images/me.jpg" class="me" alt="Frédéric Maquin / Ephread" />
         </header>
 
         <div class="about-me">
@@ -37,18 +37,60 @@ title: Ephread's place
         <div class="showcase">
             <div class="gimmicode">
                 <div class="screenshot" id="gimmicode-screenshot">
-                    <div class="screenshot-content" id="gimmicode-screenshot-content">
-                        <a id="gimmicode-anchor" href="http://gimmicode.ephread.com"></a>
+                    <div class="screenshot-content" id="gimmicode-screenshot-content" style="top:0; left:0;">
+                        <a id="gimmicode-anchor" href="#gimmicode-showcase"></a>
                     </div>
                 </div>
             </div>
             <div class="abjapp">
                 <div class="screenshot" id="abjapp-screenshot">
-                    <div class="screenshot-content" id="abjapp-screenshot-content">
-                        <a id="abjapp-anchor" href="http://abjapp.com"></a>
+                    <div class="screenshot-content" id="abjapp-screenshot-content" style="top:0; left:0;">
+                        <a id="abjapp-anchor" href="#abjapp-showcase"></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </div>
+
+<section id="gimmicode-showcase" class="big-showcase gimmicode-showcase hidden invisible">
+    <div>
+        <a href="#projects" class="close-showcase"></a>
+        <header>
+            <h4>Gimmicode</h4>
+            <img src="/assets/images/macbook.svg" alt="Gimmicode Mac preview"  />
+        </header>
+        <div class="showcase-content">
+            <p>
+                <a href="http://gimmicode.ephread.com">Gimmicode</a> is a simple utility giving the Unicode code point of an inputed character.
+            </p>
+            <p>
+                The tiny project serves as a way to discover new language and framework, as it is often rewrote with the language I am trying to get acquainted with. The current version is written in Go and Redis.
+            </p>
+            <p>
+                Both the Go and the original command-line utility are open source and available on Github.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="abjapp-showcase" class="big-showcase abjapp-showcase hidden invisible">
+    <div>
+        <a href="#projects" class="close-showcase"></a>
+        <header>
+            <h4>Abjapp</h4>
+            <img src="/assets/images/iphone.svg" alt="Abjapp iPhone preview" />
+        </header>
+        <div class="showcase-content">
+            <p>
+                <a href="http://abjapp.com">Abjapp</a> is an iPhone application —iPad update coming soon—, teaching people the Arabic alphabet.
+            </p>
+            <p>
+                I designed the user interface using Sketch and wrote the code in Objective-C (no Swift for this one).
+            </p>
+            <p>
+                This application was fun to build, it allowed me to combine my interest in both iOS and writing systems.
+            </p>
+        </div>
+    </div>
+</section>

@@ -1,8 +1,10 @@
 // Sections
 ///////////////////////////////////////////////////////////////////////////////
 .all-sections {
-  transition-property: opacity;
-  transition-duration: .5s;
+  @include media($larger-than-large) {
+    transition-property: opacity;
+    transition-duration: .5s;
+  }
 }
 
 section {  
@@ -181,11 +183,13 @@ section {
             display: block;
             background-size: 100% 100%;
             background-position: center center;
-
-            @include transition-delay(0s);
-            @include transition-duration(0.3s);
-            @include transition-property(background-size, background-position);
-            @include transition-timing-function(ease-in-out);
+            
+            @include media($larger-than-large) {
+              @include transition-delay(0s);
+              @include transition-duration(.3s);
+              @include transition-property(background-size, background-position);
+              @include transition-timing-function(ease-in-out);
+            }
             
             &:hover {
                 background-size: 150% 150%;
@@ -194,27 +198,27 @@ section {
     }
     
     .screenshot-content {
-        @include transition-delay(0s);
-        @include transition-duration(0.3s);
-        @include transition-property(width, height, top, left);
-        @include transition-timing-function(ease-in-out);
+        @include media($larger-than-large) {
+          @include transition-delay(0s);
+          @include transition-duration(.3s);
+          @include transition-property(width, height, top, left);
+          @include transition-timing-function(ease-in-out);
+        }
         
         position: absolute;
-        top: 0;
-        left: 0;
-        
+
         width: 100%;
         height: 100%;
+        
+        top: 0;
+        left: 0;
     }
     
     .full-page {
-        width: 100vw;
-        height: 100vh;
-        
         z-index: 100;
-        
+
         a {
-            display: none;
+          display: none;
         }
     }
     
@@ -230,6 +234,10 @@ section {
         
         a {
             background-image: url('/assets/images/gimmicode.svg');
+            
+            &.no-background-image {
+                background-image: none;
+            }
         }
     }
     
@@ -246,6 +254,10 @@ section {
         
         a {
             background-image: url('/assets/images/abjapp.svg');
+            
+            &.no-background-image {
+                background-image: none;
+            }
         }
     }
     
@@ -361,11 +373,80 @@ section {
 }
 
 .close-showcase {
+    display: block;
+
     font-size: 3em;
     
     position: fixed;
     left: .5em;
     top: .25em;
     
-    color: white;
+    width: 1em;
+    height: 1em;
+    
+    &::before {
+      height: 1em;
+      width: 1em;
+      
+      position: absolute;
+      left: 0;
+      top: 0;
+      
+      content: "×";
+      color: $showcase-link-color;
+      
+      @include transition(0.1s 0s color ease-in-out);
+    }
+}
+
+.gimmicode-showcase .close-showcase {
+  &:hover, &:active {
+    &::before {
+      color: $gimmicode-link-hover-color;
+    }
+  }
+}
+
+.abjapp-showcase .close-showcase {
+  &:hover, &:active {
+    &::before {
+      color: $abjapp-link-hover-color;
+    }
+  }
+}
+
+// No JS Fallback
+///////////////////////////////////////////////////////////////////////////////
+.no-js {
+  .projects {
+    display: none;
+  }
+  
+  .big-showcase {
+    position: static;
+    padding: 5em 2em;
+    
+    &.invisible{
+      > div {
+        opacity: 1;
+      }
+    }
+    
+    &.hidden {
+      display: block;
+    }
+    
+    img {
+      margin: 0 auto;
+      margin-bottom: 4em;
+    }
+  }
+  
+  .close-showcase {
+    display: none;
+  }
+  
+  .showcase-content {
+      margin: 0;
+  }
 }

@@ -23,6 +23,7 @@ module.exports = function(grunt) {
             'assets/javascripts/vendor/jquery-2.1.4.js',
             'assets/javascripts/vendor/viewport_units_buggyfill.js',
             'assets/javascripts/modules/viewport_units_buggyfill_init.js',
+            'assets/javascripts/modules/projects_init.js',
           ] 
         }
       }
