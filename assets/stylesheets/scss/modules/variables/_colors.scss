@@ -18,7 +18,6 @@ $landing-border-color: white;
 // Sections
 ////////////////////////////////////////////////////////////////////////////////
 $about-background-color: $dark-white;
-$picture-border-color:   $light-black;
 
 $abjapp-color:           #9060c1;
 $gimmicode-color:        #1a9bcf;
@@ -28,6 +27,8 @@ $dark-section-second-color: #21262a;
 
 $light-section-first-color: $about-background-color;
 $light-section-second-color: #e6e8ec;
+
+$picture-border-color:   rgba($dark-section-second-color, .8);
 
 // Typography colors
 ////////////////////////////////////////////////////////////////////////////////
@@ -39,5 +40,5 @@ $base-link-color:  $blue;
 $hover-link-color: darken($blue, 25);
 
 $showcase-link-color: white;
-$gimmicode-link-hover-color: rgba(darken(blue, 40), 0.5);
-$abjapp-link-hover-color: rgba(darken(purple, 40), 0.5);
+$gimmicode-link-hover-color: rgba(darken(blue, 40), .5);
+$abjapp-link-hover-color: rgba(darken(purple, 40), .5);

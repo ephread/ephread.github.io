@@ -138,28 +138,28 @@ section {
     margin-top: 1em;
     
     width: 95%;
-    font-size: 1.6em;
+    font-size: 1.3em;
         
     line-height: 1.3em;
         
     @include media($larger-than-small) {
       width: 90%;
-      font-size: 1.7em;
+      font-size: 1.4em;
     }
         
     @include media($larger-than-medium) {
       width: 80%;
-      font-size: 1.8em;
+      font-size: 1.5em;
     }
     
     @include media($larger-than-large) {
       width: 75%;
-      font-size: 1.9em;
+      font-size: 1.6em;
     }
     
     @include media($larger-than-very-large) {
       width: 60%;
-      font-size: 2em;
+      font-size: 1.7em;
     }
   }
 }
@@ -338,28 +338,28 @@ section {
         margin-top: 1em;
     
         width: 95%;
-        font-size: 1.4em;
+        font-size: 1.3em;
         
         line-height: 1.3em;
         
         @include media($larger-than-small) {
           width: 90%;
-          font-size: 1.5em;
+          font-size: 1.4em;
         }
         
         @include media($larger-than-medium) {
           width: 80%;
-          font-size: 1.6em;
+          font-size: 1.5em;
         }
     
         @include media($larger-than-large) {
           width: 75%;
-          font-size: 1.7em;
+          font-size: 1.6em;
         }
     
         @include media($larger-than-very-large) {
           width: 60%;
-          font-size: 1.8em;
+          font-size: 1.7em;
         }
     }
 }
