@@ -6,10 +6,10 @@ body {
   font-size: $base-font-size-px;
   -webkit-font-smoothing: antialiased;
   
-  font-size: $base-font-size * 0.7;
+  font-size: $base-font-size;
   
   @include media($larger-than-small) {
-    font-size: $base-font-size;
+    font-size: $base-font-size * 0.9;
   }
       
   @include media($larger-than-medium) {
@@ -95,6 +95,13 @@ a {
   &:hover, &:active {
     color: $abjapp-link-hover-color;
     border-bottom-color: $abjapp-link-hover-color;
+  }
+}
+
+.instructions-showcase p a {
+  &:hover, &:active {
+    color: $instructions-link-hover-color;
+    border-bottom-color: $instructions-link-hover-color;
   }
 }
 

@@ -34,17 +34,21 @@ section {
 
   h1 {
     font-family: $headline-font-family;
-    font-size:   3.25em;
+    font-size:   3em;
   }
 
   h2 {
     font-family: $subheadline-font-family;
-    font-size:   1em;
+    font-size:   0.8em;
     
     text-transform: uppercase;
     
     margin:     0;
     margin-top: 0.5em;
+    
+    @include media($larger-than-small) {
+      font-size:   1em;
+    }
   }
 
 }
@@ -167,7 +171,7 @@ section {
 // Showcase sections
 ///////////////////////////////////////////////////////////////////////////////
 .showcase {
-    .gimmicode, .abjapp {
+    .gimmicode, .abjapp, .instructions {
         padding: 3em;
         padding-bottom: 2em;
     }
@@ -241,6 +245,26 @@ section {
         }
     }
     
+    .instructions {
+        width: 100%;
+        
+        padding-right: 0;
+        padding-left: 0;
+        padding-top: 0;
+        
+        .screenshot-content {
+            background: $instructions-color;
+        }
+        
+        a {
+            background-image: url('/assets/images/instructions.svg');
+            
+            &.no-background-image {
+                background-image: none;
+            }
+        }
+    }
+    
     .abjapp {
         width: 100%;
         
@@ -272,6 +296,19 @@ section {
         }
     
         .abjapp {
+            float: none;
+            clear: both;
+            width: 50%;
+            padding-top: 0em;
+
+            padding-left: 2em;
+            padding-right: 2em;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .instructions {
             float: right;
             width: 50%;
             padding-top: 3em;
@@ -293,12 +330,61 @@ section {
 .gimmicode-showcase {
     img {
         width: 50%;
+        
+        @include media($medium) {
+          width: 75%;
+        }
     }
+}
+
+.instructions-showcase {
+  .ipad-container {
+    width: 50%;
+    
+    @include media($medium) {
+      width: 75%;
+    }
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+    position: relative;
+  }
+  
+  img {
+      width: 100%;
+  }
+  
+  .video-demo {
+    position: absolute;
+    
+    left: 9.09%;
+    top: 6.56%;
+    
+    width: 82.02%;
+    height: 86.98%;
+    
+    background-image: url(/assets/images/instructions-placeholder.png);
+    background-size: cover;
+    
+    video {
+      width: 100%;
+      height: 100%;
+      
+      @include media($medium) {
+        display: none;
+      }
+    }
+  }
 }
 
 .abjapp-showcase {
     img {
         width: 15%;
+        
+        @include media($medium) {
+          width: 50%;
+        }
     }
 }
 
@@ -372,12 +458,16 @@ section {
     background-color: $abjapp-color;
 }
 
+[id='instructions-showcase'] {
+    background-color: $instructions-color;
+}
+
 .close-showcase {
     display: block;
 
     font-size: 3em;
     
-    position: fixed;
+    position: absolute;
     left: .5em;
     top: .25em;
     
@@ -397,6 +487,10 @@ section {
       
       @include transition(0.1s 0s color ease-in-out);
     }
+    
+    @include media($larger-than-medium) {
+      position: fixed;
+    }
 }
 
 .gimmicode-showcase .close-showcase {
@@ -411,6 +505,14 @@ section {
   &:hover, &:active {
     &::before {
       color: $abjapp-link-hover-color;
+    }
+  }
+}
+
+.instructions-showcase .close-showcase {
+  &:hover, &:active {
+    &::before {
+      color: $instructions-link-hover-color;
     }
   }
 }

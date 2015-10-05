@@ -83,6 +83,11 @@
             e.preventDefault();
             displayShowcase($(this), 'abjapp');
         });
+        
+        $('#instructions-anchor').on('click', function (e) {
+            e.preventDefault();
+            displayShowcase($(this), 'instructions');
+        });
     
         $('#gimmicode-showcase .close-showcase').on('click', function (e) {
             e.preventDefault();
@@ -92,6 +97,11 @@
         $('#abjapp-showcase .close-showcase').on('click', function (e) {
             e.preventDefault();
             hideShowcase('abjapp');
+        });
+        
+        $('#instructions-showcase .close-showcase').on('click', function (e) {
+            e.preventDefault();
+            hideShowcase('instructions');
         });
     });
 })();
