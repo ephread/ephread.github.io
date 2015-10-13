@@ -13,15 +13,15 @@ body {
   }
       
   @include media($larger-than-medium) {
-    font-size: $base-font-size * 1.2;
+    font-size: $base-font-size * 1.1;
   }
   
   @include media($larger-than-large) {
-    font-size: $base-font-size * 1.4;
+    font-size: $base-font-size * 1.3;
   }
   
   @include media($larger-than-very-large) {
-    font-size: $base-font-size * 1.6;
+    font-size: $base-font-size * 1.5;
   }
 }
 
