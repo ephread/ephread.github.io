@@ -9,7 +9,7 @@ body {
   font-size: $base-font-size;
   
   @include media($larger-than-small) {
-    font-size: $base-font-size * 0.9;
+    font-size: $base-font-size * 1.0;
   }
       
   @include media($larger-than-medium) {
@@ -17,11 +17,11 @@ body {
   }
   
   @include media($larger-than-large) {
-    font-size: $base-font-size * 1.3;
+    font-size: $base-font-size * 1.2;
   }
   
   @include media($larger-than-very-large) {
-    font-size: $base-font-size * 1.5;
+    font-size: $base-font-size * 1.3;
   }
 }
 
