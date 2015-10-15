@@ -12,7 +12,16 @@ section {
 }
 
 .landing {
-  @include radial-gradient(circle at 50% 0%, $dark-section-first-color, $dark-section-second-color);
+  @include background-image(url('/assets/images/arrow.svg'), radial-gradient(circle at 50% 0%, $dark-section-first-color, $dark-section-second-color));
+    
+  background-position: center 95%, center;
+  background-size: 8% auto, 100% 100%;
+  
+  @include media($larger-than-medium) {
+    background-size: 5% auto, 100% 100%;
+  }
+  
+  background-repeat: no-repeat, no-repeat;
   
   position: relative;
   
@@ -37,7 +46,7 @@ section {
     font-size:   2.8em;
     
     @include media($larger-than-small) {
-      font-size:   4em;
+      font-size:   3.5em;
     }
   }
 
@@ -51,7 +60,7 @@ section {
     margin-top: 0.5em;
     
     @include media($larger-than-small) {
-      font-size:   1.3em;
+      font-size:   1.2em;
     }
   }
 
