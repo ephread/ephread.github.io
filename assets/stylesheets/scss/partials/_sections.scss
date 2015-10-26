@@ -184,6 +184,8 @@ section {
 // Showcase sections
 ///////////////////////////////////////////////////////////////////////////////
 .showcase {
+    padding: 2em 0;
+    
     .gimmicode, .abjapp, .instructions, .pomme-plate {
         padding: 3em;
         padding-bottom: 2em;
@@ -244,6 +246,7 @@ section {
         
         padding-right: 0;
         padding-left: 0;
+        padding-top: 0;
         
         .screenshot-content {
             background: $gimmicode-color;
