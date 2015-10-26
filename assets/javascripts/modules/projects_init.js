@@ -88,6 +88,11 @@
             e.preventDefault();
             displayShowcase($(this), 'instructions');
         });
+        
+        $('#pomme-plate-anchor').on('click', function (e) {
+            e.preventDefault();
+            displayShowcase($(this), 'pomme-plate');
+        });
     
         $('#gimmicode-showcase .close-showcase').on('click', function (e) {
             e.preventDefault();
@@ -102,6 +107,11 @@
         $('#instructions-showcase .close-showcase').on('click', function (e) {
             e.preventDefault();
             hideShowcase('instructions');
+        });
+        
+        $('#pomme-plate-showcase .close-showcase').on('click', function (e) {
+            e.preventDefault();
+            hideShowcase('pomme-plate');
         });
     });
 })();

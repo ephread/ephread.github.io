@@ -184,7 +184,7 @@ section {
 // Showcase sections
 ///////////////////////////////////////////////////////////////////////////////
 .showcase {
-    .gimmicode, .abjapp, .instructions {
+    .gimmicode, .abjapp, .instructions, .pomme-plate {
         padding: 3em;
         padding-bottom: 2em;
     }
@@ -298,37 +298,69 @@ section {
         }
     }
     
+    .pomme-plate {
+        width: 100%;
+        
+        padding-right: 0;
+        padding-left: 0;
+        padding-top: 0;
+        
+        .screenshot-content {
+            background: $pomme-plate-color;
+        }
+        
+        a {
+            background-image: url('/assets/images/pomme-plate.svg');
+            
+            &.no-background-image {
+                background-image: none;
+            }
+        }
+    }
+    
     @include media($larger-than-medium) {
         .gimmicode {
-            float: left;
+            float: right;
             width: 50%;
-            padding-top: 3em;
+            padding-top: 1em;
+            padding-bottom: 1em;
             
-            padding-right: 1em;
-            padding-left: 2em;
+            padding-right: .5em;
+            padding-left: 1em;
         }
     
         .abjapp {
-            float: none;
-            clear: both;
+            float: left;
             width: 50%;
-            padding-top: 0em;
+            padding-top: 1em;
+            padding-bottom: 1em;
 
-            padding-left: 2em;
-            padding-right: 2em;
-
-            margin-left: auto;
-            margin-right: auto;
+            padding-left: .5em;
+            padding-right: 1em;
         }
         
         .instructions {
             float: right;
             width: 50%;
-            padding-top: 3em;
+            padding-top: 1em;
+            padding-bottom: 1em;
             
+            padding-right: .5em;
             padding-left: 1em;
-            padding-right: 2em;
         }
+        
+        .pomme-plate {
+            float: left;
+            width: 50%;
+            padding-top: 1em;
+            padding-bottom: 1em;
+            
+            padding-left: .5em;
+            padding-right: 1em;
+        }
+        
+        @include clearfix;
+        padding: 1em 0;
     }
     
     h4 {
@@ -341,6 +373,16 @@ section {
 }
 
 .gimmicode-showcase {
+    img {
+        width: 50%;
+        
+        @include media($medium) {
+          width: 75%;
+        }
+    }
+}
+
+.pomme-plate-showcase {
     img {
         width: 50%;
         
@@ -484,6 +526,10 @@ section {
     background-color: $instructions-color;
 }
 
+[id='pomme-plate-showcase'] {
+    background-color: $pomme-plate-color;
+}
+
 .close-showcase {
     display: block;
 
@@ -538,6 +584,15 @@ section {
     }
   }
 }
+
+.pomme-plate-showcase .close-showcase {
+  &:hover, &:active {
+    &::before {
+      color: $pomme-plate-link-hover-color;
+    }
+  }
+}
+
 
 .big-showcase .preview {
     margin-bottom: 0;
