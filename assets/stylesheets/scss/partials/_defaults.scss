@@ -26,12 +26,12 @@ body {
 
 .invisible > div {
   opacity: 0;
-  
+
   @include transition (opacity .35s ease-in-out)
 }
 
 .visible > div {
   opacity: 1;
-  
+
   @include transition (opacity .35s ease-in-out)
 }
