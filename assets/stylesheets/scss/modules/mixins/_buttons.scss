@@ -1,0 +1,16 @@
+@mixin main-button($color) {
+  font-family: $text-font-family;
+  background: $main-button-color;
+  border-width: 0;
+  color: $color;
+  display: block;
+
+  font-weight: bold;
+  text-transform: uppercase;
+
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: $hover-link-color;
+  }
+}

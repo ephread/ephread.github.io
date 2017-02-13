@@ -3,51 +3,38 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        
+
         <title>{{ page.title }}</title>
-        
+
         <meta name="description" content="Hey, I'm Fred, this is my personal website.">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
-        
+
         <meta property="og:title" content="Frédéric Maquin | Independent iOS developer"/>
         <meta property="og:type" content="website" />
         <meta property="og:url" content="http://ephread.com">
-        <meta property="og:description" content="Hey, I'm Fred, I'm an independent iOS developer currently available for hire!"/>
+        <meta property="og:description" content="Hey, I'm Fred, I'm a freelance iOS developer currently available for hire!"/>
         <meta property="og:image" content="http://www.gravatar.com/avatar/07cace5d941b67f22d030088283a10f0?s=400">
-        
+
         <meta name="twitter:card" content="summary">
         <meta name="twitter:url" content="http://ephread.com">
-        <meta name="twitter:description" content="Hey, I'm Fred, I'm an independent iOS developer currently available for hire!">
+        <meta name="twitter:description" content="Hey, I'm Fred, I'm a freelance iOS developer currently available for hire!">
         <meta name="twitter:image" content="http://www.gravatar.com/avatar/07cace5d941b67f22d030088283a10f0?s=400">
 
-        <!--[if IE 9]><!-->
-          <link rel="stylesheet" href="/assets/stylesheets/application.css">
-        <!--<![endif]-->
-        
-        <!--[if lt IE 9]>
-          <link rel="stylesheet" href="/assets/stylesheets/ie6-8.css">
-        <![endif]-->
-        
-        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
-        
+        <link rel="stylesheet" href="/assets/stylesheets/application.css">
+        <link href="https://fonts.googleapis.com/css?family=Dosis:400,500,700|Fjalla+One" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+        <link rel="mask-icon" href="/assets/images/mask-icon.svg" color="#009a9c">
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     </head>
-      
-    <!--[if IE 9]><!-->
-    <!--[if IE 9]>
-    <body class="ie9">
-    <![endif]-->
-    <!--[if !IE]>-->
+
     <body>
-    <!--<![endif]-->
         <div id="all-sections" class="all-sections">
             {{ content }}
         </div>
-        
+
         <script src="/assets/javascripts/application.js"></script>
-        
+
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -59,46 +46,4 @@
 
         </script>
     </body>
-    <!--<![endif]-->
-    
-    <!--
-      Forbidden for old IE users, 'cause after all, my place, my rules, bro!
-    -->
-    <!--[if (IE 6)|(IE 7)]>
-    <body class="very-old-ie">
-      <div class="main">
-        <h1><span class="ugly-grey">Ephread</span></h1>
-        <p>
-        I am not friendly with an old Internet Explorer. If you are seing this screen, yours must be seriously old. There are two things you can do:
-        </p>
-        <ul>
-          <li>
-            * Update your system and then update Internet Explorer.
-          </li>
-          <li>
-            * Use Chrome, Firefox or any other browser that stays UP TO DATE.
-          </li>
-        </ul>
-
-        <p class="links">
-          Press any link to continue <span class="blinking">_</span>
-        </p>
-      </div>
-    </body>
-    <![endif]-->
-      
-    <!--[if (IE 8)]>
-    <body class="old-ie">
-      <section class="main">
-        <h1>:(</h1>
-        <h2 class="main-message">
-        Your browser is too old for me to be nice with him. You should update to a decent version of Internet Explorer, or pick the most recent one.
-        </h2>
-
-        <p>
-        Alternatively, you can also use browsers that stay up to date on all operating systems, such as Chrome or Firefox.
-        </p>
-      </section>
-    </body>
-    <![endif]-->
 </html>

@@ -1,0 +1,37 @@
+// No JS Fallback
+///////////////////////////////////////////////////////////////////////////////
+
+.no-js {
+  .projects .showcase {
+    display: none;
+  }
+
+  .big-showcase {
+    position: static;
+
+    > div {
+      opacity: 1;
+    }
+
+    &.invisible{
+      opacity: 1;
+    }
+
+    &.hidden {
+      display: block;
+    }
+
+    img {
+      margin: 0 auto;
+      margin-bottom: 4em;
+    }
+  }
+
+  .close-showcase {
+    display: none;
+  }
+
+  .showcase-content {
+      margin: 0;
+  }
+}

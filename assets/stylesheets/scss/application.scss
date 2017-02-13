@@ -4,8 +4,13 @@
 @import "vendor/normalize";
 
 @import "modules/variables";
-@import "modules/layouts";
+@import "modules/mixins";
 
 @import "partials/defaults";
-@import "partials/sections";
 @import "partials/typography";
+@import "partials/lists";
+@import "partials/forms";
+@import "partials/navigation";
+@import "partials/sections";
+@import "partials/showcase";
+@import "partials/nojs";

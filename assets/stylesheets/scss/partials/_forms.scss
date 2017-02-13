@@ -1,0 +1,57 @@
+.form-wrapper {
+  border-radius: $base-border-radius;
+
+  .double-input {
+    display: block;
+
+    @include media($larger-than-medium) {
+      display: flex;
+    }
+
+    input:first-child {
+      margin-right: 1em;
+    }
+  }
+
+  input,
+  textarea {
+    border: $default-border;
+    border-radius: $base-border-radius;
+    display: block;
+
+    font-family: $text-font-family;
+
+    margin-bottom: 1em;
+    padding: .2em .4em;
+
+    width: 100%;
+
+    &:focus {
+      border-color: $focused-border-color;
+      border-width: 2px;
+      outline: none;
+    }
+  }
+
+  input[type=submit] {
+    @include main-button($white);
+    font-size: .8em;
+    cursor: pointer;
+
+    margin: 0 auto;
+    margin-bottom: 0;
+    padding: .3em .7em;
+
+    width: auto;
+
+    @include media($larger-than-medium) {
+          padding: .2em .5em;
+    }
+  }
+
+  textarea {
+    height: 8em;
+    overflow: scroll;
+    resize: none;
+  }
+}

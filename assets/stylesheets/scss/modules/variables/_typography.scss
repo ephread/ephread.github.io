@@ -1,12 +1,12 @@
 // Typography
 ///////////////////////////////////////////////////////////////////////////////
-$primary-typeface:        "Lato";
-$secondary-typeface:      "Raleway";
-$tertiary-typeface:       "Inconsolata";
+$primary-typeface:        'Fjalla One';
+$secondary-typeface:      'Dosis';
+$tertiary-typeface:       'Inconsolata';
 
 $headline-font-family:    $primary-typeface, sans-serif;
 $subheadline-font-family: $secondary-typeface, sans-serif;
-$text-font-family:        $primary-typeface, sans-serif;
+$text-font-family:        $secondary-typeface, sans-serif;
 $easter-egg-font-family:  $tertiary-typeface, monospace;
 
 // Sizes

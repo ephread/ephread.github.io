@@ -3,11 +3,20 @@ layout: default
 title: Frédéric Maquin | Independent iOS developer
 ---
 
-<div id="regular-sections">
+<nav id="navigation">
+    <ul>
+        <li id="nav-about"><a href="#about">About</a></li>
+        <li id="nav-work"><a href="#work">Work</a></li>
+        <li id="nav-speaking"><a href="#speaking">Speaking</a></li>
+        <li class="main-button"><a href="#get-in-touch">Get in touch</a></li>
+    </ul>
+</nav>
+
+<div class="regular-sections">
     <section id="landing" class="landing">
-        <header id="about">
-            <h1>Hey, I'm Fred</h1>
-            <h2>I craft threads for the big web.</h2>
+        <header>
+            <h1>Hey, I’m Fred</h1>
+            <h2>I grow <span class="apple">apples</span> in my backyard.</h2>
         </header>
     </section>
 
@@ -16,124 +25,124 @@ title: Frédéric Maquin | Independent iOS developer
             <img src="http://www.gravatar.com/avatar/07cace5d941b67f22d030088283a10f0?s=400" class="me" alt="Frédéric Maquin / Ephread" />
         </header>
 
-        <div class="about-me">
+        <div class="about-me text-area">
             <p>
-                I'm a independent iOS developer going by the name of <a href="https://github.com/ephread/ephread.github.io" class="ephread">@ephread</a> around the Internet.
+                I am a freelance iOS, watchOS and tvOS developer based in Strasbourg, France.
+                I help companies build amazing apps.
+            </p>
+        </div>
+
+        <div class="skills">
+            <div class="rail">
+                <ul class="icons">
+                    <li>
+                        <img src="/assets/images/brush-icon.svg" alt="UI Design" />
+                        <span>UI Design</span>
+                    </li>
+                    <li>
+                        <img src="/assets/images/hammer-icon.svg" alt="Development" />
+                        <span>Development</span>
+                    </li>
+                    <li>
+                        <img src="/assets/images/rocket-icon.svg" alt="Deployment" />
+                        <span>Deployment</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="about-me text-area">
+            <p>
+                I can help you with any stage of the app development, from designing the interface
+                language, to publishing full-fledged applications. I write code that is
+                testable, easy to understand and maintainable.
             </p>
             <p>
-                You can check out some of my <a href="https://github.com/ephread" class="github">Github repositories</a> or take a look at my entire work history on <a href="https://linkedin.com/in/ephread/">LinkedIn</a>. You can also follow me on <a href="https://twitter.com/ephread" class="twitter">Twitter</a>, though I almost never tweet.
+                You can check out some of my
+                <a href="https://github.com/ephread">Open Source work</a>
+                or take a look at my entire work history on
+                <a href="https://linkedin.com/in/ephread/">LinkedIn</a>. You can also follow me
+                on <a href="https://twitter.com/ephread">Twitter</a>.
             </p>
             <p>
-                If you think we should make great apps together, you can <a href="mailto:fred@ephread.com?subject=Let%E2%80%99s%20work%20together!">hire me</a>!
+                If you think we should make great apps together, you can <a href="#get-in-touch">hire me</a>!
             </p>
         </div>
     </section>
 
-    <section id="projects" class="projects">
-        <header><h3>Personal Projects</h3></header>
+    <section id="work" class="projects">
+        <header><h3>Selected Work</h3></header>
         <div class="showcase">
-            <div class="abjapp">
-                <div class="screenshot" id="abjapp-screenshot">
-                    <div class="screenshot-content" id="abjapp-screenshot-content" style="top:0; left:0;">
-                        <a id="abjapp-anchor" href="#abjapp-showcase"></a>
-                    </div>
-                </div>
+            <div class="showcase-wrapper">
+                <a class="actitens showcase-item" id="actitens-anchor" href="#actitens-showcase">
+                    <div class="preview"></div>
+                    <div class="plateform"><p>iOS • android</p></div>
+                </a>
             </div>
-            
-            <div class="instructions">
-                <div class="screenshot" id="instructions-screenshot">
-                    <div class="screenshot-content" id="instructions-screenshot-content" style="top:0; left:0;">
-                        <a id="instructions-anchor" href="#instructions-showcase"></a>
-                    </div>
-                </div>
+
+            <div class="showcase-wrapper">
+                <a class="abjapp showcase-item" id="abjapp-anchor" href="#abjapp-showcase">
+                    <div class="preview"></div>
+                    <div class="plateform"><p>iOS</p></div>
+                </a>
             </div>
-            
-            <div class="pomme-plate">
-                <div class="screenshot" id="pomme-plate-screenshot">
-                    <div class="screenshot-content" id="pomme-plate-screenshot-content" style="top:0; left:0;">
-                        <a id="pomme-plate-anchor" href="#pomme-plate-showcase"></a>
-                    </div>
-                </div>
+
+            <div class="showcase-wrapper">
+                <a class="instructions showcase-item" id="instructions-anchor" href="#instructions-showcase">
+                    <div class="preview"></div>
+                    <div class="plateform"><p>iOS Open Source Library</p></div>
+                </a>
             </div>
-            
-            <div class="gimmicode">
-                <div class="screenshot" id="gimmicode-screenshot">
-                    <div class="screenshot-content" id="gimmicode-screenshot-content" style="top:0; left:0;">
-                        <a id="gimmicode-anchor" href="#gimmicode-showcase"></a>
-                    </div>
-                </div>
+
+            <div class="showcase-wrapper">
+                <a class="pomme-plate showcase-item" id="pomme-plate-anchor" href="#pomme-plate-showcase">
+                    <div class="preview"></div>
+                    <div class="plateform"><p>Design</p></div>
+                </a>
             </div>
         </div>
     </section>
 </div>
 
-<section id="gimmicode-showcase" class="big-showcase gimmicode-showcase hidden invisible">
+<section id="actitens-showcase" class="big-showcase actitens-showcase hidden invisible">
     <div>
         <a href="#projects" class="close-showcase"></a>
         <header>
-            <h4>Gimmicode</h4>
-            <img src="/assets/images/macbook.svg" alt="Gimmicode Mac preview"  />
-        </header>
-        <section class="showcase-content">
-            <p>
-                <a href="http://gimmicode.ephread.com">Gimmicode</a> is a simple utility giving the Unicode code point of an inputed character.
-            </p>
-            <p>
-                I regularly rewrite the utility using new technologies, it's a good way to get acquainted with new languages and new frameworks. The current version is written using Go and Redis.
-            </p>
-            <p>
-                Both the <a href="https://github.com/ephread/gimmicode-go">Go port</a> and <a href="https://github.com/ephread/gimmicode">the original command-line utility</a> are open source and available on Github.
-            </p>
-        </section>
-    </div>
-</section>
-
-<section id="pomme-plate-showcase" class="big-showcase pomme-plate-showcase hidden invisible">
-    <div>
-        <a href="#projects" class="close-showcase"></a>
-        <header>
-            <h4>Pomme Plate</h4>
-            <img src="/assets/images/pomme-plate-mockups.svg" alt="Pomme Plate preview"  />
-        </header>
-        <section class="showcase-content">
-            <p>
-                <a href="https://github.com/ephread/PommePlate">Pomme Plate</a> ("Flat Apple" in French) is a collection of Apple devices, rendered in a flat style.
-            </p>
-            <p>
-                Pomme Plate is licensed under the CC0 license, which means it's available to everyone for free.
-            </p>
-            <p>
-                I'm not a designer, but projects like Pomme Plate help me improve my modest abilities.
-            </p>
-        </section>
-    </div>
-</section>
-
-<section id="instructions-showcase" class="big-showcase instructions-showcase hidden invisible">
-    <div>
-        <a href="#projects" class="close-showcase"></a>
-        <header>
-            <h4>Instructions</h4>
-            <div class="ipad-container">
-                <img src="/assets/images/ipad.svg" alt="Instructions preview" />
-                <div class="video-demo">
-                    <video autoplay loop preload>
-                        <source src="/assets/videos/instructions.mp4" type="video/mp4" poster="/assets/images/instructions-placeholder.png">
-                        <source src="/assets/videos/instructions.webm" type="video/webm">
-                    </video>
-                </div>
+            <div class="illustration">
+                <img src="/assets/images/actitens-showcase.svg" alt="actiTENS preview" />
+            </div>
+            <div class="title">
+                <h4>actiTENS</h4>
+                <h5>iOS &amp; android applications</h5>
             </div>
         </header>
+        <section class="information actitens-information">
+            <dl>
+                <dt>Date</dt>
+                <dd>December 2015 <span class="to">to</span> February 2017</dd>
+                <dt>Client</dt>
+                <dd>Sublimed</dd>
+                <dt>Technologies</dt>
+                <dd class="technologies">
+                    <span class="swift">Swift</span>
+                    <span class="bluetooth">Bluetooth Low Energy</span>
+                    <span class="realm">Realm</span>
+                </dd>
+            </dl>
+        </section>
         <section class="showcase-content">
-            <p>
-                <a href="https://github.com/ephread/Instructions">Instructions</a> is an open source iOS library, written in Swift, designed to display coach marks. It's easy to use and highly customizable.
-            </p>
-            <p>
-                The library was extracted from previous work, ported to Swift and further improved, to make it available for everyone.
-            </p>
-            <p>
-                You can grab it on <a href="https://github.com/ephread/Instructions">Github</a>!
-            </p>
+            <a class="grab">Coming on June 2017</a>
+            <div class="text-area">
+                <p>
+                    actiTENS is a universal pain-killer device, combination of a TENS
+                    (Transcutaneous Electrical Nerve Stimulation) and a smartphone app.
+                </p>
+                <p>
+                    On top of controlling the electrical nerve stimulation device, the mobile
+                    application gather, analyze and synthesize patient data (usage history,
+                    perceived pain level, physical activity, etc.).
+                </p>
+            </div>
         </section>
     </div>
 </section>
@@ -142,77 +151,261 @@ title: Frédéric Maquin | Independent iOS developer
     <div>
         <a href="#projects" class="close-showcase"></a>
         <header>
-            <h4>Abjapp</h4>
-            <img src="/assets/images/iphone.svg" alt="Abjapp iPhone preview" />
+            <div class="illustration">
+                <img src="/assets/images/iphone.svg" alt="Abjapp iPhone preview" />
+            </div>
+            <div class="title">
+                <h4>Abjapp</h4>
+                <h5>iOS application</h5>
+            </div>
         </header>
-        <section class="showcase-content">
-            <p>
-                <a href="http://abjapp.com">Abjapp</a> is an iPhone application —iPad update coming soon—, teaching people the Arabic alphabet.
-            </p>
-            <p>
-                I designed the user interface using Sketch and wrote the code in Objective-C. The learning progression is stored on the device, using Core Data.
-            </p>
-            <p>
-                Abjapp is my first independent application. It's something I wanted to publish for a long time and working on it was a treat. It was the sweet spot between two things I'm really interested in: the arabic writing system and the development of mobile applications.
-            </p>
+        <section class="information abjapp-information">
+            <dl>
+                <dt>Date</dt>
+                <dd>June 2015 <span class="to">to</span> August 2015</dd>
+                <dt>Technologies</dt>
+                <dd class="technologies">
+                    <span class="objective-c">Objective-C</span>
+                    <span class="core-data">Core Data</span>
+                </dd>
+            </dl>
         </section>
-        <section class="showcase-content alternate preview">
-            <header>
-                <h5>Preview</h5>
-            </header>
-            <div class="app-preview-block">
-                <div class="preview-shot">
-                    <div class="iphone-container">
-                        <img src="/assets/images/iphone-frame.svg" alt="iphone preview shot" />
-                        <div class="abjapp-video-demo abjapp-quiz">
-                            <video autoplay loop preload>
-                                <source src="/assets/videos/quiz.mp4" type="video/mp4">
-                                <source src="/assets/videos/quiz.webm" type="video/webm">
-                            </video>
-                        </div>
+        <section class="showcase-content">
+            <a href="http://itunes.apple.com/us/app/apple-store/id1016027227?mt=8" class="grab">
+                Download from the App Store
+            </a>
+            <div class="text-area">
+                <p>
+                    Abjapp is an iPhone application —iPad update coming soon—,
+                    teaching people the Arabic alphabet.
+                </p>
+            </div>
+        </section>
+        <section class="showcase-content showcase-with-shot">
+            <div class="max-content">
+                <div class="shot">
+                    <img src="/assets/images/iphone-frame.svg" alt="iphone preview shot" />
+                    <div class="abjapp-video-demo abjapp-quiz">
+                        <video autoplay loop preload>
+                            <source src="/assets/videos/quiz.mp4" type="video/mp4">
+                            <source src="/assets/videos/quiz.webm" type="video/webm">
+                        </video>
                     </div>
                 </div>
-                <div class="preview-caption">
-                    <h6>Knowledge evaluation</h6>
-                    <p>You can make sure you don't forget anything, using quick quizzes.<p>
+                <div class="description">
+                    <p>
+                      The arabic alphabet contains 28 letters. Each lesson focus on three specific
+                      letters an must be validated by a quiz to progress.
+                      Knowlege can also be practiced on-demand, with random quizzes.
+                    </p>
                 </div>
             </div>
-            
-            <div class="app-preview-block">
-                <div class="preview-shot">
-                    <div class="iphone-container">
-                        <img src="/assets/images/iphone-frame.svg" alt="iphone preview shot" />
-                        <div class="abjapp-video-demo abjapp-writing">
-                            <video autoplay loop preload>
-                                <source src="/assets/videos/writing.mp4" type="video/mp4">
-                                <source src="/assets/videos/writing.webm" type="video/webm">
-                            </video>
-                        </div>
+        </section>
+        <section class="showcase-content showcase-with-shot inversed">
+            <div class="max-content">
+                <div class="shot">
+                    <img src="/assets/images/iphone-frame.svg" alt="iphone preview shot" />
+                    <div class="abjapp-video-demo abjapp-writing">
+                        <video loop preload>
+                            <source src="/assets/videos/writing.mp4" type="video/mp4">
+                            <source src="/assets/videos/writing.webm" type="video/webm">
+                        </video>
                     </div>
                 </div>
-                <div class="preview-caption">
-                    <h6>Letters how-to</h6>
-                    <p>Abjapp will show you how to properly write a given letter.<p>
+                <div class="description">
+                    <p>
+                      Abjapp offers details about each letter: its name, how to pronounce it and
+                      how to write it, depending on its position within a word.
+                    </p>
                 </div>
             </div>
-            
-            <div class="app-preview-block">
-                <div class="preview-shot">
-                    <div class="iphone-container">
-                        <img src="/assets/images/iphone-frame.svg" alt="iphone preview shot" />
-                        <div class="abjapp-video-demo abjapp-id">
-                            <video autoplay loop preload>
-                                <source src="/assets/videos/letter-card.mp4" type="video/mp4">
-                                <source src="/assets/videos/letter-card.webm" type="video/webm">
-                            </video>
-                        </div>
+        </section>
+        <section class="showcase-content showcase-with-shot">
+            <div class="max-content">
+                <div class="shot">
+                    <img src="/assets/images/iphone-frame.svg" alt="iphone preview shot" />
+                    <div class="abjapp-video-demo abjapp-id">
+                        <video loop preload>
+                            <source src="/assets/videos/letter-card.mp4" type="video/mp4">
+                            <source src="/assets/videos/letter-card.webm" type="video/webm">
+                        </video>
                     </div>
                 </div>
-                <div class="preview-caption">
-                    <h6>Letter ID card</h6>
-                    <p>Summarize important information about a given letter.<p>
+                <div class="description">
+                    <p>Once unlocked, information about each letter can be found in its card.</p>
                 </div>
             </div>
         </section>
     </div>
 </section>
+
+<section id="instructions-showcase" class="big-showcase instructions-showcase hidden invisible">
+    <div>
+        <a href="#projects" class="close-showcase"></a>
+        <header>
+            <div class="illustration">
+                <div class="animated-illustration">
+                    <img src="/assets/images/ipad.svg" alt="Instructions preview" />
+                    <div class="video-demo">
+                        <video loop preload>
+                            <source src="/assets/videos/instructions.mp4" type="video/mp4"
+                                    poster="/assets/images/instructions-placeholder.png">
+                            <source src="/assets/videos/instructions.webm" type="video/webm">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="title">
+                <h4>Instructions</h4>
+                <h5>Open Source iOS Library</h5>
+            </div>
+        </header>
+        <section class="information instructions-information">
+            <dl>
+                <dt>Date</dt>
+                <dd>October 2015 <span class="to">to</span> Ongoing</dd>
+                <dt>Technologies</dt>
+                <dd class="technologies">
+                    <span class="swift">Swift</span>
+                </dd>
+            </dl>
+        </section>
+        <section class="showcase-content">
+            <a href="https://github.com/ephread/Instructions" class="grab">See on Github</a>
+            <div class="text-area">
+                <p>
+                    Instructions is an open source iOS library, written in Swift, designed
+                    to display coach marks. It's easy to use and highly customizable.
+                </p>
+                <p>
+                    The library was extracted from previous work, ported to Swift and
+                    further improved, to make it available for everyone.
+                </p>
+            </div>
+        </section>
+    </div>
+</section>
+
+<section id="pomme-plate-showcase" class="big-showcase pomme-plate-showcase hidden invisible">
+    <div>
+        <a href="#projects" class="close-showcase"></a>
+        <header>
+            <div class="illustration">
+                <img src="/assets/images/pomme-plate-mockups.svg" alt="Pomme Plate preview"  />
+            </div>
+            <div class="title">
+                <h4>Pomme Plate</h4>
+                <h5>Design</h5>
+            </div>
+        </header>
+        <section class="information pomme-plate-information">
+            <dl>
+                <dt>Date</dt>
+                <dd>June 2015 <span class="to">to</span> Ongoing</dd>
+                <dt>Software</dt>
+                <dd class="technologies">
+                    <span class="sketch">Sketch</span>
+                </dd>
+            </dl>
+        </section>
+        <section class="showcase-content">
+            <a href="https://github.com/ephread/PommePlate" class="grab">See on Github</a>
+            <div class="text-area">
+                <p>
+                    Pomme Plate is a collection of Apple devices, rendered in a flat style.
+                    The project is licensed under the CC0 license, making it available to
+                    everyone for free.
+                </p>
+            </div>
+        </section>
+    </div>
+</section>
+
+<div class="regular-sections">
+    <section id="speaking" class="speaking">
+        <header><h3>Speaking</h3></header>
+        <div class="text-area">
+            <p>
+                From time to time, I enjoy sharing my experience about
+                programming. I mostly talk at my local CocoaHeads community.
+            </p>
+        </div>
+        <div class="talks">
+            <ul class="years">
+                <li class="year">
+                    <span>2017</span>
+                    <ul class="talk">
+                        <li>
+                            <span>February</span>
+                            <a href="https://speakerdeck.com/ephread/bluetooth-low-energy">
+                                Bluetooth Low Energy
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="year">
+                    <span>2016</span>
+                    <ul class="talk">
+                        <li>
+                            <span>November</span>
+                            <a href="https://speakerdeck.com/ephread/trends-and-patterns">
+                                Trends &amp; Patterns
+                            </a>
+                        </li>
+                        <li>
+                            <span>June</span>
+                            <a href="https://speakerdeck.com/ephread/publishing-your-library-with-carthage">
+                                Publishing your library with Carthage
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="year">
+                    <span>2015</span>
+                    <ul class="talk">
+                        <li>
+                            <span>Novembre</span>
+                            <a href="https://speakerdeck.com/ephread/seeding-your-library-with-cocoapods">
+                                Seeding your library with CocoaPods
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="get-in-touch" class="get-in-touch">
+        <header><h3>Get in touch</h3></header>
+        <div class="text-area">
+            <p>
+                Want to work with me, have questions about my work or just want
+                to say hi? <a href="mailto:fred@ephread.com">Send me an email</a>
+                or use the contact form below!
+            </p>
+        </div>
+
+        <form action="https://formspree.io/fred@ephread.com" method="post">
+            <div class="form-wrapper">
+                <div class="double-input">
+                    <input type="text" name="name" placeholder="Name" required />
+                    <input type="email" name="_replyto" placeholder="E-mail" required />
+                </div>
+                <input type="text" name="_subject" placeholder="Subject" required />
+
+                <textarea name="message" placeholder="Message" required></textarea>
+                <input type="hidden" name="_next" value="/thanks/" />
+
+                <input type="text" name="_gotcha" style="display:none" />
+
+                <input type="submit" value="Send Message">
+            </div>
+        </form>
+    </section>
+</div>
+
+<footer>
+    <a href="https://github.com/ephread" class="social-button github">Github</a>
+    <a href="https://linkedin.com/in/ephread/" class="social-button linkedin">LinkedIn</a>
+    <a href="https://twitter.com/ephread" class="social-button twitter">Twitter</a>
+</footer>

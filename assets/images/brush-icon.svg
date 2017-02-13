@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="154px" height="154px" viewBox="0 0 154 154" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>brush-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-107.000000, -1842.000000)">
+            <g id="brush-icon" transform="translate(107.000000, 1842.000000)">
+                <rect id="Rectangle-8" fill="#FCFAF8" x="0" y="0" width="154" height="154"></rect>
+                <g id="brush" transform="translate(75.232561, 75.180522) rotate(-45.000000) translate(-75.232561, -75.180522) translate(29.232561, 30.180522)" stroke="#539A9C" fill-rule="nonzero" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.1434353,55.1986939 C15.4483091,60.7870319 20.2594494,66.525594 12.6910255,75.032036 C9.27545449,78.8702628 26.7520436,77.6985145 35.4113437,69.1995837 C39.0827063,65.59796 38.0482548,60.3438707 34.1098155,56.4755991 C30.1713763,52.6110831 24.8147979,51.5970701 21.1434353,55.1986939 Z M77.9299698,23.7989584 C64.6388176,35.1832901 51.2353901,46.6266363 37.9328881,57.9690572 C36.36649,59.3276112 36.7091138,59.5961412 34.9930983,57.8275223 C34.0570898,56.8628212 33.1363918,55.8716015 32.1697624,54.9599373 C31.4504653,54.2971447 31.4362188,53.829265 32.1394369,53.1038109 C35.7320795,49.343948 39.244741,45.537908 42.8107233,41.7626527 C51.4217156,32.6970707 60.0450418,23.5835359 68.6857315,14.5547202 C71.8362657,11.2626691 74.6087334,13.1524734 76.865218,15.480328 C79.1739563,17.8620891 80.9931834,21.2360286 77.9299698,23.7989584 Z" id="Shape" transform="translate(45.901222, 44.953935) rotate(-30.000000) translate(-45.901222, -44.953935) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -7,764 +7,494 @@
   }
 }
 
-section {  
+section {
   width: 100vw;
 }
 
-.landing {
-  @include background-image(url('/assets/images/arrow.svg'), radial-gradient(circle at 50% 0%, $dark-section-first-color, $dark-section-second-color));
-    
-  background-position: center 95%, center;
-  background-size: 8% auto, 100% 100%;
-  
-  @include media($larger-than-medium) {
-    background-size: 5% auto, 100% 100%;
+.text-area p, .talks, .form-wrapper {
+  font-family: $text-font-family;
+
+  margin: auto;
+
+  margin-top: 1em;
+
+  width: 95%;
+}
+
+.text-area p, .showcase-with-shot p, .talks, .form-wrapper, .information, h5, .description p {
+  font-size: 1.3em;
+  line-height: 1.3em;
+
+  @include media($larger-than-small) {
+    font-size: 1.4em;
   }
-  
+
+  @include media($larger-than-medium) {
+    font-size: 1.5em;
+  }
+
+  @include media($larger-than-large) {
+    font-size: 1.6em;
+  }
+
+  @include media($larger-than-very-large) {
+    font-size: 1.7em;
+  }
+}
+
+.grab {
+  font-size: 1em;
+  line-height: 1em;
+
+  @include media($larger-than-small) {
+    font-size: 1.1em;
+  }
+
+  @include media($larger-than-medium) {
+    font-size: 1.2em;
+  }
+
+  @include media($larger-than-large) {
+    font-size: 1.3em;
+  }
+
+  @include media($larger-than-very-large) {
+    font-size: 1.4em;
+  }
+}
+
+.text-area p {
+  text-align: left;
+
+  @include media($larger-than-small) {
+    width: 90%;
+  }
+
+  @include media($larger-than-medium) {
+    width: 80%;
+  }
+
+  @include media($larger-than-large) {
+    width: 75%;
+  }
+
+  @include media($larger-than-very-large) {
+    width: 60%;
+  }
+}
+
+.talks, .form-wrapper {
+  margin-top: 3em;
+
+  @include media($larger-than-small) {
+    width: 90%;
+  }
+
+  @include media($larger-than-large) {
+    width: 85%;
+  }
+
+  @include media($larger-than-very-large) {
+    width: 75%;
+  }
+}
+
+.form-wrapper {
+  margin-top: 2em;
+  background: $white;
+  padding: 1em;
+}
+
+.landing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: url('/assets/images/device-background.svg');
+  background-position: center;
+  background-size: 24em;
+
+  @include media($larger-than-small) {
+    background-size: 34em;
+  }
+
   background-repeat: no-repeat, no-repeat;
-  
+
   position: relative;
-  
-  background-color: $dark-section-first-color;
-  
+
+  background-color: $even-section;
+
   overflow: auto; // Prevent margins from collapsing.
 
   min-height: 100vh;
 
   header {
     text-align: center;
-    color: $headline-text-color;
-        
     position: relative;
-    
-    margin-top: 13em;
-    margin-top: 40vh;
   }
 
-  h1 {
-    font-family: $headline-font-family;
-    font-size:   2.8em;
-    
-    @include media($larger-than-small) {
-      font-size:   3.5em;
-    }
+  .apple {
+    display: inline-block;
+    background: url('/assets/images/apple.svg') no-repeat;
+    background-size: contain;
+    height: 1em;
+    text-indent: -9999px;
+    width: 1em;
+    position: relative;
+    top: 0.1em;
   }
-
-  h2 {
-    font-family: $subheadline-font-family;
-    font-size:   0.8em;
-    
-    text-transform: uppercase;
-    
-    margin:     0;
-    margin-top: 0.5em;
-    
-    @include media($larger-than-small) {
-      font-size:   1.2em;
-    }
-  }
-
 }
 
 .projects {
-  @include clearfix;
-  @include radial-gradient(circle at 50% 100%, $dark-section-first-color, $dark-section-second-color);
-
-  background-color: $dark-section-first-color;
+  background-color: $even-section;
   min-height: initial;
 
   padding-top: 3em;
-  padding-left: 3em;
-  padding-right: 3em;
+  padding-left: 1em;
+  padding-right: 1em;
 
-  h3 { 
-      text-align: center;
-
-      color: $dark-white;
-      font-family: $secondary-typeface;
-
-      text-transform: uppercase;
-
-      font-size: 1.5em;
+  @include media($larger-than-medium) {
+    padding-left: 3em;
+    padding-right: 3em;
   }
 }
 
 .about {
-  @include radial-gradient(circle at 50% 50%, $light-section-first-color, $light-section-second-color);
-  
   clear: both;
 
-  padding: 1em;
-  padding-bottom: 2em;
-  
-  background-color: $light-section-first-color;
-  
+  padding-top: 4em;
+  padding-bottom: 3em;
+
+  background-color: $odd-section;
+
   .about-me {
-     padding: 1em;
+     padding: 2em;
+     padding-top: 1em;
      padding-bottom: 2em;
   }
-    
+
   header {
     padding: 2em 0;
-        
+
     @include media($larger-than-medium) {
       margin-top: 1em;
     }
   }
-    
+
   h1 {
     font-family: $headline-font-family;
     text-transform: uppercase;
     text-align: center;
-    
+
     color: $base-font-color;
-    
+
     margin-bottom: 0.1em;
-    
+
     font-size: 2.5em;
   }
 
   h2 {
     font-family: $headline-font-family;
     text-align: center;
-    
-    color: $grey;
-    
+
+    color: $black;
+
     font-weight: normal;
     font-size: 1.5em;
-    
+
     margin-top: 0.5em;
   }
-    
+
   .me {
     display: block;
-    
+
     width:  10em;
     height: 10em;
-        
-    border: solid $picture-border-color 3px;
-        
+
+    border-radius: 100%;
+
     margin: 0 auto;
-  }
-    
-  p {
-    font-family: $text-font-family;
-    
-    margin: auto;
-        
-    margin-top: 1em;
-    
-    width: 95%;
-    font-size: 1.3em;
-        
-    line-height: 1.3em;
-        
-    @include media($larger-than-small) {
-      width: 90%;
-      font-size: 1.4em;
-    }
-        
-    @include media($larger-than-medium) {
-      width: 80%;
-      font-size: 1.5em;
-    }
-    
-    @include media($larger-than-large) {
-      width: 75%;
-      font-size: 1.6em;
-    }
-    
-    @include media($larger-than-very-large) {
-      width: 60%;
-      font-size: 1.7em;
-    }
   }
 }
 
 // Showcase sections
-///////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 .showcase {
-    padding: 2em 0;
-    
-    .gimmicode, .abjapp, .instructions, .pomme-plate {
-        padding: 3em;
-        padding-bottom: 2em;
-    }
-    
-    .screenshot {
-        padding-top:56.25%;
-        position: relative;
-        
-        a {
-            width: 100%;
-            height: 100%;
-            
-            display: block;
-            background-size: 100% 100%;
-            background-position: center center;
-            
-            @include media($larger-than-large) {
-              @include transition-delay(0s);
-              @include transition-duration(.3s);
-              @include transition-property(background-size, background-position);
-              @include transition-timing-function(ease-in-out);
-            }
-            
-            &:hover {
-                background-size: 125% 125%;
-            }
-        }
-    }
-    
-    .screenshot-content {
-        @include media($larger-than-large) {
-          @include transition-delay(0s);
-          @include transition-duration(.3s);
-          @include transition-property(width, height, top, left);
-          @include transition-timing-function(ease-in-out);
-        }
-        
-        position: absolute;
-
-        width: 100%;
-        height: 100%;
-        
-        top: 0;
-        left: 0;
-    }
-    
-    .full-page {
-        z-index: 100;
-
-        a {
-          display: none;
-        }
-    }
-    
-    .gimmicode {
-        width: 100%;
-        
-        padding-right: 0;
-        padding-left: 0;
-        padding-top: 0;
-        
-        .screenshot-content {
-            background: $gimmicode-color;
-        }
-        
-        a {
-            background-image: url('/assets/images/gimmicode.svg');
-            
-            &.no-background-image {
-                background-image: none;
-            }
-        }
-    }
-    
-    .instructions {
-        width: 100%;
-        
-        padding-right: 0;
-        padding-left: 0;
-        padding-top: 0;
-        
-        .screenshot-content {
-            background: $instructions-color;
-        }
-        
-        a {
-            background-image: url('/assets/images/instructions.svg');
-            
-            &.no-background-image {
-                background-image: none;
-            }
-        }
-    }
-    
-    .abjapp {
-        width: 100%;
-        
-        padding-right: 0;
-        padding-left: 0;
-        padding-top: 0;
-        
-        .screenshot-content {
-            background: $abjapp-color;
-        }
-        
-        a {
-            background-image: url('/assets/images/abjapp.svg');
-            
-            &.no-background-image {
-                background-image: none;
-            }
-        }
-    }
-    
-    .pomme-plate {
-        width: 100%;
-        
-        padding-right: 0;
-        padding-left: 0;
-        padding-top: 0;
-        
-        .screenshot-content {
-            background: $pomme-plate-color;
-        }
-        
-        a {
-            background-image: url('/assets/images/pomme-plate.svg');
-            
-            &.no-background-image {
-                background-image: none;
-            }
-        }
-    }
-    
-    @include media($larger-than-medium) {
-        .gimmicode {
-            float: right;
-            width: 50%;
-            padding-top: 1em;
-            padding-bottom: 1em;
-            
-            padding-right: .5em;
-            padding-left: 1em;
-        }
-    
-        .abjapp {
-            float: left;
-            width: 50%;
-            padding-top: 1em;
-            padding-bottom: 1em;
-
-            padding-left: .5em;
-            padding-right: 1em;
-        }
-        
-        .instructions {
-            float: right;
-            width: 50%;
-            padding-top: 1em;
-            padding-bottom: 1em;
-            
-            padding-right: .5em;
-            padding-left: 1em;
-        }
-        
-        .pomme-plate {
-            float: left;
-            width: 50%;
-            padding-top: 1em;
-            padding-bottom: 1em;
-            
-            padding-left: .5em;
-            padding-right: 1em;
-        }
-        
-        @include clearfix;
-        padding: 1em 0;
-    }
-    
-    h4 {
-        font-weight: normal;
-        font-size: 1em;
-        
-        text-align: center;
-        margin-top: 2em;
-    }
+  max-width: 80em;
+  margin: 1em auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.gimmicode-showcase {
-    img {
-        width: 50%;
-        
-        @include media($medium) {
-          width: 75%;
-        }
-    }
-}
+.showcase-wrapper {
+  flex: 0 0 100%;
+  padding: 1em;
 
-.pomme-plate-showcase {
-    img {
-        width: 50%;
-        
-        @include media($medium) {
-          width: 75%;
-        }
-    }
-}
-
-.instructions-showcase {
-  .ipad-container {
-    width: 50%;
-    
-    @include media($medium) {
-      width: 75%;
-    }
-    
-    margin-left: auto;
-    margin-right: auto;
-    
-    position: relative;
+  @include media($larger-than-medium) {
+    flex: 0 0 50%;
   }
-  
-  img {
-      width: 100%;
-  }
-  
-  .video-demo {
-    position: absolute;
-    
-    left: 9.09%;
-    top: 6.56%;
-    
-    width: 82.02%;
-    height: 86.98%;
-    
-    background-image: url(/assets/images/instructions-placeholder.png);
-    background-size: cover;
-    
-    video {
-      width: 100%;
-      height: 100%;
-      
-      @include media($medium) {
-        display: none;
-      }
-    }
+
+  @include media($larger-than-large) {
+    padding: 2em;
   }
 }
 
-.abjapp-showcase {
-    header img {
-        width: 50%;
-        
-        @include media($larger-than-small) {
-          width: 35%;
-        }
-        
-        @include media($larger-than-medium) {
-          width: 15%;
-        }
-    }
+.showcase-item {
+  display: block;
+  color: $black;
+  border-radius: 0.5em;
+  transition: all .3s ease-in-out;
+
+  &:hover {
+    color: inherit;
+    transform: scale(1.05, 1.05);
+    box-shadow: 0 0 .6em rgba($black, .1);
+  }
+
+  &::after {
+    content: none;
+  }
 }
 
-.big-showcase {
-    width:      100vw;
-    min-height: 100vh;
-    
-    position: absolute;
-    top: 0;
-    left: 0;
-    
-    h4 {
-        position: absolute;
-        top: 0;
-        left: 0;
-        
-        text-indent: -9999px;
-    }
-    
-    img {
-        margin: auto;
-        display: block;
-        
-        margin: 5em auto;
-    }
-    
-    .showcase-content {
-        margin: 5em 0em;
-        padding: 0em 2em;
-    }
-    
-    .alternate {
-        background-color: rgba(.1, .1, .1, .3);
-    }
-    
-    p {
-        font-family: $text-font-family;
-        color: white;
-    
-        margin: auto;
-        
-        margin-top: 1em;
-    
-        width: 95%;
-        font-size: 1.3em;
-        
-        line-height: 1.3em;
-        
-        @include media($larger-than-small) {
-          width: 90%;
-          font-size: 1.4em;
-        }
-        
-        @include media($larger-than-medium) {
-          width: 80%;
-          font-size: 1.5em;
-        }
-    
-        @include media($larger-than-large) {
-          width: 75%;
-          font-size: 1.6em;
-        }
-    
-        @include media($larger-than-very-large) {
-          width: 60%;
-          font-size: 1.7em;
-        }
-    }
-}
+.preview {
+  .actitens & {
+    background-image: url(/assets/images/actitens.svg);
+  }
 
-[id='gimmicode-showcase'] {
-    background-color: $gimmicode-color;
-}
+  .abjapp & {
+    background-image: url(/assets/images/abjapp.svg);
+  }
 
-[id='abjapp-showcase'] {
-    background-color: $abjapp-color;
-}
+  .instructions & {
+    background-image: url(/assets/images/instructions.svg);
+  }
 
-[id='instructions-showcase'] {
-    background-color: $instructions-color;
-}
+  .pomme-plate & {
+    background-image: url(/assets/images/pomme-plate.svg);
+  }
 
-[id='pomme-plate-showcase'] {
-    background-color: $pomme-plate-color;
-}
+  .showcase-item:hover & {
+    background-size: 120%;
+  }
 
-.close-showcase {
+  background-size: 100%;
+  background-position: center;
+  transition: all .3s ease-in-out;
+
+  &::before {
     display: block;
-
-    font-size: 3em;
-    
-    position: absolute;
-    left: .5em;
-    top: .25em;
-    
-    width: 1em;
-    height: 1em;
-    
-    &::before {
-      height: 1em;
-      width: 1em;
-      
-      position: absolute;
-      left: 0;
-      top: 0;
-      
-      content: "×";
-      color: $showcase-link-color;
-      
-      @include transition(0.1s 0s color ease-in-out);
-    }
-    
-    @include media($larger-than-medium) {
-      position: fixed;
-    }
-}
-
-.gimmicode-showcase .close-showcase {
-  &:hover, &:active {
-    &::before {
-      color: $gimmicode-link-hover-color;
-    }
-  }
-}
-
-.abjapp-showcase .close-showcase {
-  &:hover, &:active {
-    &::before {
-      color: $abjapp-link-hover-color;
-    }
-  }
-}
-
-.instructions-showcase .close-showcase {
-  &:hover, &:active {
-    &::before {
-      color: $instructions-link-hover-color;
-    }
-  }
-}
-
-.pomme-plate-showcase .close-showcase {
-  &:hover, &:active {
-    &::before {
-      color: $pomme-plate-link-hover-color;
-    }
-  }
-}
-
-
-.big-showcase .preview {
-    margin-bottom: 0;
-    padding: 2em 0;
-      
-    h5 { 
-      text-align: center;
-
-      color: $dark-white;
-      font-family: $secondary-typeface;
-
-      text-transform: uppercase;
-
-      font-size: 1.5em;
-    }
-    
-    @include clearfix;
-}
-
-.preview-shot, .preview-caption {
+    content: "";
     width: 100%;
-    
-    @include media($larger-than-medium) {
-        width: 50%;
-    }
+    padding-top: 55%;
+  }
 }
 
-.preview-shot {
-    float: none;
-    
-    @include media($larger-than-medium) {
-        float: left;
-    }
-    
-    .iphone-container {
-        position: relative;
-        
-        width: 30%;
-    
-        @include media($medium) {
-          width: 45%;
-        }
-        
-        @include media($small) {
-          width: 55%;
-        }
-    
-        margin-left: auto;
-        margin-right: auto;
-    
-        position: relative;
-    }
-    
-    img {
-        margin: 0;
-    }
-    
-    .abjapp-video-demo {
+.plateform {
+  width: 100%;
+  background-color: $white;
+  padding: 1em;
+  display: flex;
+
+  border-bottom-left-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
+
+  font-size: 1.2em;
+
+  p {
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.actitens {
+  background-color: $actitens-color;
+}
+
+.abjapp {
+  background-color: $abjapp-color;
+}
+
+.instructions {
+  background-color: $instructions-color;
+}
+
+.pomme-plate {
+  background-color: $pomme-plate-color;
+}
+
+
+.speaking {
+  background: $odd-section;
+  min-height: initial;
+  padding: 3em 2em;
+
+  @include media($larger-than-large) {
+    padding: 3em;
+  }
+}
+
+.get-in-touch {
+  background: $even-section;
+  min-height: initial;
+  padding: 3em 1em;
+
+  @include media($larger-than-large) {
+    padding: 3em;
+  }
+}
+
+.thanks {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: 1.2em;
+
+  h1 {
+    margin: .25em;
+  }
+
+  h2 {
+    margin-bottom: .5em
+  }
+}
+
+footer {
+  background: $odd-section;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3em;
+}
+
+.social-button {
+  display: block;
+  height: 3em;
+  text-indent: -9999px;
+  width: 3em;
+
+  &::after {
+    content: none;
+  }
+
+  margin-left: 2em;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.2, 1.2);
+  }
+}
+
+.github {
+  background: url('/assets/images/github.svg') no-repeat;
+  background-size: contain;
+}
+
+.linkedin {
+  background: url('/assets/images/linkedin.svg') no-repeat;
+  background-size: contain;
+}
+
+.twitter {
+  background: url('/assets/images/twitter.svg') no-repeat;
+  background-size: contain;
+}
+
+
+.skills {
+  background-color: #FCFAF8;
+  width: 100%;
+  padding: 1.5em;
+  margin: 1.5em 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  @include media($larger-than-medium) {
+    padding: 3em;
+  }
+}
+
+.rail {
+  position: relative;
+  max-width: 1280px;
+  width: 100%;
+
+  @include media($larger-than-medium) {
+    &::before {
       position: absolute;
-    
-      left: 6.58%;
-      top: 12.19%;
-    
-      width: 86.70%;
-      height: 75.66%;
-    
-      video {
-        width: 100%;
-        height: 100%;
-      
-        @include media($medium) {
-          display: none;
-        }
-      }
+      left: 2em;
+      top: calc(3em - 1.5px);
+      z-index: 500;
+
+      content: '';
+      width: calc(100% - 1px - 4em);
+      height: 3px;
+
+      background-color: $dark-beige;
     }
-    
-    .abjapp-quiz {
-        background-image: url(/assets/images/quiz.png);
-        background-size: cover;
-    }
-    
-    .abjapp-writing {
-        background-image: url(/assets/images/letter-writing.png);
-        background-size: cover;
-    }
-    
-    .abjapp-id {
-        background-image: url(/assets/images/letter-card.png);
-        background-size: cover;
-    }
+  }
 }
 
-.app-preview-block {
-    clear: both;
-    
-    @include clearfix;
-    
-    padding: 4em 0;
-}
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
 
-.preview-caption {
-    float: none;
-    
+  @include media($larger-than-medium) {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  li {
+    display: flex;
+    flex: 0 0 5em;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 2em;
+
     @include media($larger-than-medium) {
-        float: right;
+      margin: 0 2em;
     }
-    
-    padding-top: 3em;
-    
-    h6 {
-        font-size: 1.5em;
-        font-weight: bold;
-        
-        color: white;
-        
-        text-align: center;
-        
-        @include media($larger-than-medium) {
-            text-align: left;
-        }
-    }
-    
-    p {
-        margin-left: auto;
-        margin-right: auto;
-        
-        text-align: center;
-        
-        @include media($larger-than-medium) {
-            margin-left: 0;
-            margin-right: 0;
-            
-            text-align: left;
-        }
-    }
-}
 
-// No JS Fallback
-///////////////////////////////////////////////////////////////////////////////
-.no-js {
-  .projects {
-    display: none;
-  }
-  
-  .big-showcase {
-    position: static;
-    padding: 5em 2em;
-    
-    &.invisible{
-      > div {
-        opacity: 1;
-      }
-    }
-    
-    &.hidden {
-      display: block;
-    }
-    
-    img {
-      margin: 0 auto;
-      margin-bottom: 4em;
+    > span {
+      color: $mini-header-color;
+      font-family: $headline-font-family;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 1.2em;
+      margin-top: 1em;
     }
   }
-  
-  .close-showcase {
-    display: none;
-  }
-  
-  .showcase-content {
-      margin: 0;
+
+  img {
+    z-index: 600;
+    width: 6em;
+    height: 6em;
+
+    border-radius: 100%;
+    border: 2px solid $dark-beige;
+
+    @include media($larger-than-medium) {
+      border-width: 3px;
+    }
   }
 }

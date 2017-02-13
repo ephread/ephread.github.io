@@ -1,23 +1,24 @@
 // Defaults
 ///////////////////////////////////////////////////////////////////////////////
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
-body, html {
-    padding: 0;
+body,
+html {
     margin: 0;
+    padding: 0;
 }
 
 html {
-  background-color: $html-background-color;
+  background-color: $default-background-color;
   box-sizing: border-box;
 }
 
 body {
-  background-color: $body-background-color;
+  background-color: $default-background-color;
 }
 
 .hidden {
@@ -26,12 +27,10 @@ body {
 
 .invisible > div {
   opacity: 0;
-
-  @include transition (opacity .35s ease-in-out)
+  transition: opacity .35s ease-in-out;
 }
 
 .visible > div {
   opacity: 1;
-
-  @include transition (opacity .35s ease-in-out)
+  transition: opacity .35s ease-in-out;
 }

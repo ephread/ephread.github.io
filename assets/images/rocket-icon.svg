@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="154px" height="154px" viewBox="0 0 154 154" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>rocket-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-1161.000000, -1844.000000)">
+            <g id="rocket-icon" transform="translate(1161.000000, 1844.000000)">
+                <rect id="Rectangle-8" fill="#FCFAF8" x="0" y="0" width="154" height="154"></rect>
+                <g transform="translate(77.686533, 71.471143) rotate(-330.000000) translate(-77.686533, -71.471143) translate(56.686533, 26.471143)" stroke="#539A9C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <g id="Group-25" fill-rule="nonzero">
+                        <path d="M20.9333333,73 C17.2885541,73 15.666735,73.5680578 13.6432564,74.629361 C6.12957504,37.3146805 16.4026891,0 20.9333333,0" id="Shape"></path>
+                        <path d="M13.7099231,74.629361 C7.59091478,77.8387468 1.8,89.9275308 1.8,89.9275308 C1.8,89.9275308 -3.3057793,67.6042002 10.4666667,52.5" id="Shape"></path>
+                    </g>
+                    <g id="Group-24" transform="translate(31.500000, 45.000000) scale(-1, 1) translate(-31.500000, -45.000000) translate(21.000000, 0.000000)" fill-rule="nonzero">
+                        <path d="M20.9333333,73 C17.2885541,73 15.666735,73.5680578 13.6432564,74.629361 C6.12957504,37.3146805 16.4026891,0 20.9333333,0" id="Shape"></path>
+                        <path d="M13.7099231,74.629361 C7.59091478,77.8387468 1.8,89.9275308 1.8,89.9275308 C1.8,89.9275308 -3.3057793,67.6042002 10.4666667,52.5" id="Shape"></path>
+                    </g>
+                    <path d="M24.8034741,74 C25.7788896,77.2493872 22.9038569,86.6563337 21.0042396,86.6563337 C19.1046224,86.6563337 16.2022655,77.3404118 17.2050051,74" id="Path"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

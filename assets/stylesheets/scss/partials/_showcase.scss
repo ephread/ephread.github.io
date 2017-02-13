@@ -1,0 +1,402 @@
+.to {
+  display: inline-block;
+  background: url('/assets/images/arrow-icon.svg') no-repeat;
+  background-size: 80%;
+  height: 1em;
+  text-indent: -9999px;
+  width: 1em;
+  position: relative;
+  top: 0.2em;
+  background-position: 50% 50%;
+}
+
+.illustration {
+  padding: 3em;
+
+  img {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+
+    @include media($larger-than-small) {
+      width: 75%;
+    }
+
+    @include media($larger-than-medium) {
+      width: 60%;
+    }
+
+    @include media($larger-than-large) {
+      width: 55%;
+    }
+
+    @include media($larger-than-very-large) {
+      width: 40%;
+    }
+  }
+}
+
+.animated-illustration {
+  position: relative;
+}
+
+.close-showcase {
+  background: url(/assets/images/close-icon.svg);
+  background-size: contain;
+
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+
+  position: absolute;
+  left: 1.5em;
+  top: 1.5em;
+
+  opacity: .2;
+  transition: opacity 0.1 ease-in-out;
+
+  &:hover {
+    opacity: .4;
+  }
+
+  @include media($larger-than-medium) {
+    position: fixed;
+  }
+}
+
+.title {
+  padding: 2em;
+  padding-bottom: 1em;
+  background-color: $white;
+}
+
+.information {
+  font-size: 1.3em;
+  padding: 2em;
+  padding-bottom: 1em;
+}
+
+.big-showcase {
+  background: $white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 100000;
+  opacity: 1;
+
+  transition: opacity 0.5s ease-in-out;
+
+  .grab {
+    @include main-button($white);
+    padding: .5em .7em;
+    display: inline-block;
+
+    border-radius: $base-border-radius;
+
+    margin: 0 0 2em 0;
+
+    @include media($larger-than-medium) {
+      padding: .4em .6em;
+    }
+  }
+}
+
+.showcase-content {
+  text-align: center;
+
+  &:nth-child(even) {
+    background: $white;
+  }
+
+  padding: 3em 1em;
+
+  @include media($larger-than-medium) {
+    padding: 3em;
+  }
+}
+
+.showcase-with-shot {
+  padding: 3em;
+
+  p {
+    text-align: left;
+  }
+}
+
+.max-content {
+  @include media($larger-than-small) {
+    width: 100%;
+  }
+
+  @include media($larger-than-medium) {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  @include media($larger-than-very-large) {
+    width: 80%;
+  }
+
+  margin: 0 auto;
+}
+
+.inversed .max-content {
+  flex-direction: row-reverse;
+}
+
+.shot {
+    width: 60%;
+    margin: auto;
+
+    @include media($larger-than-small) {
+      width: 40%;
+    }
+
+    @include media($larger-than-medium) {
+      flex: 0 0 20%;
+      width: auto;
+    }
+
+    @include media($larger-than-large) {
+      flex: 0 0 15%;
+      width: auto;
+    }
+
+    position: relative;
+
+    img {
+        margin: 0;
+    }
+
+    .abjapp-video-demo {
+      position: absolute;
+
+      left: 6.65%;
+      top: 11.9%;
+      width: 86.6%;
+      height: 75%;
+
+      video {
+        width: 100%;
+        height: 100%;
+
+        @include media($medium) {
+          display: none;
+        }
+      }
+    }
+
+    .abjapp-quiz {
+        background-image: url(/assets/images/quiz.png);
+        background-size: cover;
+    }
+
+    .abjapp-writing {
+        background-image: url(/assets/images/letter-writing.png);
+        background-size: cover;
+    }
+
+    .abjapp-id {
+        background-image: url(/assets/images/letter-card.png);
+        background-size: cover;
+    }
+}
+
+.description {
+    width: 90%;
+
+    @include media($larger-than-medium) {
+        flex: 0 0 70%;
+        width: auto;
+    }
+
+    padding-top: 3em;
+}
+
+.actitens-showcase {
+  .information {
+    background: rgba($actitens-color, .06);
+  }
+
+  .showcase-content:nth-child(odd) {
+    background: rgba($actitens-color, .06);
+  }
+
+  .illustration {
+    background: $actitens-color;
+
+    img {
+      width: 65%;
+
+      @include media($larger-than-small) {
+        width: 55%;
+      }
+
+      @include media($larger-than-medium) {
+        width: 45%;
+      }
+
+      @include media($larger-than-large) {
+        width: 33%;
+      }
+
+      @include media($larger-than-very-large) {
+        width: 25%;
+      }
+    }
+  }
+
+  h4 {
+    color: $actitens-color;
+  }
+
+  .grab {
+    border: 2px solid $actitens-color;
+    color: $actitens-color;
+    background: $white;
+
+    &:hover {
+      background-color: $white;
+    }
+  }
+}
+
+.abjapp-showcase {
+  .information {
+    background: rgba($abjapp-color, .06);
+  }
+
+  .showcase-content:nth-child(odd) {
+    background: rgba($abjapp-color, .06);
+  }
+
+  .illustration {
+    background: $abjapp-color;
+
+    img {
+      width: 45%;
+
+      @include media($larger-than-small) {
+        width: 30%;
+      }
+
+      @include media($larger-than-medium) {
+        width: 25%;
+      }
+
+      @include media($larger-than-large) {
+        width: 18%;
+      }
+
+      @include media($larger-than-very-large) {
+        width: 10%;
+      }
+    }
+  }
+
+  h4 {
+    color: $abjapp-color;
+  }
+
+  .grab {
+    background-color: $abjapp-color;
+
+    &:hover {
+      background-color: $darken-abjapp-color;
+    }
+  }
+}
+
+.pomme-plate-showcase {
+  .information {
+    background: rgba($pomme-plate-color, .06);
+  }
+
+  .showcase-content:nth-child(odd) {
+    background: rgba($pomme-plate-color, .06);
+  }
+
+  .illustration {
+    background: $pomme-plate-color;
+  }
+
+  h4 {
+    color: $pomme-plate-color;
+  }
+
+  .grab {
+    background-color: $pomme-plate-color;
+
+    &:hover {
+      background-color: $darken-pomme-plate-color;
+    }
+  }
+}
+
+.instructions-showcase {
+  .information {
+    background: rgba($instructions-color, .06);
+  }
+
+  .showcase-content:nth-child(odd) {
+    background: rgba($instructions-color, .06);
+  }
+
+  h4 {
+    color: $instructions-color;
+  }
+
+  .grab {
+    background-color: $instructions-color;
+
+    &:hover {
+      background-color: $darken-instructions-color;
+    }
+  }
+
+  .illustration {
+    background: $instructions-color;
+  }
+
+  .animated-illustration {
+    width: 50%;
+
+    @include media($medium) {
+      width: 75%;
+    }
+
+    margin-left: auto;
+    margin-right: auto;
+
+    position: relative;
+  }
+
+  img {
+      width: 100%;
+  }
+
+  .video-demo {
+    position: absolute;
+
+    left: 9.09%;
+    top: 6.56%;
+
+    width: 82.02%;
+    height: 86.98%;
+
+    background-image: url(/assets/images/instructions-placeholder.png);
+    background-size: cover;
+
+    video {
+      width: 100%;
+      height: 100%;
+
+      @include media($medium) {
+        display: none;
+      }
+    }
+  }
+}
