@@ -157,12 +157,12 @@
 
     @include media($larger-than-medium) {
       flex: 0 0 20%;
-      width: auto;
+      width: 20%;
     }
 
     @include media($larger-than-large) {
       flex: 0 0 15%;
-      width: auto;
+      width: 15%;
     }
 
     position: relative;
