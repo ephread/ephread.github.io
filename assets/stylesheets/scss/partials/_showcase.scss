@@ -192,9 +192,9 @@
     .actitens-video-demo {
       position: absolute;
 
-      left: 7.2%;
+      left: 8.4%;
       top: 14.6%;
-      width: 87%;
+      width: 84.3%;
       height: 70.3%;
 
       video {
@@ -219,6 +219,21 @@
 
     .abjapp-id {
         background-image: url(/assets/images/letter-card.png);
+        background-size: cover;
+    }
+
+    .actitens-initialization {
+        background-image: url(/assets/images/actitens-initialization.png);
+        background-size: cover;
+    }
+
+    .actitens-monitoring {
+        background-image: url(/assets/images/actitens-monitoring.png);
+        background-size: cover;
+    }
+
+    .actitens-pairing {
+        background-image: url(/assets/images/actitens-bluetooth.png);
         background-size: cover;
     }
 }
