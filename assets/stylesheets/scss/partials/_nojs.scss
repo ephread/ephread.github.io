@@ -2,8 +2,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 .no-js {
-  .projects .showcase {
-    display: none;
+  .projects {
+    .showcase, .showcase-small {
+      display: none;
+    }
   }
 
   .big-showcase {

@@ -343,6 +343,99 @@
   }
 }
 
+.genetrainer-showcase {
+  .information {
+    background: rgba($genetrainer-color, .06);
+  }
+
+  .showcase-content:nth-child(odd) {
+    background: rgba($genetrainer-color, .06);
+  }
+
+  .illustration {
+    background: $genetrainer-color;
+
+    img {
+      width: 100%;
+      max-width: 715px;
+
+      @include media($larger-than-small) {
+        width: 85%;
+      }
+
+      @include media($larger-than-medium) {
+        width: 60%;
+      }
+
+      @include media($larger-than-large) {
+        width: 40%;
+      }
+
+      @include media($larger-than-very-large) {
+        width: 30%;
+      }
+    }
+  }
+
+  h4 {
+    color: $genetrainer-color;
+  }
+
+  .grab {
+    background-color: $genetrainer-color;
+
+    &:hover {
+      background-color: $darken-genetrainer-color;
+    }
+  }
+}
+
+.sophisticate-showcase {
+  .information {
+    background: rgba($sophisticate-color, .03);
+  }
+
+  .showcase-content:nth-child(odd) {
+    background: rgba($sophisticate-color, .03);
+  }
+
+  .illustration {
+    background: rgba($sophisticate-color, .06);
+
+    img {
+      width: 50%;
+
+      @include media($larger-than-small) {
+        width: 45%;
+      }
+
+      @include media($larger-than-medium) {
+        width: 30%;
+      }
+
+      @include media($larger-than-large) {
+        width: 20%;
+      }
+
+      @include media($larger-than-very-large) {
+        width: 15%;
+      }
+    }
+  }
+
+  h4 {
+    color: $sophisticate-color;
+  }
+
+  .grab {
+    background-color: $sophisticate-color;
+
+    &:hover {
+      background-color: $darken-sophisticate-color;
+    }
+  }
+}
+
 .pomme-plate-showcase {
   .information {
     background: rgba($pomme-plate-color, .06);

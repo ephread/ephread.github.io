@@ -78,7 +78,9 @@
     var selector = '#actitens-showcase .close-showcase,' +
                    '#abjapp-showcase .close-showcase,' +
                    '#instructions-showcase .close-showcase,' +
-                   '#pomme-plate-showcase .close-showcase';
+                   '#pomme-plate-showcase .close-showcase,' +
+                   '#sophisticate-showcase .close-showcase,' +
+                   '#genetrainer-showcase .close-showcase';
 
     $(selector).on('click', function (e) {
       e.preventDefault();
@@ -91,7 +93,9 @@
                          ':not([href="#actitens-showcase"])' +
                          ':not([href="#abjapp-showcase"])' +
                          ':not([href="#instructions-showcase"])' +
-                         ':not([href="#pomme-plate-showcase"])';
+                         ':not([href="#pomme-plate-showcase"])' +
+                         ':not([href="#genetrainer-showcase"])' +
+                         ':not([href="#sophisticate-showcase"])';
 
     $(anchorSelector).click(function () {
       if (window.location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') &&

@@ -220,19 +220,41 @@ section {
 // Showcase sections
 ////////////////////////////////////////////////////////////////////////////////
 
-.showcase {
-  max-width: 80em;
+.showcase, .showcase-small {
+  max-width: 75em;
   margin: 1em auto;
   display: flex;
   flex-wrap: wrap;
 }
 
-.showcase-wrapper {
+.showcase .showcase-wrapper {
   flex: 0 0 100%;
   padding: 1em;
 
   @include media($larger-than-medium) {
     flex: 0 0 50%;
+  }
+
+  @include media($larger-than-large) {
+    padding: 2em;
+  }
+}
+
+.showcase .showcase-wrapper.double {
+  flex: 0 0 100%;
+  padding: 1em;
+
+  @include media($larger-than-large) {
+    padding: 2em;
+  }
+}
+
+.showcase-small .showcase-wrapper {
+  flex: 0 0 100%;
+  padding: 1em;
+
+  @include media($larger-than-medium) {
+    flex: 0 0 33.33%;
   }
 
   @include media($larger-than-large) {
@@ -274,10 +296,19 @@ section {
     background-image: url(/assets/images/pomme-plate.svg);
   }
 
+  .sophisticate & {
+    background-image: url(/assets/images/sophisticate.svg);
+  }
+
+  .genetrainer & {
+    background-image: url(/assets/images/genetrainer.svg);
+  }
+
   .showcase-item:hover & {
     background-size: 120%;
   }
 
+  background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
   transition: all .3s ease-in-out;
@@ -287,6 +318,20 @@ section {
     content: "";
     width: 100%;
     padding-top: 55%;
+  }
+}
+
+@include media($larger-than-medium) {
+  .double .showcase-item:hover .preview {
+    background-size: 70%;
+  }
+
+  .double .preview {
+    background-size: 50%;
+
+    &::before {
+      padding-top: 26%;
+    }
   }
 }
 
@@ -309,6 +354,12 @@ section {
   }
 }
 
+.showcase-small .plateform {
+  p {
+    font-size: .9em;
+  }
+}
+
 .actitens {
   background-color: $actitens-color;
 }
@@ -323,6 +374,14 @@ section {
 
 .pomme-plate {
   background-color: $pomme-plate-color;
+}
+
+.sophisticate {
+  background-color: $sophisticate-color;
+}
+
+.genetrainer {
+  background-color: $genetrainer-color;
 }
 
 

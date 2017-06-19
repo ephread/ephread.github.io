@@ -21,11 +21,15 @@ $actitens-color:            #13b3d5;
 $abjapp-color:              #9060c1;
 $instructions-color:        #7abf6a;
 $pomme-plate-color:         #f5515f;
+$sophisticate-color:        #333333;
+$genetrainer-color:         #4bb19e;
 
-$darken-actitens-color:     darken(#13b3d5, 10);
-$darken-abjapp-color:       darken(#9060c1, 10);
-$darken-instructions-color: darken(#7abf6a, 10);
-$darken-pomme-plate-color:  darken(#f5515f, 10);
+$darken-actitens-color:     darken($actitens-color, 10);
+$darken-abjapp-color:       darken($abjapp-color, 10);
+$darken-instructions-color: darken($instructions-color, 10);
+$darken-pomme-plate-color:  darken($pomme-plate-color, 10);
+$darken-sophisticate-color: darken($sophisticate-color, 10);
+$darken-genetrainer-color:  darken($genetrainer-color, 10);
 
 // Styles
 ////////////////////////////////////////////////////////////////////////////////
