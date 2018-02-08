@@ -9,4 +9,5 @@ Unless explicitely stated otherwise, image and video assets, found respectively 
 
 - The Swift logo is a trademark of Apple, Inc.
 - The Realm logo is a trademak of Tightdb, Inc.
-- The Bluetooth logo is a trademark of Bluetooth SIG, Inc
+- The Bluetooth logo is a trademark of Bluetooth SIG, Inc.
+- The Firebase logo is a trademark of Google, Inc.

@@ -304,6 +304,10 @@ section {
     background-image: url(/assets/images/genetrainer.svg);
   }
 
+  .mynox & {
+    background-image: url(/assets/images/mynox.svg);
+  }
+
   .showcase-item:hover & {
     background-size: 120%;
   }
@@ -384,6 +388,9 @@ section {
   background-color: $genetrainer-color;
 }
 
+.mynox {
+  background-color: $mynox-color;
+}
 
 .speaking {
   background: $odd-section;

@@ -94,7 +94,7 @@
 
     border-radius: $base-border-radius;
 
-    margin: 0 0 2em 0;
+    margin: 0 .5em 2em .5em;
 
     @include media($larger-than-medium) {
       padding: .4em .6em;
@@ -236,6 +236,10 @@
         background-image: url(/assets/images/actitens-bluetooth.png);
         background-size: cover;
     }
+
+    img {
+      width: 100%;
+    }
 }
 
 .description {
@@ -287,12 +291,11 @@
   }
 
   .grab {
-    border: 2px solid $actitens-color;
-    color: $actitens-color;
-    background: $white;
+    color: $white;
+    background: $actitens-color;
 
     &:hover {
-      background-color: $white;
+      background-color: $darken-actitens-color;
     }
   }
 }
@@ -386,6 +389,53 @@
 
     &:hover {
       background-color: $darken-genetrainer-color;
+    }
+  }
+}
+
+.mynox-showcase {
+  .information {
+    background: rgba($mynox-color, .06);
+  }
+
+  .showcase-content:nth-child(odd) {
+    background: rgba($mynox-color, .06);
+  }
+
+  .illustration {
+    background: $mynox-color;
+
+    img {
+      width: 100%;
+      max-width: 715px;
+
+      @include media($larger-than-small) {
+        width: 85%;
+      }
+
+      @include media($larger-than-medium) {
+        width: 60%;
+      }
+
+      @include media($larger-than-large) {
+        width: 40%;
+      }
+
+      @include media($larger-than-very-large) {
+        width: 30%;
+      }
+    }
+  }
+
+  h4 {
+    color: $mynox-color;
+  }
+
+  .grab {
+    background-color: $mynox-color;
+
+    &:hover {
+      background-color: $darken-mynox-color;
     }
   }
 }

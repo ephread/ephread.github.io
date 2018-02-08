@@ -160,6 +160,11 @@
     background-image: url('/assets/images/swift-icon.svg');
   }
 
+  .firebase::before {
+    content: '';
+    background-image: url('/assets/images/firebase-icon.svg');
+  }
+
   .sketch::before {
     content: '';
     background-image: url('/assets/images/sketch-icon.svg');
@@ -204,6 +209,10 @@
 
 .genetrainer-information dt {
   color: $genetrainer-color;
+}
+
+.mynox-information dt {
+  color: $mynox-color;
 }
 
 .sophisticate-information dt {

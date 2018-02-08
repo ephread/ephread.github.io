@@ -80,7 +80,8 @@
                    '#instructions-showcase .close-showcase,' +
                    '#pomme-plate-showcase .close-showcase,' +
                    '#sophisticate-showcase .close-showcase,' +
-                   '#genetrainer-showcase .close-showcase';
+                   '#genetrainer-showcase .close-showcase,' +
+                   '#mynox-showcase .close-showcase';
 
     $(selector).on('click', function (e) {
       e.preventDefault();
@@ -95,7 +96,8 @@
                          ':not([href="#instructions-showcase"])' +
                          ':not([href="#pomme-plate-showcase"])' +
                          ':not([href="#genetrainer-showcase"])' +
-                         ':not([href="#sophisticate-showcase"])';
+                         ':not([href="#sophisticate-showcase"])' +
+                         ':not([href="#mynox-showcase"])';
 
     $(anchorSelector).click(function () {
       if (window.location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') &&
