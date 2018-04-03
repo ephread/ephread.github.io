@@ -1,3 +1,15 @@
 name: Ephread
 markdown: kramdown
-exclude: ['node_modules']
+exclude:
+  - 'node_modules'
+  - 'CNAME'
+  - 'Gemfile.lock'
+  - 'Gemfile'
+  - 'Gulpfile.babel.js'
+  - 'package.json'
+  - 'UNLICENSE'
+  - 'README.md'
+  - 'assets/javascripts/modules'
+  - 'assets/javascripts/application.js.map'
+  - 'assets/stylesheets/scss'
+  - 'assets/stylesheets/application.css.map'
