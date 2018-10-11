@@ -145,6 +145,15 @@
     }
   }
 
+  .technology-header {
+
+    font-weight: bold;
+
+    &:not(:first-child) {
+      margin-top: 1.5em;
+    }
+  }
+
   .objective-c::before {
     content: '';
     background-image: url('/assets/images/objective-c-icon.svg');

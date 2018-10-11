@@ -313,22 +313,22 @@
     background: $abjapp-color;
 
     img {
-      width: 45%;
+      width: 65%;
 
       @include media($larger-than-small) {
-        width: 30%;
+        width: 55%;
       }
 
       @include media($larger-than-medium) {
-        width: 25%;
+        width: 45%;
       }
 
       @include media($larger-than-large) {
-        width: 18%;
+        width: 33%;
       }
 
       @include media($larger-than-very-large) {
-        width: 10%;
+        width: 25%;
       }
     }
   }
@@ -406,23 +406,22 @@
     background: $mynox-color;
 
     img {
-      width: 100%;
-      max-width: 715px;
+      width: 65%;
 
       @include media($larger-than-small) {
-        width: 85%;
+        width: 55%;
       }
 
       @include media($larger-than-medium) {
-        width: 60%;
+        width: 45%;
       }
 
       @include media($larger-than-large) {
-        width: 40%;
+        width: 33%;
       }
 
       @include media($larger-than-very-large) {
-        width: 30%;
+        width: 25%;
       }
     }
   }
