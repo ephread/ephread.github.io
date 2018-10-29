@@ -308,6 +308,10 @@ section {
     background-image: url(/assets/images/mynox.svg);
   }
 
+  .how-many-sleeps & {
+    background-image: url(/assets/images/how-many-sleeps.svg);
+  }
+
   .showcase-item:hover & {
     background-size: 120%;
   }
@@ -390,6 +394,10 @@ section {
 
 .mynox {
   background-color: $mynox-color;
+}
+
+.how-many-sleeps {
+  background-color: $how-many-sleeps-color;
 }
 
 .speaking {

@@ -393,6 +393,53 @@
   }
 }
 
+.how-many-sleeps-showcase {
+  .information {
+    background: rgba($how-many-sleeps-color, .06);
+  }
+
+  .showcase-content:nth-child(odd) {
+    background: rgba($how-many-sleeps-color, .06);
+  }
+
+  .illustration {
+    background: $how-many-sleeps-color;
+
+    img {
+      width: 100%;
+      max-width: 1010px;
+
+      @include media($larger-than-small) {
+        width: 95%;
+      }
+
+      @include media($larger-than-medium) {
+        width: 80%;
+      }
+
+      @include media($larger-than-large) {
+        width: 70%;
+      }
+
+      @include media($larger-than-very-large) {
+        width: 60%;
+      }
+    }
+  }
+
+  h4 {
+    color: $how-many-sleeps-color;
+  }
+
+  .grab {
+    background-color: $how-many-sleeps-color;
+
+    &:hover {
+      background-color: $darken-how-many-sleeps-color;
+    }
+  }
+}
+
 .mynox-showcase {
   .information {
     background: rgba($mynox-color, .06);

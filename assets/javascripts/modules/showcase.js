@@ -78,6 +78,7 @@
     var selector = '#actitens-showcase .close-showcase,' +
                    '#abjapp-showcase .close-showcase,' +
                    '#instructions-showcase .close-showcase,' +
+                   '#how-many-sleeps-showcase .close-showcase,' +
                    '#pomme-plate-showcase .close-showcase,' +
                    '#sophisticate-showcase .close-showcase,' +
                    '#genetrainer-showcase .close-showcase,' +
@@ -93,6 +94,7 @@
     var anchorSelector = 'a[href*="#"]:not([href="#"])' +
                          ':not([href="#actitens-showcase"])' +
                          ':not([href="#abjapp-showcase"])' +
+                         ':not([href="#how-many-sleeps-showcase"])' +
                          ':not([href="#instructions-showcase"])' +
                          ':not([href="#pomme-plate-showcase"])' +
                          ':not([href="#genetrainer-showcase"])' +
