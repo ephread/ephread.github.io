@@ -87,10 +87,10 @@
 
   transition: opacity 0.5s ease-in-out;
 
-  .grab {
+  .grab, {
     @include main-button($white);
     padding: .5em .7em;
-    display: inline-block;
+    display: inline-flex;
 
     border-radius: $base-border-radius;
 
@@ -298,6 +298,12 @@
       background-color: $darken-actitens-color;
     }
   }
+
+  .text-area ul, .text-area ol {
+    li {
+      color: $actitens-color;
+    }
+  }
 }
 
 .abjapp-showcase {
@@ -482,6 +488,12 @@
 
     &:hover {
       background-color: $darken-mynox-color;
+    }
+  }
+
+  .text-area ul, .text-area ol {
+    li {
+      color: $mynox-color;
     }
   }
 }

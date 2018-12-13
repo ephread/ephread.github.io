@@ -11,7 +11,11 @@ section {
   width: 100vw;
 }
 
-.text-area p, .talks, .form-wrapper {
+.text-area p,
+.text-area ul,
+.text-area ol,
+.talks,
+.form-wrapper {
   font-family: $text-font-family;
 
   margin: auto;
@@ -21,7 +25,15 @@ section {
   width: 95%;
 }
 
-.text-area p, .showcase-with-shot p, .talks, .form-wrapper, .information, h5, .description p {
+.text-area p,
+.text-area ul,
+.text-area ol,
+.showcase-with-shot p,
+.talks,
+.form-wrapper,
+.information,
+h5,
+.description p {
   font-size: 1.3em;
   line-height: 1.3em;
 
@@ -46,6 +58,23 @@ section {
   font-size: 1em;
   line-height: 1em;
 
+  display: inline-flex;
+  align-items: center;
+
+  &::before {
+    $size: 1em;
+
+    content: "";
+    background-size: $size $size;
+
+    flex: 0 0 $size;
+
+    width: $size;
+    height: $size;
+
+    margin-right: .5em;
+  }
+
   @include media($larger-than-small) {
     font-size: 1.1em;
   }
@@ -63,7 +92,21 @@ section {
   }
 }
 
-.text-area p {
+.view-website::before {
+  background-image: url('/assets/images/link.svg');
+}
+
+.grab-ios::before {
+  background-image: url('/assets/images/ios-phone.svg');
+}
+
+.grab-android::before {
+  background-image: url('/assets/images/android-phone.svg');
+}
+
+.text-area p,
+.text-area ul,
+.text-area ol {
   text-align: left;
 
   @include media($larger-than-small) {
@@ -81,6 +124,26 @@ section {
   @include media($larger-than-very-large) {
     width: 60%;
   }
+}
+
+.text-area ul, .text-area ol {
+  list-style-position: outside;
+
+  li {
+    padding-left: 1em;
+  }
+
+  span {
+    color: $base-font-color;
+  }
+}
+
+.text-area ul {
+  list-style-type: '>';
+}
+
+.text-area ol {
+  list-style-type: decimal;
 }
 
 .talks, .form-wrapper {
@@ -141,7 +204,7 @@ section {
     text-indent: -9999px;
     width: 1em;
     position: relative;
-    top: 0.1em;
+    top: 0.25em;
   }
 }
 
