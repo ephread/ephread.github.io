@@ -342,6 +342,25 @@ h5,
   }
 }
 
+.ink-showcase {
+  > section:not(:last-of-type) {
+    &::after {
+      content: "";
+      display: block;
+      width: 50%;
+      margin: .5em auto;
+      margin-top: 3em;
+      height: .2em;
+      background-color: $ink-color;
+      opacity: .3;
+    }
+  }
+
+  > section:not(:first-of-type) {
+    padding-top: 3em;
+  }
+}
+
 .preview {
   .actitens & {
     background-image: url(/assets/images/actitens.svg);
@@ -359,8 +378,8 @@ h5,
     background-image: url(/assets/images/pomme-plate.svg);
   }
 
-  .sophisticate & {
-    background-image: url(/assets/images/sophisticate.svg);
+  .esjsts & {
+    background-image: url(/assets/images/esjsts.svg);
   }
 
   .genetrainer & {
@@ -447,7 +466,7 @@ h5,
   background-color: $pomme-plate-color;
 }
 
-.sophisticate {
+.esjsts {
   background-color: $sophisticate-color;
 }
 

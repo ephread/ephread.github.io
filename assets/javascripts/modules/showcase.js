@@ -80,7 +80,7 @@
                    '#instructions-showcase .close-showcase,' +
                    '#how-many-sleeps-showcase .close-showcase,' +
                    '#pomme-plate-showcase .close-showcase,' +
-                   '#sophisticate-showcase .close-showcase,' +
+                   '#esjsts-showcase .close-showcase,' +
                    '#genetrainer-showcase .close-showcase,' +
                    '#mynox-showcase .close-showcase';
 
@@ -98,7 +98,7 @@
                          ':not([href="#instructions-showcase"])' +
                          ':not([href="#pomme-plate-showcase"])' +
                          ':not([href="#genetrainer-showcase"])' +
-                         ':not([href="#sophisticate-showcase"])' +
+                         ':not([href="#esjsts-showcase"])' +
                          ':not([href="#mynox-showcase"])';
 
     $(anchorSelector).click(function () {

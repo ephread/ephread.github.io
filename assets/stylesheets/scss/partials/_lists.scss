@@ -194,6 +194,16 @@
     background-image: url('/assets/images/javascript-icon.svg');
   }
 
+  .typescript::before {
+    content: '';
+    background-image: url('/assets/images/typescript-icon.svg');
+  }
+
+  .yaml::before {
+    content: '';
+    background-image: url('/assets/images/yaml-icon.svg');
+  }
+
   .svg::before {
     content: '';
     background-image: url('/assets/images/svg-icon.svg');
@@ -226,4 +236,12 @@
 
 .sophisticate-information dt {
   color: $sophisticate-color;
+}
+
+.ink-information dt {
+  color: $ink-color;
+}
+
+.daz-information dt {
+  color: $daz-color;
 }
