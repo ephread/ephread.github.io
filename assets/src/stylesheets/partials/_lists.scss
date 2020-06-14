@@ -1,0 +1,247 @@
+.talks {
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  .years {
+    width: 100%;
+
+    > li {
+      margin-bottom: 1.5em;
+    }
+  }
+
+  .year {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media screen and (min-width: $larger-than-medium) {
+      flex-direction: row;
+    }
+
+    > span {
+      color: $mini-header-color;
+      flex: 0 0 auto;
+      font-family: $headline-font-family;
+      font-weight: bold;
+    }
+  }
+
+  .talk {
+    flex: 1 0 auto;
+
+    span {
+      color: $mini-subheader-color;
+
+      font-family: $text-font-family;
+      font-weight: bold;
+
+      width: 5em;
+
+      @media screen and (min-width: $larger-than-medium) {
+        display: inline-block;
+      }
+
+      @media screen and (min-width: $larger-than-large) {
+        width: 6em;
+      }
+    }
+
+    > li {
+      margin-bottom: 1em;
+      margin-top: .5em;
+    }
+
+    @media screen and (min-width: $larger-than-medium) {
+      margin-left: 1em;
+
+      > li {
+        margin-bottom: .5em;
+        margin-top: 0;
+      }
+    }
+
+    @media screen and (min-width: $larger-than-large) {
+      margin-left: 2em;
+    }
+  }
+}
+
+.information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  dl {
+    margin: 0;
+  }
+
+  dt {
+    font-family: $headline-font-family;
+    font-weight: normal;
+
+    text-transform: uppercase;
+
+    margin-bottom: .5em;
+    width: 6em;
+    text-align: left;
+
+    &:not(:first-child) {
+      margin-top: 2em;
+    }
+
+    @media screen and (min-width: $larger-than-medium) {
+      float: left;
+      clear: left;
+      text-align: right;
+      &:not(:first-child) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  dd {
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
+
+    margin-left: 0;
+
+    @media screen and (min-width: $larger-than-medium) {
+      margin-left: 8em;
+    }
+
+    @include clearfix;
+    position: relative;
+    top: -.1em;
+  }
+
+  .technologies span {
+    display: block;
+    margin-bottom: .5em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      background-size: 1em 1em;
+      height: 1em;
+      width: 1em;
+      display: inline-block;
+      vertical-align: bottom;
+      margin-right: .5em;
+
+      position: relative;
+      top: -.1em;
+    }
+  }
+
+  .technology-header {
+
+    font-weight: bold;
+
+    &:not(:first-child) {
+      margin-top: 1.5em;
+    }
+  }
+
+  .objective-c::before {
+    content: '';
+    background-image: url('/assets/images/objective-c-icon.svg');
+  }
+
+  .core-data::before {
+    content: '';
+    background-image: url('/assets/images/core-data-icon.svg');
+  }
+
+  .swift::before {
+    content: '';
+    background-image: url('/assets/images/swift-icon.svg');
+  }
+
+  .firebase::before {
+    content: '';
+    background-image: url('/assets/images/firebase-icon.svg');
+  }
+
+  .sketch::before {
+    content: '';
+    background-image: url('/assets/images/sketch-icon.svg');
+  }
+
+  .bluetooth::before {
+    content: '';
+    background-image: url('/assets/images/bluetooth-icon.svg');
+  }
+
+  .realm::before {
+    content: '';
+    background-image: url('/assets/images/realm-icon.svg');
+  }
+
+  .javascript::before {
+    content: '';
+    background-image: url('/assets/images/javascript-icon.svg');
+  }
+
+  .typescript::before {
+    content: '';
+    background-image: url('/assets/images/typescript-icon.svg');
+  }
+
+  .yaml::before {
+    content: '';
+    background-image: url('/assets/images/yaml-icon.svg');
+  }
+
+  .svg::before {
+    content: '';
+    background-image: url('/assets/images/svg-icon.svg');
+  }
+}
+
+.actitens-information dt {
+  color: $actitens-color;
+}
+
+.abjapp-information dt {
+  color: $abjapp-color;
+}
+
+.instructions-information dt {
+  color: $instructions-color;
+}
+
+.pomme-plate-information dt {
+  color: $pomme-plate-color;
+}
+
+.genetrainer-information dt {
+  color: $genetrainer-color;
+}
+
+.mynox-information dt {
+  color: $mynox-color;
+}
+
+.sophisticate-information dt {
+  color: $sophisticate-color;
+}
+
+.ink-information dt {
+  color: $ink-color;
+}
+
+.daz-information dt {
+  color: $daz-color;
+}

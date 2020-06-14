@@ -9,7 +9,7 @@ exclude:
   - 'package.json'
   - 'UNLICENSE'
   - 'README.md'
-  - 'assets/javascripts/modules'
   - 'assets/javascripts/application.js.map'
-  - 'assets/stylesheets/scss'
   - 'assets/stylesheets/application.css.map'
+  - 'assets/src/'
+

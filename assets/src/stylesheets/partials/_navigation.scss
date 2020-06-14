@@ -1,0 +1,102 @@
+nav {
+  background: $navigation-background;
+
+  font-family: $secondary-typeface;
+  font-weight: bold;
+
+  position: fixed;
+
+  text-transform: uppercase;
+
+  width: 100%;
+  z-index: 1000;
+
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+
+    padding: 1em;
+
+    width: 100%;
+
+    @media screen and (min-width: $larger-than-medium) {
+      justify-content: flex-end;
+    }
+  }
+
+  li {
+    font-size: 0.9em;
+    margin-left: 1em;
+
+    @media screen and (min-width: $larger-than-small) {
+      font-size: 1em;
+      margin-left: 1.5em;
+    }
+  }
+
+  li:first-child {
+    margin-left: 0;
+  }
+
+  li:last-child a {
+    @include main-button($navigation-background);
+
+    padding-left: .4em;
+    padding-right: .4em;
+
+    border-radius: $nav-button-border-radius;
+
+    &::after {
+      content: none;
+    }
+  }
+
+  a {
+    color: $navigation-color;
+    padding: 0.2em 0em;
+    position: relative;
+    text-align: center;
+    border-width: 0;
+
+    border-width: 0;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: .12em;
+      border-radius: .1em;
+      background-color: $main-button-color;
+      bottom: -.1em;
+      position: absolute;
+
+      transform: translate(0, .3em);
+      transition: all .3s ease-in-out;
+      opacity: 0;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+
+  .selected a {
+    &::after {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+}
+
+.with-separator {
+  border-bottom: 1px solid rgba($black, .1);
+}

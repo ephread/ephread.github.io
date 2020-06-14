@@ -1,6 +1,7 @@
 ## Build ignore
 _site
 .sass-cache
+.jekyll-cache
 
 ## Maps
 *.map
