@@ -1,1 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><g fill="none"><path fill="#FDB300" d="M8.71 3.19L19.96 2l11.25 1.19 8.71 11.67-19.96 23.21L0 14.86z"/><path fill="#EA6C00" d="M8.08 14.862l11.88 23.21L0 14.862z"/><path fill="#EA6C00" d="M31.839 14.862l-11.88 23.21 19.96-23.21z"/><path fill="#FDAD00" d="M8.08 14.862h23.75l-11.87 23.21z"/><path fill="#FDD231" d="M19.96 2L8.71 3.19l-.63 11.67zm.004 0l11.25 1.19.62 11.67z"/><path fill="#FDAD00" d="M39.919 14.86l-8.71-11.67.63 11.67zM0 14.86L8.71 3.19l-.63 11.67z"/><path fill="#FEEEB7" d="M19.96 2L8.08 14.86h23.75z"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g fill="none" transform="translate(0 2)">
+    <polygon fill="#FDB300" points="8.71 1.188 19.96 0 31.21 1.188 39.919 12.862 19.96 36.069 0 12.862"/>
+    <g transform="translate(0 12.862)">
+      <polygon fill="#EA6C00" points="8.085 0 19.96 23.207 0 0"/>
+      <polygon fill="#EA6C00" points="28.044 0 39.919 23.207 19.96 0" transform="matrix(-1 0 0 1 59.879 0)"/>
+      <polygon fill="#FDAD00" points="8.085 0 31.835 0 19.96 23.207"/>
+    </g>
+    <polygon fill="#FDD231" points="19.96 0 8.71 1.188 8.085 12.862"/>
+    <polygon fill="#FDD231" points="31.835 0 20.585 1.188 19.96 12.862" transform="matrix(-1 0 0 1 51.794 0)"/>
+    <polygon fill="#FDAD00" points="31.21 12.862 39.919 1.188 39.294 12.862" transform="matrix(-1 0 0 1 71.129 0)"/>
+    <polygon fill="#FDAD00" points="0 12.862 8.71 1.188 8.085 12.862"/>
+    <polygon fill="#FEEEB7" points="19.96 0 8.085 12.862 31.835 12.862"/>
+  </g>
+</svg>

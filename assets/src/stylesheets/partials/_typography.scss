@@ -163,6 +163,16 @@ a {
     outline: none;
   }
 
+  .ink-showcase & {
+    color: $ink-showcase-color;
+    border-bottom-color: $ink-showcase-color;
+
+    &:hover {
+      color: $darken-ink-showcase-color;
+      border-bottom-color: $darken-ink-showcase-color;
+    }
+  }
+
   p &, li &, .thanks & {
     border-bottom: 2px solid $base-link-color;
     padding-bottom: .1em;

@@ -97,11 +97,18 @@ h5,
 }
 
 .grab-ios::before {
-  background-image: url('/assets/images/ios-phone.svg');
+  background-image: url('/assets/images/iphone-icon.svg');
+  opacity: .7;
+}
+
+.grab-watchos::before {
+  background-image: url('/assets/images/apple-watch-icon.svg');
+  opacity: .7;
 }
 
 .grab-android::before {
-  background-image: url('/assets/images/android-phone.svg');
+  background-image: url('/assets/images/android-phone-icon.svg');
+  opacity: .7;
 }
 
 .text-area p,
@@ -362,24 +369,40 @@ h5,
 }
 
 .preview {
-  .actitens & {
-    background-image: url(/assets/images/actitens.svg);
-  }
-
   .abjapp & {
     background-image: url(/assets/images/abjapp.svg);
+  }
+
+  .the-bell & {
+
+  }
+
+  .genesis & {
+    background-image: url(/assets/images/genesis.png);
+  }
+
+  .actitens & {
+    background-image: url(/assets/images/actitens.svg);
   }
 
   .instructions & {
     background-image: url(/assets/images/instructions.svg);
   }
 
-  .pomme-plate & {
-    background-image: url(/assets/images/pomme-plate.svg);
+  .ink & {
+    background-image: url(/assets/images/ink.svg);
   }
 
-  .esjsts & {
-    background-image: url(/assets/images/esjsts.svg);
+  .autodazzler & {
+    background-image: url(/assets/images/autodazzler.svg);
+  }
+
+  .sophisticate & {
+    background-image: url(/assets/images/sophisticate.svg);
+  }
+
+  .pomme-plate & {
+    background-image: url(/assets/images/pomme-plate.svg);
   }
 
   .genetrainer & {
@@ -450,24 +473,40 @@ h5,
   }
 }
 
-.actitens {
-  background-color: $actitens-color;
-}
-
 .abjapp {
   background-color: $abjapp-color;
+}
+
+.the-bell {
+  background-color: $the-bell-color;
+}
+
+.genesis {
+  background-color: $genesis-color;
+}
+
+.actitens {
+  background-color: $actitens-color;
 }
 
 .instructions {
   background-color: $instructions-color;
 }
 
-.pomme-plate {
-  background-color: $pomme-plate-color;
+.ink {
+  background-color: $ink-color;
 }
 
-.esjsts {
+.autodazzler {
+  background-color: $daz-color;
+}
+
+.sophisticate {
   background-color: $sophisticate-color;
+}
+
+.pomme-plate {
+  background-color: $pomme-plate-color;
 }
 
 .genetrainer {

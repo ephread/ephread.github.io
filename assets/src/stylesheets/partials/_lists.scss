@@ -208,14 +208,47 @@
     content: '';
     background-image: url('/assets/images/svg-icon.svg');
   }
-}
 
-.actitens-information dt {
-  color: $actitens-color;
+  .azure::before {
+    content: '';
+    background-image: url('/assets/images/azure-icon.svg');
+  }
+
+  .node-js::before {
+    content: '';
+    background-image: url('/assets/images/node-icon.svg');
+  }
+
+  .grdb::before {
+    content: '';
+    background-image: url('/assets/images/grdb-icon.svg');
+  }
+
+  .c-sharp::before {
+    content: '';
+    background-image: url('/assets/images/c-sharp-icon.svg');
+  }
+
+  .gdscript::before {
+    content: '';
+    background-image: url('/assets/images/gdscript-icon.svg');
+  }
 }
 
 .abjapp-information dt {
   color: $abjapp-color;
+}
+
+.the-bell-information dt {
+  color: $the-bell-color;
+}
+
+.genesis-information dt {
+  color: $genesis-showcase-color;
+}
+
+.actitens-information dt {
+  color: $actitens-color;
 }
 
 .instructions-information dt {
@@ -239,7 +272,7 @@
 }
 
 .ink-information dt {
-  color: $ink-color;
+  color: $ink-showcase-color;
 }
 
 .daz-information dt {

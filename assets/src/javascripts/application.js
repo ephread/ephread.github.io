@@ -79,12 +79,16 @@ function removeHash() {
 
 $(document).ready(function () {
   var selector =
+    "#the-bell-showcase .close-showcase," +
+    "#genesis-showcase .close-showcase," +
     "#actitens-showcase .close-showcase," +
     "#abjapp-showcase .close-showcase," +
     "#instructions-showcase .close-showcase," +
     "#how-many-sleeps-showcase .close-showcase," +
     "#pomme-plate-showcase .close-showcase," +
-    "#esjsts-showcase .close-showcase," +
+    "#sophisticate-showcase .close-showcase," +
+    "#autodazzler-showcase .close-showcase," +
+    "#ink-showcase .close-showcase," +
     "#genetrainer-showcase .close-showcase," +
     "#mynox-showcase .close-showcase";
 
@@ -97,13 +101,17 @@ $(document).ready(function () {
 
   var anchorSelector =
     'a[href*="#"]:not([href="#"])' +
+    ':not([href="#the-bell-showcase"])' +
+    ':not([href="#genesis-showcase"])' +
     ':not([href="#actitens-showcase"])' +
     ':not([href="#abjapp-showcase"])' +
     ':not([href="#how-many-sleeps-showcase"])' +
     ':not([href="#instructions-showcase"])' +
     ':not([href="#pomme-plate-showcase"])' +
     ':not([href="#genetrainer-showcase"])' +
-    ':not([href="#esjsts-showcase"])' +
+    ':not([href="#sophisticate-showcase"])' +
+    ':not([href="#ink-showcase"])' +
+    ':not([href="#autodazzler-showcase"])' +
     ':not([href="#mynox-showcase"])';
 
   $(anchorSelector).click(function () {
