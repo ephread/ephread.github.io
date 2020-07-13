@@ -1,0 +1,39 @@
+<!doctype html>
+<html class="no-js article">
+    <head>
+        <title>{{ page.title }}</title>
+        {% include shared-head.ext %}
+
+        <link href="https://fonts.googleapis.com/css?family=Alegreya:400,400i,500,700"
+              rel="stylesheet">
+    </head>
+
+    <body>
+      <nav id="navigation">
+          <ul>
+              <!-- <li id="nav-blog" class="selected"><a href="/articles">Articles</a></li> -->
+              <li id="nav-about"><a href="/#about">About</a></li>
+              <li id="nav-work"><a href="/#work">Work</a></li>
+              <li id="nav-speaking"><a href="/#speaking">Speaking</a></li>
+              <li class="main-button"><a href="/#get-in-touch">Get in touch</a></li>
+          </ul>
+      </nav>
+
+      <header>
+          <h1>{{ page.title }}</h1>
+      </header>
+
+      <section class="article-body">
+          {{ content }}
+
+          <div class="date-section">
+              <span>
+                  {{ page.date | date: "%-d %B %Y" }}
+              </span>
+          </div>
+      </section>
+
+      {% include shared-footer.ext %}
+      {% include shared-scripts.ext %}
+    </body>
+</html>

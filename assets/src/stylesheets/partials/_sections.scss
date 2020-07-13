@@ -25,6 +25,11 @@ section {
   width: 95%;
 }
 
+.article-body p, .article-body h3 {
+  margin: auto;
+  margin-top: 1em;
+}
+
 .text-area p,
 .text-area ul,
 .text-area ol,
@@ -33,7 +38,9 @@ section {
 .form-wrapper,
 .information,
 h5,
-.description p {
+.description p,
+.article-body p,
+.article-body h3 {
   font-size: 1.3em;
   line-height: 1.3em;
 
@@ -60,6 +67,8 @@ h5,
 
   display: inline-flex;
   align-items: center;
+
+  text-decoration: none;
 
   &::before {
     $size: 1em;
@@ -337,6 +346,7 @@ h5,
   color: $black;
   border-radius: 0.5em;
   transition: all .3s ease-in-out;
+  text-decoration: none;
 
   &:hover {
     color: inherit;
@@ -374,7 +384,7 @@ h5,
   }
 
   .the-bell & {
-
+    background-image: url(/assets/images/the-bell.svg);
   }
 
   .genesis & {
@@ -568,6 +578,10 @@ footer {
   padding: 3em;
 }
 
+.article footer, .articles footer {
+  background: $even-section;
+}
+
 .social-button {
   display: block;
   height: 3em;
@@ -692,4 +706,200 @@ footer {
       border-width: 3px;
     }
   }
+}
+
+.article body > section, .articles body > section {
+  background-color: $odd-section;
+}
+
+.article-body blockquote, .highlighted-images {
+  background-color: $even-section;
+  margin-left: 0;
+  margin-right: 0;
+
+  padding: 2em 0;
+  margin-top: 2em;
+}
+
+.highlighted-images {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  figure {
+    width: 70%;
+  }
+
+  img {
+    width: 100%;
+
+    border-radius: 6px;
+    border: 6px solid $dark-beige;
+  }
+
+  figcaption {
+    text-align: center;
+    font-family: $blog-body-typeface;
+    font-style: italic;
+    margin-top: .5em;
+
+    font-size: 1.2em;
+  }
+
+  @media screen and (min-width: $larger-than-medium) {
+    figure {
+      width: 30%;
+    }
+  }
+}
+
+.article-body blockquote {
+  p {
+    margin-top: 0;
+    position: relative;
+    padding-left: 1em;
+
+    font-style: italic;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: .3em;
+      border-radius: .15em;
+      background-color: $border-color;
+      height: 100%;
+    }
+  }
+}
+
+.article-body {
+  padding-top: 1.5em;
+}
+
+.article-body p, .article-body h3, .gist {
+  text-align: justify;
+  hyphens: auto;
+
+  width: 90%;
+
+  @media screen and (min-width: $larger-than-small) {
+    width: 85%;
+  }
+
+  @media screen and (min-width: $larger-than-medium) {
+    width: 75%;
+  }
+
+  @media screen and (min-width: $larger-than-large) {
+    width: 65%;
+  }
+
+  @media screen and (min-width: $larger-than-very-large) {
+    width: 55%;
+  }
+
+  margin: 1.5em auto 0 auto;
+}
+
+.article header {
+  background-color: $even-section;
+  padding: 9em 1em;
+  padding-top: 13em;
+
+  h1 {
+    text-align: center;
+    margin: 0 auto;
+    padding: .5em 0;
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -.2em;
+      width: 100%;
+      height: 100%;
+      background: url('/assets/images/coach-marks-background.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    @media screen and (min-width: $larger-than-small) {
+      width: 90%;
+      font-size: 3em;
+    }
+
+    @media screen and (min-width: $larger-than-medium) {
+      width: 75%;
+      font-size: 4em;
+    }
+
+    @media screen and (min-width: $larger-than-large) {
+      width: 65%;
+      font-size: 4.5em;
+    }
+
+    @media screen and (min-width: $larger-than-very-large) {
+      width: 50%;
+      font-size: 5em;
+    }
+  }
+}
+
+.date-section {
+  background: $even-section;
+  padding-top: 2em;
+  padding-bottom: 0em;
+
+  font-style: italic;
+  font-size: 1.5em;
+  text-align: center;
+
+  margin-top: 2em;
+  position: relative;
+
+  display: flex;
+
+  span {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    &::before, &::after {
+      content: '';
+      display: block;
+      width: 50%;
+      height: .1em;
+      background-color: $border-color;
+      border-radius: .2em;
+      position: relative;
+    }
+
+    &::before {
+      top: calc(50%);
+      left: calc(-50% - 1em);
+    }
+
+    &::after {
+      bottom: calc(50% - .1em);
+      left: calc(100% + 1em);
+    }
+
+    @media screen and (min-width: $larger-than-small) {
+      &::before, &::after {
+        width: 60%;
+      }
+
+      &::before {
+        left: calc(-60% - 1em);
+      }
+    }
+  }
+}
+
+.introduction p {
+  margin-top: 2.5em;
 }

@@ -8,6 +8,7 @@
   position: relative;
   top: 0.2em;
   background-position: 50% 50%;
+  text-transform: underline;
 }
 
 .illustration {
@@ -323,15 +324,15 @@
 
 .the-bell-showcase {
   .information {
-    background: rgba($the-bell-color, .06);
+    background: rgba($the-bell-showcase-color, .06);
   }
 
   .showcase-content:nth-of-type(odd) {
-    background: rgba($the-bell-color, .06);
+    background: rgba($the-bell-showcase-color, .06);
   }
 
   .illustration {
-    background: $the-bell-color;
+    background: $the-bell-preview-color;
 
     img {
       width: 65%;
@@ -355,14 +356,20 @@
   }
 
   h4 {
-    color: $the-bell-color;
+    color: $the-bell-showcase-color;
   }
 
   .grab {
-    background-color: $the-bell-color;
+    background-color: $the-bell-showcase-color;
 
     &:hover {
-      background-color: $the-bell-color;
+      background-color: $darken-the-bell-showcase-color;
+    }
+  }
+
+  .text-area ul, .text-area ol {
+    li {
+      color: $the-bell-showcase-color;
     }
   }
 }

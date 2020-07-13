@@ -33,6 +33,9 @@ $the-bell-color:            #333333;
 $ink-showcase-color:        #c25c5c;
 $genesis-showcase-color:    #f58025;
 
+$the-bell-preview-color:    #f7cd0a;
+$the-bell-showcase-color:   darken($the-bell-preview-color, 5);
+
 $darken-actitens-color:         darken($actitens-color, 10);
 $darken-abjapp-color:           darken($abjapp-color, 10);
 $darken-instructions-color:     darken($instructions-color, 10);
@@ -47,8 +50,9 @@ $darken-genesis-color:          darken($genesis-color, 10);
 $darken-ink-color:              darken($ink-color, 10);
 $darken-the-bell-color:         darken($the-bell-color, 10);
 
-$darken-ink-showcase-color:     darken($ink-showcase-color, 10);
-$darken-genesis-showcase-color: darken($genesis-showcase-color, 10);
+$darken-ink-showcase-color:      darken($ink-showcase-color, 10);
+$darken-genesis-showcase-color:  darken($genesis-showcase-color, 10);
+$darken-the-bell-showcase-color: darken($the-bell-showcase-color, 10);
 
 $super-dark-actitens-color:        darken($actitens-color, 20);
 $super-dark-abjapp-color:          darken($abjapp-color, 20);
@@ -65,6 +69,7 @@ $super-dark-the-bell-color:        darken($the-bell-color, 20);
 
 $super-dark-ink-showcase-color:    darken($ink-showcase-color, 10);
 $super-dark-showcase-color:        darken($genesis-showcase-color, 10);
+$super-the-bell-showcase-color:    darken($the-bell-showcase-color, 10);
 
 // Styles
 ////////////////////////////////////////////////////////////////////////////////

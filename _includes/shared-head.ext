@@ -1,0 +1,8 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="/assets/stylesheets/application.css">
+<link href="https://fonts.googleapis.com/css?family=Dosis:400,500,700|Fjalla+One" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+<link rel="mask-icon" href="/assets/images/mask-icon.svg" color="#009a9c">
+<script src="/assets/javascripts/modernizr.min.js"></script>

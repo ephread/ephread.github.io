@@ -4,10 +4,13 @@ $primary-typeface:        'Fjalla One';
 $secondary-typeface:      'Dosis';
 $tertiary-typeface:       'Inconsolata';
 
+$blog-body-typeface:      'Alegreya';
+
 $headline-font-family:    $primary-typeface, sans-serif;
 $subheadline-font-family: $secondary-typeface, sans-serif;
 $text-font-family:        $secondary-typeface, sans-serif;
 $easter-egg-font-family:  $tertiary-typeface, monospace;
+$blog-body-family:        $blog-body-typeface, sans-serif;
 
 // Sizes
 ///////////////////////////////////////////////////////////////////////////////

@@ -3,15 +3,6 @@ layout: default
 title: Frédéric Maquin | Independent iOS developer
 ---
 
-<nav id="navigation">
-    <ul>
-        <li id="nav-about"><a href="#about">About</a></li>
-        <li id="nav-work"><a href="#work">Work</a></li>
-        <li id="nav-speaking"><a href="#speaking">Speaking</a></li>
-        <li class="main-button"><a href="#get-in-touch">Get in touch</a></li>
-    </ul>
-</nav>
-
 <div class="regular-sections">
     <section id="landing" class="landing">
         <header>
@@ -27,7 +18,7 @@ title: Frédéric Maquin | Independent iOS developer
 
         <div class="about-me text-area">
             <p>
-                I am a freelance iOS, watchOS and tvOS developer based in Auckland 🇳🇿.
+                I am an independent iOS, watchOS and tvOS developer based near Paris 🇫🇷.
                 I help companies build amazing apps.
             </p>
         </div>
@@ -178,7 +169,7 @@ title: Frédéric Maquin | Independent iOS developer
             </div>
             <div class="title">
                 <h4>Abjapp</h4>
-                <h5>Learn the arabic Alphabet the easy way</h5>
+                <h5>Learn the Arabic alphabet</h5>
             </div>
         </header>
         <section class="information abjapp-information">
@@ -247,31 +238,26 @@ title: Frédéric Maquin | Independent iOS developer
         </section>
         <section class="showcase-content">
             <a href="#" class="grab grab-watchos">
-                Download from the App Store
+                Coming soon to the App Store
             </a>
             <div class="text-area">
                 <p>
-                    The Bell is a pure watchOS app, designed as a replacement of
-                    the stock workout app when doing round-based workouts.
-                    As an avid user of Workout, I tried to keep the look and
+                    The Bell is a pure watchOS app recording HIIT workouts.
+                    As an avid user of the stock Workout app, I tried to keep the look and
                     feel very close to the original design.
                 </p>
 
                 <p>
-                    The Bell strives for simplicity and performs only two tasks:
-                    <ol>
-                        <li><span>
-                            it tracks time and notify changes using audio/haptic feedback;
-                        </span></li>
-                        <li><span>
-                            it logs completed workouts in the Activity app.
-                        </span></li>
-                    </ol>
+                    The Bell focuses on simplicity and limits the scope of its features:
                 </p>
-
-                <p>
-                    Available for free in the App Store.
-                </p>
+                <ol>
+                    <li><span>
+                        it tracks time and notify changes using audio/haptic feedback;
+                    </span></li>
+                    <li><span>
+                        it logs completed workouts in the Activity app.
+                    </span></li>
+                </ol>
             </div>
         </section>
     </div>
@@ -312,7 +298,20 @@ title: Frédéric Maquin | Independent iOS developer
             <div class="text-area">
                 <p>
                     I joined Genesis Energy —the largest energy retailer of New Zealand—
-                    for about seven months to work on EnergyIQ's energy management features.
+                    for about seven months to work on their main app: EnergyIQ. I was
+                    fully integrated in their mobile team.
+                </p>
+
+                <p>
+                    While EnergyIQ started as a simple billing app, it's now
+                    offering complex energy management features, such as a realtime
+                    carbon emission dashboard or advanced usage breakdowns.
+                </p>
+
+                <p>
+                    Most of my duties at Genesis revolved around implementing new
+                    management features or improving the pre-existing ones. I also
+                    supported the backend team when these features required new endpoints.
                 </p>
             </div>
         </section>
@@ -601,12 +600,12 @@ title: Frédéric Maquin | Independent iOS developer
                 <h5><span class="hidden-text">ink, </span>a narrative language developped by inkle Ltd.</h5>
             </div>
         </header>
-        <section>
+        <section class="introduction">
             <div class="text-area">
                 <p>
                     I fell in love with ink back in 2017 and have maintained regular
-                    contributions to the ecosystem ever since. Below are some of the projects
-                    I either started or contributed two in relation to ink.
+                    contributions to the ecosystem ever since. Below are some of
+                    my open source contributions.
                 </p>
             </div>
         </section>
@@ -630,7 +629,7 @@ title: Frédéric Maquin | Independent iOS developer
                 <a href="https://github.com/y-lohse/inkjs" class="grab view-website">See on Github</a>
                 <div class="text-area">
                     <p>
-                        Inkjs is an open source project created and maintained by
+                        inkjs is an open source project created and maintained by
                         <a href="https://yannick-lohse.fr/">@y-loshe</a>. I'm a regular contributor to the project,
                         which closely track the state of the
                         <a href="https://github.com/inkle/ink">original C# library</a>.
@@ -657,10 +656,9 @@ title: Frédéric Maquin | Independent iOS developer
                 <a href="https://github.com/ephread/gdscript" class="grab view-website">See on Github</a>
                 <div class="text-area">
                     <p>
-                        Inkjs is an open source project created and maintained by
-                        <a href="https://yannick-lohse.fr/">@y-loshe</a>. I'm a regular contributor to the project,
-                        which closely track the state of the
-                        <a href="https://github.com/inkle/ink">original C# library</a>.
+                        inkgd is very similar to <em>inkjs</em>. It's a full port of the ink runtime in
+                        GDScript, Godot's main programming language. I started the project in 2018,
+                        at a time when Godot didn't support using C# in mobile builds.
                     </p>
                 </div>
             </section>
@@ -682,13 +680,17 @@ title: Frédéric Maquin | Independent iOS developer
                 </dl>
             </section>
             <section class="showcase-content">
-                <a href="https://github.com/ephread/ink-language-server" class="grab view-website">Language Server on Github</a>
+                <a href="https://github.com/ephread/ink/tree/language-server/inklecate/LanguageServerProtocol" class="grab view-website">Language Server on Github</a>
                 <a href="https://github.com/ephread/ink-vscode" class="grab view-website">VSCode extension on Github</a>
                 <div class="text-area">
                     <p>
-                        Destined to be used within Visual Studio Code, Ink Language Server gave
-                        me the opportunity to build both a language server and a VS Code extension.
-                        It's far from completed, though.
+                        I first tried to implement a language server in 2018, using TypeScript.
+                        I eventually scrapped this early attempt in favour of building the language server
+                        directly in inklecate (the name of ink's compiler). The current version is still a work in progress.
+                    </p>
+                    <p>
+                        Working on a Language Server Protocol implementation is a huge learning opportunity
+                        and a lot of fun!
                     </p>
                 </div>
             </section>
@@ -915,8 +917,4 @@ title: Frédéric Maquin | Independent iOS developer
     </section>
 </div>
 
-<footer>
-    <a href="https://github.com/ephread" class="social-button github">Github</a>
-    <a href="https://linkedin.com/in/ephread/" class="social-button linkedin">LinkedIn</a>
-    <a href="https://twitter.com/ephread" class="social-button twitter">Twitter</a>
-</footer>
+{% include shared-footer.ext %}

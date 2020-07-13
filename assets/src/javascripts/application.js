@@ -1,10 +1,42 @@
 window.Ephread = {};
 
+const SHOWCASE_HASHES = [
+  "#the-bell-showcase",
+  "#genesis-showcase",
+  "#actitens-showcase",
+  "#abjapp-showcase",
+  "#instructions-showcase",
+  "#how-many-sleeps-showcase",
+  "#pomme-plate-showcase",
+  "#sophisticate-showcase",
+  "#autodazzler-showcase",
+  "#ink-showcase",
+  "#genetrainer-showcase",
+  "#mynox-showcase"
+];
+
+const SITE_HASHES = [
+  "#about",
+  "#work",
+  "#speaking",
+  "#get-in-touch",
+];
+
+const CLOSE_SELECTOR = SHOWCASE_HASHES.map((hash) => `${hash} .close-showcase`)
+                                      .join(", ")
+
+const ANCHOR_SELECTOR = 'a[href*="#"]:not([href="#"])' +
+                        SHOWCASE_HASHES.map((hash) => `:not([href="${hash}"])`)
+                                       .join("")
+
 function hashDidChange() {
-  if (window.location.hash !== "") {
+  if (SHOWCASE_HASHES.includes(window.location.hash)) {
     displayShowcase(window.location.hash);
   } else {
     hideShowcase();
+    if (SITE_HASHES.includes(window.location.hash)) {
+
+    }
   }
 }
 
@@ -50,10 +82,10 @@ function updateNavigation() {
     $("#navigation").removeClass("with-separator");
   }
 
-  var aboutOffset = $("#about").offset().top;
-  var workOffset = $("#work").offset().top;
-  var speakingOffset = $("#speaking").offset().top;
-  var getInTouchOffset = $("#get-in-touch").offset().top;
+  var aboutOffset = $("#about").offset().top - 50;
+  var workOffset = $("#work").offset().top - 50;
+  var speakingOffset = $("#speaking").offset().top - 50;
+  var getInTouchOffset = $("#get-in-touch").offset().top - 50;
 
   $("#navigation li").removeClass("selected");
 
@@ -78,43 +110,14 @@ function removeHash() {
 }
 
 $(document).ready(function () {
-  var selector =
-    "#the-bell-showcase .close-showcase," +
-    "#genesis-showcase .close-showcase," +
-    "#actitens-showcase .close-showcase," +
-    "#abjapp-showcase .close-showcase," +
-    "#instructions-showcase .close-showcase," +
-    "#how-many-sleeps-showcase .close-showcase," +
-    "#pomme-plate-showcase .close-showcase," +
-    "#sophisticate-showcase .close-showcase," +
-    "#autodazzler-showcase .close-showcase," +
-    "#ink-showcase .close-showcase," +
-    "#genetrainer-showcase .close-showcase," +
-    "#mynox-showcase .close-showcase";
-
-  $(selector).on("click", function (e) {
+  $(CLOSE_SELECTOR).on("click", function (e) {
     e.preventDefault();
     removeHash();
   });
 
   $(document).scroll(updateNavigation);
 
-  var anchorSelector =
-    'a[href*="#"]:not([href="#"])' +
-    ':not([href="#the-bell-showcase"])' +
-    ':not([href="#genesis-showcase"])' +
-    ':not([href="#actitens-showcase"])' +
-    ':not([href="#abjapp-showcase"])' +
-    ':not([href="#how-many-sleeps-showcase"])' +
-    ':not([href="#instructions-showcase"])' +
-    ':not([href="#pomme-plate-showcase"])' +
-    ':not([href="#genetrainer-showcase"])' +
-    ':not([href="#sophisticate-showcase"])' +
-    ':not([href="#ink-showcase"])' +
-    ':not([href="#autodazzler-showcase"])' +
-    ':not([href="#mynox-showcase"])';
-
-  $(anchorSelector).click(function () {
+  $(ANCHOR_SELECTOR).click(function () {
     if (
       window.location.pathname.replace(/^\//, "") ==
         this.pathname.replace(/^\//, "") &&

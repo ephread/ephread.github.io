@@ -1,0 +1,83 @@
+.article-list {
+    padding: 3em 0 2em 0;
+    width: 90%;
+    margin: 0 auto;
+
+    ul, li {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    li {
+        margin-top: 4em;
+        display: block;
+
+        &:not(:last-child)::after {
+            content: "";
+            display: block;
+            width: 8em;
+            margin: 4em auto;
+            height: .3em;
+            background-color: $black;
+            opacity: .2;
+        }
+    }
+
+    .header {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5em;
+
+        img {
+            flex: 0 0 90px;
+            width: 90px;
+            margin-right: 1.5em;
+            height: 100%;
+            border: 1px rgba($black, 0.2) solid;
+
+            @media screen and (min-width: $larger-than-small) {
+                flex: 0 0 100px;
+                width: 100px;
+            }
+
+            @media screen and (min-width: $larger-than-medium) {
+                flex: 0 0 130px;
+                width: 130px;
+            }
+
+            @media screen and (min-width: $larger-than-large) {
+                flex: 0 0 165px;
+                width: 165px;
+            }
+
+            @media screen and (min-width: $larger-than-very-large) {
+                flex: 0 0 200px;
+                width: 200px;
+            }
+        }
+
+        .titles {
+            flex: 1 0 0;
+        }
+    }
+
+    @media screen and (min-width: $larger-than-small) {
+        width: 90%;
+    }
+
+    @media screen and (min-width: $larger-than-medium) {
+        width: 75%;
+    }
+
+    @media screen and (min-width: $larger-than-large) {
+        width: 60%;
+    }
+
+    @media screen and (min-width: $larger-than-very-large) {
+        width: 50%;
+    }
+}

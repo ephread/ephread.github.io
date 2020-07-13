@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js portfolio">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,19 +20,24 @@
         <meta name="twitter:description" content="Hey, I'm Fred, I'm a freelance iOS developer currently available for hire!">
         <meta name="twitter:image" content="http://www.gravatar.com/avatar/07cace5d941b67f22d030088283a10f0?s=400">
 
-        <link rel="stylesheet" href="/assets/stylesheets/application.css">
-        <link href="https://fonts.googleapis.com/css?family=Dosis:400,500,700|Fjalla+One" rel="stylesheet">
-        <link rel="icon" type="image/x-icon" href="//assets/images/favicon.ico" />
-        <link rel="mask-icon" href="/assets/images/mask-icon.svg" color="#009a9c">
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        {% include shared-head.ext %}
     </head>
 
     <body>
         <div id="all-sections" class="all-sections">
+            <nav id="navigation">
+                <ul>
+                    <!-- <li id="nav-blog"><a href="/articles">Articles</a></li> -->
+                    <li id="nav-about"><a href="#about">About</a></li>
+                    <li id="nav-work"><a href="#work">Work</a></li>
+                    <li id="nav-speaking"><a href="#speaking">Speaking</a></li>
+                    <li class="main-button"><a href="#get-in-touch">Get in touch</a></li>
+                </ul>
+            </nav>
+
             {{ content }}
         </div>
 
-        <script src="/assets/javascripts/application.js"></script>
+        {% include shared-scripts.ext %}
     </body>
 </html>

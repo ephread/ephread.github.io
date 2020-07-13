@@ -1,0 +1,26 @@
+---
+layout: articles
+title: Articles
+---
+
+<section class="article-list">
+  <ul>
+    {% for post in site.posts %}
+      <li class="article-item">
+        <div class="header">
+          <img src="{{ post.image }}" alt="{{ post.title }} thumbnail" />
+          <div class="titles">
+            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            <h3>{{ post.date | date_to_long_string }}</h3>
+          </div>
+        </div>
+        <p>
+          {% assign excerpt = post.excerpt | remove: '<p>' | remove: '</p>' %}
+          {% assign size = excerpt | size | minus: 3 %}
+          {{ excerpt | slice: 0, size | append: "…" }}
+          <a href="{{ post.url }}">read more</a>
+        </p>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
