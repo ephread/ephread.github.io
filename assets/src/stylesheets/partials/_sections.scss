@@ -145,9 +145,7 @@ h5,
   }
 
   .availability, .status {
-    @media screen and (min-width: $larger-than-medium) {
-      padding: .5em .6em;
-    }
+    padding: .5em .6em;
   }
 
   .status {
