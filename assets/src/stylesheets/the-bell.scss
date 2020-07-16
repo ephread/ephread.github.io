@@ -48,7 +48,7 @@ body, html {
     }
 }
 
-.thanks {
+.thanks, .privacy-policy {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -56,6 +56,29 @@ body, html {
 
     height: 100%;
     width: 100%;
+}
+
+.privacy-policy {
+    padding: 2em;
+
+    h1 {
+        text-transform: uppercase;
+        font-size: 2em;
+        text-align: center;
+        color: #f7dc0a;
+
+        margin: 0;
+        margin-bottom: .25em;
+    }
+
+    p {
+        font-size: 1em;
+        font-weight: normal;
+        text-align: center;
+        color: white;
+
+        margin: 0;
+    }
 }
 
 header {
