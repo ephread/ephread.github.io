@@ -11,7 +11,9 @@
   "scripts": {
     "build": "npm run-script build:js && npm run-script build:css",
     "build:js": "rollup -c",
-    "build:css": "sass --style=compressed assets/src/stylesheets/application.scss assets/stylesheets/application.css",
+    "build:css": "npm run-script build:css:main && npm run-script build:css:the-bell",
+    "build:css:main": "sass --style=compressed assets/src/stylesheets/application.scss assets/stylesheets/application.css",
+    "build:css:the-bell": "sass --style=compressed assets/src/stylesheets/the-bell.scss assets/stylesheets/the-bell.css",
     "watch": "npm run build && chokidar 'assets/src/**/*' -c 'npm run build'",
     "lint": "eslint 'assets/javascript/**/*.js'",
     "lint:fix": "npm run lint -- --fix"

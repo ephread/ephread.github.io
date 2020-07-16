@@ -1,0 +1,26 @@
+---
+layout: the-bell
+title: The Bell | Contact
+---
+
+<div class="form-wrapper">
+    <div class="form-area">
+        <img src="/assets/images/the-bell-icon.svg" alt="The Bell" />
+        <p>
+            Do you have questions, suggestions or some feedback for The Bell?
+            Just fill the form below and we'll email you back as soon as possible!
+        </p>
+    </div>
+
+    <div class="form-area">
+        <form action="//formspree.io/fred@ephread.com" method="POST">
+            <input type="email" name="_replyto" placeholder="email@example.com" required>
+            <textarea name="message" placeholder="Message" required></textarea>
+            <input type="hidden" name="_next" value="/the-bell/thanks/" />
+            <input type="hidden" name="_subject" value="The Bell: Feedback" />
+            <input type="text" name="_gotcha" style="display:none" />
+
+            <input type="submit" value="Send">
+        </form>
+    </div>
+</div>
