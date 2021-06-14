@@ -1,43 +1,48 @@
 <!doctype html>
 <html class="no-js portfolio">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>{{ page.title }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <meta name="description" content="Hey, I'm Fred, this is my personal website.">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+    <title>{{ page.title }}</title>
 
-        <meta property="og:title" content="Frédéric Maquin | Independent iOS developer"/>
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://ephread.com">
-        <meta property="og:description" content="Hey, I'm Fred, I'm a freelance iOS developer currently available for hire!"/>
-        <meta property="og:image" content="http://www.gravatar.com/avatar/07cace5d941b67f22d030088283a10f0?s=400">
+    <meta name="description" content="Hey, I'm Fred, this is my personal website.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
 
-        <meta name="twitter:card" content="summary">
-        <meta name="twitter:url" content="http://ephread.com">
-        <meta name="twitter:description" content="Hey, I'm Fred, I'm a freelance iOS developer currently available for hire!">
-        <meta name="twitter:image" content="http://www.gravatar.com/avatar/07cace5d941b67f22d030088283a10f0?s=400">
+    <!-- Facebook OpenGraph -->
+    <meta property="og:title" content="Frédéric Maquin | Independent iOS developer" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ephread.com">
+    <meta property="og:description" content="Hey, I'm Fred, I'm a independent iOS developer available for hire!" />
+    <meta property="og:image" content="https://ephread.com/assets/images/social.png">
 
-        {% include shared-head.ext %}
-    </head>
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Frédéric Maquin | Independent iOS developer">
+    <meta name="twitter:url" content="https://ephread.com">
+    <meta name="twitter:description" content="Hey, I'm Fred, I'm a independent iOS developer available for hire!">
+    <meta name="twitter:image" content="https://ephread.com/assets/images/social.png">
 
-    <body>
-        <div id="all-sections" class="all-sections">
-            <nav id="navigation">
-                <ul>
-                    <!-- <li id="nav-blog"><a href="/articles">Articles</a></li> -->
-                    <li id="nav-about"><a href="#about">About</a></li>
-                    <li id="nav-work"><a href="#work">Work</a></li>
-                    <li id="nav-speaking"><a href="#speaking">Speaking</a></li>
-                    <li class="main-button"><a href="#get-in-touch">Get in touch</a></li>
-                </ul>
-            </nav>
+    {% include shared-head.ext %}
+</head>
 
-            {{ content }}
-        </div>
+<body>
+    <div id="all-sections" class="all-sections">
+        <nav id="navigation">
+            <ul>
+                <!-- <li id="nav-blog"><a href="/articles">Articles</a></li> -->
+                <li id="nav-about"><a href="#about">About</a></li>
+                <li id="nav-work"><a href="#work">Work</a></li>
+                <li id="nav-speaking"><a href="#speaking">Speaking</a></li>
+                <li class="main-button"><a href="#get-in-touch">Get in touch</a></li>
+            </ul>
+        </nav>
 
-        {% include shared-scripts.ext %}
-    </body>
+        {{ content }}
+    </div>
+
+    {% include shared-scripts.ext %}
+</body>
+
 </html>
