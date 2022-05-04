@@ -1,0 +1,27 @@
+---
+layout: abjapp
+title: Abjapp | Contact
+---
+
+<div class="form-wrapper">
+    <div class="form-area">
+        <img src="/assets/images/abjapp-icon.svg" alt="Abjapp" />
+        <p>
+            Vous avez des questions, des suggestions ou des retours à nous
+            faire à propos d'Abjapp ? Remplissez juste ce formulaire et nous
+            vous répondrons au plus vite !
+        </p>
+    </div>
+
+    <div class="form-area">
+        <form action="//formspree.io/fred@ephread.com" method="POST">
+            <input type="email" name="_replyto" placeholder="email@example.com" required>
+            <textarea name="message" placeholder="Message" required></textarea>
+            <input type="hidden" name="_next" value="/abjapp/thanks/fr/" />
+            <input type="hidden" name="_subject" value="Abjapp : retours" />
+            <input type="text" name="_gotcha" style="display:none" />
+
+            <input type="submit" value="Send">
+        </form>
+    </div>
+</div>
