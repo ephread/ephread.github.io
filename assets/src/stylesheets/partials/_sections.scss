@@ -104,6 +104,17 @@ h5,
   }
 }
 
+.grab.disabled {
+  pointer-events: none;
+  background-color: $grab-disabled-background !important;
+  color: $grab-disabled-foreground !important;
+
+  &:hover {
+    background-color: $grab-disabled-background !important;
+    color: $grab-disabled-foreground !important;
+  }
+}
+
 .work-status {
   width: 100%;
   display: flex;
@@ -209,6 +220,7 @@ h5,
   opacity: .7;
 }
 
+.callout,
 .text-area p,
 .text-area ul,
 .text-area ol {
@@ -388,7 +400,7 @@ h5,
 // Showcase sections
 ////////////////////////////////////////////////////////////////////////////////
 
-.showcase, .showcase-small {
+.showcase, .showcase-small, .showcase-big {
   max-width: 75em;
   margin: 1em auto;
   display: flex;
@@ -427,6 +439,23 @@ h5,
 
   @media screen and (min-width: $larger-than-large) {
     padding: 2em;
+  }
+}
+
+.showcase-big {
+  justify-content: center;
+
+  .showcase-wrapper {
+    flex: 0 0 100%;
+    padding: 1em;
+
+    @media screen and (min-width: $larger-than-medium) {
+      flex: 0 0 65%;
+    }
+
+    @media screen and (min-width: $larger-than-large) {
+      padding: 2em;
+    }
   }
 }
 
@@ -632,6 +661,7 @@ h5,
 
 .get-in-touch {
   background: $even-section;
+  background: $odd-section;
   min-height: initial;
   padding: 3em 1em;
 
@@ -660,7 +690,7 @@ h5,
 }
 
 footer {
-  background: $odd-section;
+  background: $even-section;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -709,6 +739,10 @@ footer {
   background-size: contain;
 }
 
+.speaker-deck {
+  background: url('/assets/images/speaker-deck.svg') no-repeat;
+  background-size: contain;
+}
 
 .skills {
   background-color: #FCFAF8;

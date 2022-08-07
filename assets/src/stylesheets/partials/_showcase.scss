@@ -276,6 +276,18 @@
   margin-top: 4em;
 }
 
+.callout {
+  border-radius: $nav-button-border-radius;
+  font-size: 1.3em;
+
+  padding: 1em;
+  margin: 0em auto 2em auto;
+
+  p {
+    margin: 0;
+  }
+}
+
 .abjapp-showcase {
   .information {
     background: rgba($abjapp-color, .06);
@@ -323,7 +335,7 @@
 }
 
 .the-bell-showcase {
-  .information {
+  .information, .callout {
     background: rgba($the-bell-showcase-color, .06);
   }
 
