@@ -233,6 +233,21 @@
     content: '';
     background-image: url('/assets/images/gdscript-icon.svg');
   }
+
+  .uikit::before {
+    content: '';
+    background-image: url('/assets/images/uikit-icon.svg');
+  }
+
+  .swift-ui::before {
+    content: '';
+    background-image: url('/assets/images/swift-ui-icon.svg');
+  }
+
+  .parse::before {
+    content: '';
+    background-image: url('/assets/images/parse-icon.svg');
+  }
 }
 
 .abjapp-information dt {
@@ -241,6 +256,10 @@
 
 .the-bell-information dt {
   color: $the-bell-showcase-color;
+}
+
+.combyne-information dt {
+  color: $combyne-color;
 }
 
 .genesis-information dt {

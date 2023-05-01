@@ -2,6 +2,7 @@ window.Ephread = {};
 
 const SHOWCASE_HASHES = [
   "#the-bell-showcase",
+  "#combyne-showcase",
   "#genesis-showcase",
   "#actitens-showcase",
   "#abjapp-showcase",

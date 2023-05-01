@@ -505,6 +505,10 @@ h5,
     background-image: url(/assets/images/the-bell.svg);
   }
 
+  .combyne & {
+    background-image: url(/assets/images/combyne.svg);
+  }
+
   .genesis & {
     background-image: url(/assets/images/genesis.png);
   }
@@ -607,6 +611,11 @@ h5,
 
 .the-bell {
   background-color: $the-bell-color;
+}
+
+.combyne {
+  background-image: url(/assets/images/combyne-background.svg);
+  background: cover
 }
 
 .genesis {

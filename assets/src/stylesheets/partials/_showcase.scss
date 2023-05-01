@@ -386,8 +386,62 @@
   }
 }
 
+.combyne-showcase {
+  .information, .callout {
+    background: rgba($combyne-color, .06);
+  }
+
+  .showcase-content:nth-of-type(odd) {
+    background: rgba($combyne-color, .06);
+  }
+
+  .illustration {
+    background-image: url(/assets/images/combyne-background.svg);
+    background-size: cover;
+
+    img {
+      width: 65%;
+
+      @media screen and (min-width: $larger-than-small) {
+        width: 55%;
+      }
+
+      @media screen and (min-width: $larger-than-medium) {
+        width: 45%;
+      }
+
+      @media screen and (min-width: $larger-than-large) {
+        width: 33%;
+      }
+
+      @media screen and (min-width: $larger-than-very-large) {
+        width: 25%;
+      }
+    }
+  }
+
+  h4 {
+    color: $combyne-color;
+  }
+
+  .grab {
+    color: $white;
+    background: $combyne-color;
+
+    &:hover {
+      background-color: $darken-combyne-color;
+    }
+  }
+
+  .text-area ul, .text-area ol {
+    li {
+      color: $combyne-color;
+    }
+  }
+}
+
 .genesis-showcase {
-  .information {
+  .information, .callout {
     background: rgba($genesis-showcase-color, .06);
   }
 
@@ -440,7 +494,7 @@
 }
 
 .actitens-showcase {
-  .information {
+  .information, .callout {
     background: rgba($actitens-color, .06);
   }
 
@@ -493,7 +547,7 @@
 }
 
 .genetrainer-showcase {
-  .information {
+  .information, .callout {
     background: rgba($genetrainer-color, .06);
   }
 
@@ -540,7 +594,7 @@
 }
 
 .how-many-sleeps-showcase {
-  .information {
+  .information, .callout {
     background: rgba($how-many-sleeps-color, .06);
   }
 
@@ -587,7 +641,7 @@
 }
 
 .mynox-showcase {
-  .information {
+  .information, .callout {
     background: rgba($mynox-color, .06);
   }
 
@@ -639,7 +693,7 @@
 }
 
 .ink-showcase {
-  .information {
+  .information, .callout {
     background: rgba($ink-showcase-color, .06);
   }
 
@@ -691,7 +745,7 @@
 }
 
 .autodazzler-showcase {
-  .information {
+  .information, .callout {
     background: rgba($daz-color, .06);
   }
 
@@ -739,7 +793,7 @@
 }
 
 .sophisticate-showcase {
-  .information {
+  .information, .callout {
     background: rgba($sophisticate-color, .03);
   }
 
@@ -785,7 +839,7 @@
 }
 
 .pomme-plate-showcase {
-  .information {
+  .information, .callout {
     background: rgba($pomme-plate-color, .06);
   }
 
@@ -811,7 +865,7 @@
 }
 
 .instructions-showcase {
-  .information {
+  .information, .callout {
     background: rgba($instructions-color, .06);
   }
 
