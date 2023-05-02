@@ -400,22 +400,23 @@
     background-size: cover;
 
     img {
-      width: 65%;
+      width: 100%;
+      max-width: 715px;
 
       @media screen and (min-width: $larger-than-small) {
-        width: 55%;
+        width: 85%;
       }
 
       @media screen and (min-width: $larger-than-medium) {
-        width: 45%;
+        width: 60%;
       }
 
       @media screen and (min-width: $larger-than-large) {
-        width: 33%;
+        width: 40%;
       }
 
       @media screen and (min-width: $larger-than-very-large) {
-        width: 25%;
+        width: 30%;
       }
     }
   }
