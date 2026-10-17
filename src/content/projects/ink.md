@@ -10,9 +10,12 @@ tile:
   platforms: "TypeScript • GDScript • C#"
 color: "ink"
 accent: "ink-showcase"
+linksUseAccent: true
 illustration:
   image: "../../assets/images/ink-showcase.svg"
   alt: "Ink logo"
+  layout: "logo"
+  background: "ink-showcase"
   caption:
     hidden: "ink, "
     text: "a narrative language developed by inkle Ltd."

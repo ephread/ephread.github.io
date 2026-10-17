@@ -12,6 +12,7 @@ color: "mynox"
 illustration:
   image: "../../assets/images/mynox-showcase@2x.png"
   alt: "Mynöx preview"
+  layout: "phone"
 dates:
   from: "August 2017"
   to: "November 2017"

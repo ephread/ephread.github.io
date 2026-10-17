@@ -12,6 +12,7 @@ color: "how-many-sleeps"
 illustration:
   image: "../../assets/images/how-many-sleeps-showcase@2x.png"
   alt: "How Many Sleeps preview"
+  layout: "panorama"
 dates:
   from: "October 2018"
   to: "February 2019"

@@ -1,0 +1,36 @@
+---
+import closeIcon from "../../assets/images/close-icon.svg";
+---
+
+<a
+  href="/#work"
+  data-close-showcase
+  class="absolute top-[1.5em] left-[1.5em] z-10 block size-[1.5em] opacity-20 transition-opacity duration-100 ease-in-out hover:opacity-40 focus-visible:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-4 md:fixed"
+>
+  <img src={closeIcon.src} alt="Close" class="size-full" />
+</a>
+
+<script>
+  import { previousPathname } from "../../scripts/navigation";
+
+  // When the showcase was opened from the home page, closing it goes back in
+  // history so the home page comes back scrolled to the tile that was clicked.
+  function close(event: Event) {
+    if (previousPathname() !== "/") return; // Follow the link to /#work.
+    event.preventDefault();
+    history.back();
+  }
+
+  function onKeyDown(event: KeyboardEvent) {
+    if (event.key === "Escape") document.querySelector<HTMLAnchorElement>("[data-close-showcase]")?.click();
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    const button = document.querySelector("[data-close-showcase]");
+    document.removeEventListener("keydown", onKeyDown);
+    if (!button) return;
+
+    button.addEventListener("click", close);
+    document.addEventListener("keydown", onKeyDown);
+  });
+</script>

@@ -13,6 +13,8 @@ accent: "the-bell-showcase"
 illustration:
   image: "../../assets/images/the-bell-showcase.svg"
   alt: "The Bell preview"
+  layout: "phone"
+  background: "the-bell-preview"
 dates:
   from: "May 2020"
   to: "Ongoing"

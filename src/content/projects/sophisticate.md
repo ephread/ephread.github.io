@@ -12,6 +12,8 @@ color: "sophisticate"
 illustration:
   image: "../../assets/images/sophisticate-showcase.svg"
   alt: "Sophisticate preview"
+  layout: "icon"
+  background: "tint"
 technologies:
   - "typescript"
 links:

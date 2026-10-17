@@ -13,6 +13,8 @@ color: "combyne"
 illustration:
   image: "../../assets/images/combyne-showcase@2x.png"
   alt: "combyne preview"
+  layout: "wide"
+  backgroundImage: "../../assets/images/combyne-background.svg"
 dates:
   from: "September 2020"
   to: "June 2021"

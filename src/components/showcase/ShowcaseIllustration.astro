@@ -1,0 +1,84 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Image, Picture } from "astro:assets";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { illustration, color } = project.data;
+if (!illustration) throw new Error(`Project "${project.id}" has no illustration.`);
+
+const { image, alt, layout, background = color, backgroundImage, caption, video } = illustration;
+
+/** Image width per layout, growing narrower as the viewport widens. */
+const imageWidths = {
+  default: "w-[90%] sm:w-[75%] md:w-[60%] lg:w-[55%] xl:w-[40%]",
+  phone: "w-[65%] sm:w-[55%] md:w-[45%] lg:w-[33%] xl:w-[25%]",
+  wide: "w-full max-w-[715px] sm:w-[85%] md:w-[60%] lg:w-[40%] xl:w-[30%]",
+  panorama: "w-full max-w-[1010px] sm:w-[95%] md:w-[80%] lg:w-[70%] xl:w-[60%]",
+  logo: "w-[60%] sm:w-[50%] md:w-[40%] lg:w-[25%] xl:w-[20%]",
+  banner: "w-full sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%]",
+  icon: "w-[50%] sm:w-[45%] md:w-[30%] lg:w-[20%] xl:w-[15%]",
+  device: "w-full",
+};
+
+// Logos come with a caption and get a taller band.
+const tall = layout === "logo" || layout === "banner";
+
+let style: string | undefined;
+if (backgroundImage) {
+  style = `background-image: url(${backgroundImage.src}); background-size: cover`;
+} else if (background !== "tint") {
+  style = `background-color: var(--color-${background})`;
+}
+
+const imageProps = {
+  src: image,
+  alt,
+  loading: "eager",
+  fetchpriority: "high",
+  class: `mx-auto block max-w-none ${imageWidths[layout]}`,
+} as const;
+---
+
+<header
+  class:list={[tall ? "px-[3em] py-[8em]" : "p-[3em]", background === "tint" && "bg-(--accent)/6"]}
+  style={style}
+  transition:name={`project-${project.id}`}
+>
+  {
+    layout === "device" && video ? (
+      <div class="relative mx-auto w-[75%] md:w-[50%]">
+        <Image {...imageProps} />
+        <div
+          class="absolute top-[6.56%] left-[9.09%] h-[86.98%] w-[82.02%] bg-cover"
+          style={`background-image: url(${video.poster.src})`}
+        >
+          <video class="hidden size-full md:block" autoplay muted loop playsinline aria-hidden="true">
+            <source src={video.mp4} type="video/mp4" />
+            <source src={video.webm} type="video/webm" />
+          </video>
+        </div>
+      </div>
+    ) : image.format === "svg" ? (
+      <Image {...imageProps} />
+    ) : (
+      <Picture
+        {...imageProps}
+        formats={["avif", "webp"]}
+        widths={[480, 960, image.width]}
+        sizes="(width >= 45.0625em) 60vw, 100vw"
+      />
+    )
+  }
+  {
+    caption && (
+      <p class="text-copy mt-[1.5em] text-center font-medium text-white">
+        <span class="sr-only">{caption.hidden}</span>
+        {caption.text}
+      </p>
+    )
+  }
+</header>

@@ -1,0 +1,63 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+import { Image } from "astro:assets";
+import link from "../../assets/images/link.svg";
+import iphone from "../../assets/images/iphone-icon.svg";
+import appleWatch from "../../assets/images/apple-watch-icon.svg";
+import androidPhone from "../../assets/images/android-phone-icon.svg";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { links, callout } = project.data;
+const { Content } = await render(project);
+
+const linkKinds = {
+  website: { icon: link, label: "View Website", dimmed: false },
+  ios: { icon: iphone, label: "Download from the App Store", dimmed: true },
+  watchos: {
+    icon: appleWatch,
+    label: "Download from the App Store",
+    dimmed: true,
+  },
+  android: {
+    icon: androidPhone,
+    label: "Download from Google Play",
+    dimmed: true,
+  },
+};
+---
+
+<section class="bg-white px-[1em] py-[3em] text-center md:p-[3em]">
+  {links.map(({ kind, href, label }) => (
+    <>
+      <a
+        href={href}
+        class="mx-[.5em] mb-[2em] inline-flex items-center rounded-base bg-(--accent) px-[.7em] py-[.5em] text-[1em] leading-[1em] font-bold text-white uppercase no-underline transition-all duration-300 ease-in-out hover:bg-(--accent-dark) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent) sm:text-[1.1em] md:px-[.6em] md:py-[.4em] md:text-[1.2em] lg:text-[1.3em] xl:text-[1.4em]"
+      >
+        <Image
+          src={linkKinds[kind].icon}
+          alt=""
+          class:list={[
+            "mr-[.5em] size-[1em] flex-[0_0_1em]",
+            linkKinds[kind].dimmed && "opacity-70",
+          ]}
+        />
+        {label ?? linkKinds[kind].label}
+      </a>{" "}
+    </>
+  ))}
+
+  {callout && (
+    <div class="measure mb-[2em] rounded-nav bg-(--accent)/6 p-[1em] text-left text-[1.3em]">
+      <p set:html={callout} />
+    </div>
+  )}
+
+  <div class="text-area">
+    <Content />
+  </div>
+</section>

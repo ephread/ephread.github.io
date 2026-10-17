@@ -12,6 +12,7 @@ color: "instructions"
 illustration:
   image: "../../assets/images/ipad.svg"
   alt: "Instructions preview"
+  layout: "device"
   video:
     mp4: "/videos/instructions.mp4"
     webm: "/videos/instructions.webm"

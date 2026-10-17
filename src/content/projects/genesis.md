@@ -13,6 +13,7 @@ accent: "genesis-showcase"
 illustration:
   image: "../../assets/images/genesis-showcase@2x.png"
   alt: "Genesis preview"
+  layout: "phone"
 dates:
   from: "April 2019"
   to: "November 2019"

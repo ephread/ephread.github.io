@@ -6,6 +6,7 @@ interface Props {
   title: string;
   description?: string;
   lang?: string;
+  bodyClass?: string;
   /** Title and description shown when the page is shared. */
   social?: {
     title: string;
@@ -17,6 +18,7 @@ const {
   title,
   description = "Hey, I'm Fred, this is my personal website.",
   lang = "en",
+  bodyClass,
   social = {
     title: "Frédéric Maquin | Independent iOS developer",
     description: "Hey, I'm Fred, I'm an independent iOS developer available for hire!",
@@ -53,9 +55,14 @@ const socialImage = new URL("/social.png", Astro.site);
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <ClientRouter />
+    <slot name="head" />
   </head>
 
-  <body>
+  <body class={bodyClass}>
     <slot />
+
+    <script>
+      import "../scripts/navigation";
+    </script>
   </body>
 </html>

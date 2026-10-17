@@ -22,6 +22,7 @@ const projectColor = z.enum([
   "pomme-plate",
   "sophisticate",
   "the-bell",
+  "the-bell-preview",
   "the-bell-showcase",
 ]);
 
@@ -53,11 +54,21 @@ const projects = defineCollection({
       color: projectColor.optional(),
       /** Color of links and buttons in the showcase; defaults to `color`. */
       accent: projectColor.optional(),
+      /** Color text links with the accent instead of the site's green. */
+      linksUseAccent: z.boolean().default(false),
 
       illustration: z
         .object({
           image: image(),
           alt: z.string(),
+          /** Size preset of the image in the header band (see ShowcaseIllustration). */
+          layout: z.enum(["default", "phone", "wide", "panorama", "logo", "banner", "icon", "device"]).default("default"),
+          /**
+           * Header band background: a color token (defaults to `color`), "tint" for a
+           * faint wash of the accent, or an image drawn with background-size: cover.
+           */
+          background: z.union([projectColor, z.literal("tint")]).optional(),
+          backgroundImage: image().optional(),
           /** Short description shown below logo-only illustrations. */
           caption: z
             .object({

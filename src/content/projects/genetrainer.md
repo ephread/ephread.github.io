@@ -12,6 +12,7 @@ color: "genetrainer"
 illustration:
   image: "../../assets/images/genetrainer-showcase@2x.png"
   alt: "Genetrainer preview"
+  layout: "wide"
 dates:
   from: "May 2017"
   to: "June 2017"

@@ -12,6 +12,7 @@ color: "actitens"
 illustration:
   image: "../../assets/images/actitens-showcase.svg"
   alt: "actiTENS preview"
+  layout: "phone"
 dates:
   from: "December 2015"
   to: "February 2018"

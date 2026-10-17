@@ -76,9 +76,12 @@
   --color-the-bell-showcase: #e0ba07;
   --color-the-bell-showcase-dark: #af9105;
 
-  /* Radii */
-  --radius-nav: 0.35rem;
-  --radius-base: 0.5rem;
+  /*
+   * Radii, in px: the old site's rem values never scaled (it scaled body, not
+   * html), so these are its .35rem and .5rem at the 16px default.
+   */
+  --radius-nav: 5.6px;
+  --radius-base: 8px;
 }
 
 /* The green underlined link used in body copy across the site. */
@@ -86,20 +89,20 @@
   display: inline-block;
   position: relative;
   padding-bottom: 0.1em;
-  border-bottom: 2px solid var(--color-green);
-  color: var(--color-green);
+  border-bottom: 2px solid var(--link-color, var(--color-green));
+  color: var(--link-color, var(--color-green));
   text-decoration: none;
   transition-property: color, border-color;
   transition-duration: 0.1s;
   transition-timing-function: ease-in-out;
 
   &:hover {
-    color: var(--color-green-dark);
-    border-bottom-color: var(--color-green-dark);
+    color: var(--link-color-hover, var(--color-green-dark));
+    border-bottom-color: var(--link-color-hover, var(--color-green-dark));
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-green);
+    outline: 2px solid var(--link-color, var(--color-green));
     outline-offset: 2px;
   }
 }
@@ -221,9 +224,4 @@
     scroll-margin-top: 4rem;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    html {
-      scroll-behavior: smooth;
-    }
-  }
 }

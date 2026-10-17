@@ -22,8 +22,15 @@ const background = tile.background
     class="group block rounded-[.5em] text-black no-underline transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-[0_0_.6em_--alpha(var(--color-black)/10%)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green"
     style={background}
   >
-    <!-- The image fills the width and stays centered, like the old background-size: 100%. -->
-    <div class="relative aspect-[100/55] overflow-hidden">
+    <!--
+      The image fills the width and stays centered, like the old background-size: 100%.
+      This colored block morphs into the showcase's header when the tile is opened.
+    -->
+    <div
+      class="relative aspect-[100/55] overflow-hidden rounded-t-[.5em]"
+      style={background}
+      transition:name={`project-${project.id}`}
+    >
       <Image
         src={tile.image}
         alt={tile.imageAlt}
@@ -32,7 +39,6 @@ const background = tile.background
           sizes: large ? "(width >= 45.0625em) 50vw, 100vw" : "(width >= 45.0625em) 33vw, 100vw",
         }}
         class="absolute inset-x-0 top-1/2 w-full -translate-y-1/2 transition-transform duration-300 ease-in-out group-hover:scale-120"
-        transition:name={`project-${project.id}`}
       />
     </div>
     <div class="flex w-full rounded-b-[.3em] bg-white p-[1em] text-[1.2em]">

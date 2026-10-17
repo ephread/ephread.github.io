@@ -12,6 +12,7 @@ color: "abjapp"
 illustration:
   image: "../../assets/images/abjapp-showcase.svg"
   alt: "Abjapp iPhone preview"
+  layout: "phone"
 dates:
   from: "June 2015"
   to: "Ongoing"

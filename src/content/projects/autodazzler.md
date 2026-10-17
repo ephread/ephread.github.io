@@ -12,6 +12,7 @@ color: "autodazzler"
 illustration:
   image: "../../assets/images/daz-showcase.svg"
   alt: "Daz Studio logo"
+  layout: "banner"
   caption:
     hidden: "Daz Studio, "
     text: "a 3D scene creation and rendering application developed by Daz Productions, Inc."

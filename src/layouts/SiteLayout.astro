@@ -7,6 +7,7 @@ type Props = ComponentProps<typeof BaseLayout>;
 ---
 
 <BaseLayout {...Astro.props}>
+  <slot name="head" slot="head" />
   <Nav />
   <main>
     <slot />

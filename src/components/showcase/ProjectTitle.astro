@@ -1,0 +1,20 @@
+---
+interface Props {
+  name: string;
+  tagline: string;
+  /** 1 for the page's project, 2 for sub-projects (ink). */
+  level?: 1 | 2;
+}
+
+const { name, tagline, level = 1 } = Astro.props;
+const Heading = level === 1 ? "h1" : "h2";
+---
+
+<div class="bg-white p-[2em] pb-[1em]">
+  <Heading class="text-center text-[2.5em] font-normal text-(--accent) uppercase">{name}</Heading>
+  <p
+    class="text-copy text-center font-medium after:mx-auto after:my-[.5em] after:block after:h-[.1em] after:w-[1.7em] after:bg-black after:text-[2em] after:opacity-20 after:content-['']"
+  >
+    {tagline}
+  </p>
+</div>
