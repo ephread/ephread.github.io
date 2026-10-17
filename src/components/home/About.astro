@@ -1,0 +1,39 @@
+---
+import AvailabilityBadge from "./AvailabilityBadge.astro";
+import Skills from "./Skills.astro";
+---
+
+<section id="about" class="bg-white pt-[4em] pb-[3em]">
+  <header class="py-[2em] md:mt-[1em]">
+    <img
+      src="https://www.gravatar.com/avatar/07cace5d941b67f22d030088283a10f0?s=400"
+      alt="Frédéric Maquin / Ephread"
+      width="400"
+      height="400"
+      class="mx-auto block size-[10em] rounded-full"
+    />
+  </header>
+
+  <AvailabilityBadge />
+
+  <div class="text-area p-[2em] pt-[1em] pb-[5em]">
+    <p>
+      I'm an independent iOS, watchOS and tvOS developer based in Montréal. 🇨🇦 I help companies build amazing apps.
+    </p>
+  </div>
+
+  <Skills />
+
+  <div class="text-area p-[2em] pt-[1em] pb-[5em]">
+    <p>
+      Whether you need assistance with app development, from designing the user interface to publishing
+      fully-functional applications, I'm here to help. My code is designed to be easy to understand, maintainable, and
+      testable.
+    </p>
+    <p>
+      You can check out some of my <a href="https://github.com/ephread">open source work</a> or take a look at my entire
+      work history on <a href="https://linkedin.com/in/ephread/">LinkedIn</a>.
+    </p>
+    <p>If you think we should make great apps together, you can <a href="#get-in-touch">hire me</a>!</p>
+  </div>
+</section>

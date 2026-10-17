@@ -2,7 +2,8 @@
 @import "@fontsource/fjalla-one/latin.css";
 @import "tailwindcss";
 
-@theme {
+/* static: project colors are picked at runtime through var(--color-<project>). */
+@theme static {
   /* Breakpoints, matching the old $larger-than-* variables (321, 721, 1025, 1441px). */
   --breakpoint-*: initial;
   --breakpoint-sm: 20.0625em;
@@ -100,6 +101,74 @@
   &:focus-visible {
     outline: 2px solid var(--color-green);
     outline-offset: 2px;
+  }
+}
+
+/* Body copy size, scaling up with the viewport. */
+@utility text-copy {
+  font-size: 1.3em;
+  line-height: 1.3em;
+
+  @variant sm {
+    font-size: 1.4em;
+  }
+  @variant md {
+    font-size: 1.5em;
+  }
+  @variant lg {
+    font-size: 1.6em;
+  }
+  @variant xl {
+    font-size: 1.7em;
+  }
+}
+
+/* Readable line length for body copy, narrowing as the viewport widens. */
+@utility measure {
+  width: 95%;
+  margin-inline: auto;
+
+  @variant sm {
+    width: 90%;
+  }
+  @variant md {
+    width: 80%;
+  }
+  @variant lg {
+    width: 75%;
+  }
+  @variant xl {
+    width: 60%;
+  }
+}
+
+/* Paragraphs and lists of body copy (from Markdown or hand-written). */
+@utility text-area {
+  & :where(p, ul, ol) {
+    @apply text-copy measure;
+    margin-top: 1em;
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  & :where(ul, ol) {
+    list-style-position: outside;
+  }
+
+  & ul {
+    list-style-type: ">";
+  }
+
+  & ol {
+    list-style-type: decimal;
+  }
+
+  & li {
+    padding-left: 1em;
+  }
+
+  & :where(p, li) a {
+    @apply text-link;
   }
 }
 

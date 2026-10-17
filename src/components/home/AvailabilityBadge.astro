@@ -1,0 +1,26 @@
+---
+import { availability, availabilityLabels } from "../../data/site";
+
+const availabilityColors = {
+  available: "bg-badge-available group-hover:bg-badge-available-dark",
+  limited: "bg-badge-limited group-hover:bg-badge-limited-dark",
+  unavailable: "bg-badge-not-available group-hover:bg-badge-not-available-dark",
+};
+---
+
+<div class="flex w-full items-center">
+  <a
+    href="#get-in-touch"
+    class="group mx-auto inline-flex items-center text-[.8em] leading-[.8em] font-bold text-white uppercase no-underline sm:text-[.9em] md:text-[1em] lg:text-[1.1em] xl:text-[1.2em]"
+  >
+    <span
+      class="rounded-l-base bg-badge-status px-[.6em] py-[.5em] transition-colors duration-300 ease-in-out group-hover:bg-badge-status-dark"
+      >Status</span
+    ><span
+      class:list={[
+        "rounded-r-base px-[.6em] py-[.5em] transition-colors duration-300 ease-in-out",
+        availabilityColors[availability],
+      ]}>{availabilityLabels[availability]}</span
+    >
+  </a>
+</div>

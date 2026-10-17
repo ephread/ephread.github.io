@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+import apple from "../../assets/images/apple.svg";
+import deviceBackground from "../../assets/images/device-background.svg";
+---
+
+<section
+  id="landing"
+  class="flex min-h-svh items-center justify-center bg-beige bg-size-[24em] bg-center bg-no-repeat sm:bg-size-[34em]"
+  style={`background-image: url(${deviceBackground.src})`}
+>
+  <header class="relative text-center">
+    <h1 class="text-[2.5em] font-normal text-green uppercase sm:text-[3.5em]">Hey, I’m Fred</h1>
+    <h2 class="font-text text-[1.3em] font-medium sm:text-[1.8em]">
+      I grow <Image src={apple} alt="apples" class="relative top-[.25em] inline-block size-[1em] align-baseline" /> in my backyard.
+    </h2>
+  </header>
+</section>
