@@ -1,0 +1,131 @@
+/*
+ * Support pages for the apps (/the-bell/, /abjapp/): contact forms, privacy
+ * policies and thank-you pages. They use the apps' own look, not the portfolio's.
+ */
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-lg: 64em;
+
+  --color-app-bg: var(--app-bg);
+  --color-app-fg: var(--app-fg);
+  --color-app-text: var(--app-text);
+  --color-app-heading: var(--app-heading);
+  --color-app-accent: var(--app-accent);
+  --color-app-field: var(--app-field);
+  --color-app-placeholder: var(--app-placeholder);
+  --color-app-on-accent: var(--app-on-accent);
+
+  --font-app: var(--app-font);
+}
+
+/* The Bell: dark, with the bell's yellow. */
+[data-theme="the-bell"] {
+  --app-bg: #222222;
+  --app-fg: #ffffff;
+  --app-text: #ffffff;
+  --app-heading: #f7dc0a;
+  --app-accent: #f7dc0a;
+  --app-field: rgb(255 255 255 / 0.1);
+  --app-placeholder: rgb(255 255 255 / 0.8);
+  --app-on-accent: #222222;
+  --app-font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial";
+}
+
+/* Abjapp: light, with the app's purple. */
+[data-theme="abjapp"] {
+  --app-bg: #f7f9f8;
+  --app-fg: #333333;
+  --app-text: #443f49;
+  --app-heading: #333333;
+  --app-accent: #b68bfc;
+  --app-field: rgb(51 51 51 / 0.05);
+  --app-placeholder: rgb(51 51 51 / 0.8);
+  --app-on-accent: #f7f9f8;
+  --app-font: "Avenir Next", "Helvetica Neue", "Helvetica", "Arial";
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+    background-color: var(--color-app-bg);
+    color: var(--color-app-fg);
+    font-family: var(--font-app);
+    /* Set on both, as before: the body ends up at 1.21rem. */
+    font-size: 1.1em;
+  }
+
+  html {
+    /* normalize.css's value, which these pages were built on (Preflight uses 1.5). */
+    line-height: 1.15;
+  }
+
+  ::placeholder {
+    color: var(--color-app-placeholder);
+  }
+}
+
+/* Long-form legal text (Abjapp's privacy policies). */
+@utility policy {
+  & h1 {
+    margin-bottom: 1em;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-app-heading);
+  }
+
+  & h2,
+  & h3,
+  & h4 {
+    margin-top: 3em;
+    margin-bottom: 1em;
+    font-weight: bold;
+    color: var(--color-app-heading);
+  }
+
+  & h2 {
+    font-size: 1.2em;
+  }
+
+  & h3 {
+    font-size: 1.1em;
+  }
+
+  & h4 {
+    margin-top: 1em;
+    font-size: 1em;
+  }
+
+  & p {
+    color: var(--color-app-text);
+  }
+
+  & a {
+    color: var(--color-app-accent);
+    text-decoration: underline;
+  }
+
+  & strong {
+    font-weight: bold;
+  }
+
+  & em {
+    font-style: italic;
+  }
+
+  /* Browser defaults the text was laid out with. */
+  & dl {
+    margin-block: 1em;
+  }
+
+  & dt {
+    font-weight: 500;
+  }
+
+  & dd {
+    margin-left: 40px;
+  }
+}

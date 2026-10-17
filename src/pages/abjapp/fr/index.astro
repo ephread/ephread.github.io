@@ -1,0 +1,18 @@
+---
+import AppLayout from "../../../layouts/AppLayout.astro";
+import ContactForm from "../../../components/app/ContactForm.astro";
+import icon from "../../../assets/images/abjapp-icon.svg";
+---
+
+<AppLayout app="abjapp" title="Abjapp | Contact" lang="fr">
+  <ContactForm
+    icon={icon}
+    iconAlt="Abjapp"
+    action="//formspree.io/fred@ephread.com"
+    subject="Abjapp : retours"
+  next="/abjapp/thanks/fr/"
+    lang="fr"
+  >
+    Vous avez des questions, des suggestions ou des retours à nous faire à propos d'Abjapp ? Remplissez juste ce formulaire et nous vous répondrons au plus vite !
+  </ContactForm>
+</AppLayout>

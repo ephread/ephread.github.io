@@ -1,0 +1,18 @@
+---
+import AppLayout from "../../layouts/AppLayout.astro";
+import ContactForm from "../../components/app/ContactForm.astro";
+import icon from "../../assets/images/the-bell-icon.svg";
+---
+
+<AppLayout app="the-bell" title="The Bell | Contact" lang="en">
+  <ContactForm
+    icon={icon}
+    iconAlt="The Bell"
+    action="//formspree.io/fred@ephread.com"
+    subject="The Bell: Feedback"
+  next="/the-bell/thanks/"
+    lang="en"
+  >
+    Do you have questions, suggestions or some feedback for The Bell? Just fill the form below and we'll email you back as soon as possible!
+  </ContactForm>
+</AppLayout>

@@ -1,0 +1,27 @@
+---
+import "../styles/app.css";
+
+interface Props {
+  app: "the-bell" | "abjapp";
+  title: string;
+  lang?: "en" | "fr";
+}
+
+const { app, title, lang = "en" } = Astro.props;
+const description = { "the-bell": "The Bell", abjapp: "Abjapp" }[app];
+---
+
+<!doctype html>
+<html lang={lang} data-theme={app}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>

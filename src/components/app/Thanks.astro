@@ -1,0 +1,15 @@
+---
+interface Props {
+  title: string;
+  message: string;
+}
+
+const { title, message } = Astro.props;
+---
+
+<section class="flex size-full flex-col items-center justify-center">
+  <header class="mx-auto my-[3em] block w-[90%] text-[.8em] lg:w-[50em] lg:text-[1em]">
+    <h1 class="mb-[.25em] text-center text-[3em] font-bold text-app-heading uppercase">{title}</h1>
+    <h2 class="text-center text-[2em] font-normal text-app-text">{message}</h2>
+  </header>
+</section>
