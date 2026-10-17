@@ -1,6 +1,8 @@
 {
   "name": "ephread.com",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
   "description": "Ephread.com",
   "author": "Frédéric Maquin",
   "license": "Unlicense",
@@ -9,37 +11,27 @@
     "url": "https://github.com/ephread/ephread.github.io"
   },
   "scripts": {
-    "build": "npm run build:js && npm run build:css",
-    "build:js": "rollup -c",
-    "build:css": "npm run build:css:main && npm run build:css:the-bell && npm run build:css:abjapp",
-    "build:css:main": "sass --style=compressed assets/src/stylesheets/application.scss assets/stylesheets/application.css",
-    "build:css:the-bell": "sass --style=compressed assets/src/stylesheets/the-bell.scss assets/stylesheets/the-bell.css",
-    "build:css:abjapp": "sass --style=compressed assets/src/stylesheets/abjapp.scss assets/stylesheets/abjapp.css",
-    "watch": "npm run build && chokidar 'assets/src/**/*' -c 'npm run build'",
-    "lint": "eslint 'assets/javascript/**/*.js'",
-    "lint:fix": "npm run lint -- --fix"
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check"
   },
-  "browserslist": "> 0.25%, not dead",
+  "engines": {
+    "node": ">=24"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource-variable/dosis": "^5.3.0",
+    "@fontsource/fjalla-one": "^5.3.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.4.0",
+    "tailwindcss": "^4.3.3"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.21.5",
-    "@babel/core": "^7.21.5",
-    "@babel/preset-env": "7.21.5",
-    "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-commonjs": "^24.1.0",
-    "@rollup/plugin-inject": "^5.0.3",
-    "@rollup/plugin-multi-entry": "^6.0.0",
-    "@rollup/plugin-node-resolve": "^15.0.2",
-    "@rollup/plugin-terser": "^0.4.1",
-    "chokidar": "^3.5.3",
-    "chokidar-cli": "^3.0.0",
-    "eslint": "^8.39.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "htmlhint": "^1.1.4",
-    "jquery": "^3.6.4",
-    "prettier": "^2.8.8",
-    "rollup": "^3.21.2",
-    "rollup-plugin-scss": "^4.0.0",
-    "sass": "^1.62.1"
+    "@astrojs/check": "^0.9.10",
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.1",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "typescript": "^6.0.3"
   }
 }

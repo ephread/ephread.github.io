@@ -1,0 +1,135 @@
+@import "@fontsource-variable/dosis";
+@import "@fontsource/fjalla-one/latin.css";
+@import "tailwindcss";
+
+@theme {
+  /* Breakpoints, matching the old $larger-than-* variables (321, 721, 1025, 1441px). */
+  --breakpoint-*: initial;
+  --breakpoint-sm: 20.0625em;
+  --breakpoint-md: 45.0625em;
+  --breakpoint-lg: 64.0625em;
+  --breakpoint-xl: 90.0625em;
+
+  /* Typography */
+  --font-headline: "Fjalla One", sans-serif;
+  --font-text: "Dosis Variable", "Dosis", sans-serif;
+  --font-sans: var(--font-text);
+
+  /* Base palette */
+  --color-white: #fff;
+  --color-black: #40434a;
+  --color-beige: #f9f5f1;
+  --color-beige-dark: #ded9d1;
+  --color-green: #009a9c;
+  --color-green-dark: #006869;
+
+  /* Availability badge */
+  --color-badge-status: #555555;
+  --color-badge-status-dark: #3b3b3b;
+  --color-badge-available: #44cc11;
+  --color-badge-available-dark: #349d0d;
+  --color-badge-limited: #fe7d37;
+  --color-badge-limited-dark: #fe5c04;
+  --color-badge-not-available: #e05d44;
+  --color-badge-not-available-dark: #cf3e22;
+
+  --color-grab-disabled: #9c9c9c;
+
+  /*
+   * Project colors. "-dark" values are the exact results of Sass's
+   * darken($color, 10) so hover states stay identical to the old site.
+   */
+  --color-actitens: #13b3d5;
+  --color-actitens-dark: #0f8ca6;
+  --color-abjapp: #b68bfc;
+  --color-abjapp-dark: #9759fb;
+  --color-instructions: #7abf6a;
+  --color-instructions-dark: #5cac4a;
+  --color-pomme-plate: #f5515f;
+  --color-pomme-plate-dark: #f22133;
+  --color-sophisticate: #333333;
+  --color-sophisticate-dark: #1a1a1a;
+  --color-genetrainer: #4bb19e;
+  --color-genetrainer-dark: #3c8d7e;
+  --color-mynox: #ff8839;
+  --color-mynox-dark: #ff6906;
+  --color-how-many-sleeps: #13253b;
+  --color-how-many-sleeps-dark: #070d14;
+  --color-autodazzler: #00bc8d;
+  --color-autodazzler-dark: #008967;
+  --color-genesis: #464958;
+  --color-genesis-dark: #2f313c;
+  --color-ink: #ececec;
+  --color-ink-dark: #d3d3d3;
+  --color-the-bell: #333333;
+  --color-the-bell-dark: #1a1a1a;
+  --color-combyne: #ff8338;
+  --color-combyne-dark: #ff6305;
+
+  /* Showcase accents that differ from the tile color. */
+  --color-ink-showcase: #c25c5c;
+  --color-ink-showcase-dark: #ab4040;
+  --color-genesis-showcase: #f58025;
+  --color-genesis-showcase-dark: #dd660a;
+  --color-the-bell-preview: #f7cd0a;
+  --color-the-bell-showcase: #e0ba07;
+  --color-the-bell-showcase-dark: #af9105;
+
+  /* Radii */
+  --radius-nav: 0.35rem;
+  --radius-base: 0.5rem;
+}
+
+@layer base {
+  /*
+   * The old site scaled body font-size per breakpoint and sized everything in
+   * em. Scaling the root instead keeps those proportions for rem-based utilities.
+   */
+  html {
+    background-color: var(--color-beige);
+    font-size: 100%;
+
+    @variant sm {
+      font-size: 90%;
+    }
+    @variant md {
+      font-size: 100%;
+    }
+    @variant lg {
+      font-size: 110%;
+    }
+    @variant xl {
+      font-size: 130%;
+    }
+  }
+
+  body {
+    background-color: var(--color-beige);
+    color: var(--color-black);
+    font-family: var(--font-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-headline);
+    line-height: 1.25em;
+    text-rendering: optimizeLegibility;
+  }
+
+  :target,
+  section[id] {
+    /* Keep anchored sections clear of the fixed navigation bar. */
+    scroll-margin-top: 4rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
