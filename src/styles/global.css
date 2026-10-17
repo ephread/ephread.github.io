@@ -80,6 +80,29 @@
   --radius-base: 0.5rem;
 }
 
+/* The green underlined link used in body copy across the site. */
+@utility text-link {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 0.1em;
+  border-bottom: 2px solid var(--color-green);
+  color: var(--color-green);
+  text-decoration: none;
+  transition-property: color, border-color;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-in-out;
+
+  &:hover {
+    color: var(--color-green-dark);
+    border-bottom-color: var(--color-green-dark);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-green);
+    outline-offset: 2px;
+  }
+}
+
 @layer base {
   /*
    * The old site scaled body font-size per breakpoint and sized everything in
@@ -88,6 +111,8 @@
   html {
     background-color: var(--color-beige);
     font-size: 100%;
+    /* normalize.css's value, which the old layout was built on (Preflight uses 1.5). */
+    line-height: 1.15;
 
     @variant sm {
       font-size: 90%;

@@ -1,0 +1,103 @@
+---
+// On the home page, links point at in-page anchors; elsewhere they go back home.
+const base = Astro.url.pathname === "/" ? "" : "/";
+
+const links = [
+  { section: "about", label: "About" },
+  { section: "work", label: "Work" },
+];
+---
+
+<nav
+  id="navigation"
+  class="fixed z-1000 w-full border-b border-transparent bg-beige font-bold uppercase transition-colors data-scrolled:border-black/10"
+>
+  <ul class="flex w-full items-center justify-center p-4 md:justify-end">
+    {
+      links.map(({ section, label }) => (
+        <li class="ml-[1em] text-[.9em] sm:ml-[1.5em] sm:text-[1em]">
+          <a
+            href={`${base}#${section}`}
+            data-section={section}
+            class="relative py-[.2em] text-center text-black after:absolute after:bottom-[-.1em] after:block after:h-[.12em] after:w-full after:translate-y-[.3em] after:rounded-[.1em] after:bg-green after:opacity-0 after:transition-all after:duration-300 after:ease-in-out after:content-[''] hover:after:translate-y-0 hover:after:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green aria-[current=location]:after:translate-y-0 aria-[current=location]:after:opacity-100"
+          >
+            {label}
+          </a>
+        </li>
+      ))
+    }
+    <li class="ml-[1em] text-[.9em] sm:ml-[1.5em] sm:text-[1em]">
+      <a
+        href={`${base}#get-in-touch`}
+        class="block rounded-nav bg-green px-[.4em] py-[.2em] text-center text-beige transition-colors duration-300 ease-in-out hover:bg-green-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green"
+      >
+        Get in touch
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<script>
+  let cleanUp: (() => void) | undefined;
+
+  function setUpNavigation() {
+    cleanUp?.();
+
+    const nav = document.getElementById("navigation");
+    if (!nav) return;
+
+    const links = new Map<string, HTMLAnchorElement>();
+    for (const link of nav.querySelectorAll<HTMLAnchorElement>("a[data-section]")) {
+      links.set(link.dataset.section!, link);
+    }
+
+    const sections = document.querySelectorAll<HTMLElement>("main section[id]");
+
+    const setActive = (id: string) => {
+      for (const [section, link] of links) {
+        if (section === id) {
+          link.setAttribute("aria-current", "location");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      }
+    };
+
+    // A section is "current" once its top passes a 1px line just below where
+    // anchor links land it (its scroll-margin-top, which clears the nav bar).
+    let observer: IntersectionObserver | undefined;
+    const observe = () => {
+      if (sections.length === 0) return;
+
+      const line = Math.ceil(parseFloat(getComputedStyle(sections[0]).scrollMarginTop)) + 1;
+
+      observer?.disconnect();
+      observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) setActive(entry.target.id);
+          }
+        },
+        { rootMargin: `-${line}px 0px ${line + 1 - window.innerHeight}px 0px` },
+      );
+      sections.forEach((section) => observer!.observe(section));
+    };
+
+    const onScroll = () => nav.toggleAttribute("data-scrolled", window.scrollY > 1);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", observe);
+    onScroll();
+    observe();
+
+    cleanUp = () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", observe);
+      observer?.disconnect();
+      cleanUp = undefined;
+    };
+  }
+
+  document.addEventListener("astro:page-load", setUpNavigation);
+  document.addEventListener("astro:before-swap", () => cleanUp?.());
+</script>

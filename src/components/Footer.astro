@@ -1,0 +1,24 @@
+---
+import github from "../assets/images/github.svg";
+import linkedin from "../assets/images/linkedin.svg";
+import speakerDeck from "../assets/images/speaker-deck.svg";
+
+const profiles = [
+  { name: "GitHub", href: "https://github.com/ephread", icon: github },
+  { name: "LinkedIn", href: "https://linkedin.com/in/ephread/", icon: linkedin },
+  { name: "Speaker Deck", href: "https://speakerdeck.com/ephread", icon: speakerDeck },
+];
+---
+
+<footer class="flex items-center justify-center gap-8 bg-beige p-12">
+  {
+    profiles.map(({ name, href, icon }) => (
+      <a
+        href={href}
+        class="block size-12 transition-transform duration-300 ease-in-out hover:scale-120 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green"
+      >
+        <img src={icon.src} alt={name} class="size-full" />
+      </a>
+    ))
+  }
+</footer>

@@ -1,0 +1,15 @@
+---
+import type { ComponentProps } from "astro/types";
+import BaseLayout from "./BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+
+type Props = ComponentProps<typeof BaseLayout>;
+---
+
+<BaseLayout {...Astro.props}>
+  <Nav />
+  <main>
+    <slot />
+  </main>
+  <slot name="footer" />
+</BaseLayout>

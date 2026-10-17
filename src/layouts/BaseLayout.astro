@@ -1,0 +1,61 @@
+---
+import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: string;
+  /** Title and description shown when the page is shared. */
+  social?: {
+    title: string;
+    description: string;
+  };
+}
+
+const {
+  title,
+  description = "Hey, I'm Fred, this is my personal website.",
+  lang = "en",
+  social = {
+    title: "Frédéric Maquin | Independent iOS developer",
+    description: "Hey, I'm Fred, I'm an independent iOS developer available for hire!",
+  },
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImage = new URL("/social.png", Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:title" content={social.title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:description" content={social.description} />
+    <meta property="og:image" content={socialImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={social.title} />
+    <meta name="twitter:description" content={social.description} />
+    <meta name="twitter:image" content={socialImage} />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="mask-icon" href="/mask-icon.svg" color="#009a9c" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <ClientRouter />
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>
