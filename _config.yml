@@ -13,7 +13,6 @@ exclude:
   - 'assets/stylesheets/application.css.map'
   - 'assets/src/'
 
-permalink: /articles/:year/:month/:day/:title/
 
 plugins:
 - jekyll-sitemap
