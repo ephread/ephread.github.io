@@ -1,5 +1,7 @@
 ---
+import { createHash } from "node:crypto";
 import { ClientRouter } from "astro:transitions";
+import { availability, intro, social as defaultSocial } from "../data/site";
 import "../styles/global.css";
 
 interface Props {
@@ -19,14 +21,13 @@ const {
   description = "Hey, I'm Fred, this is my personal website.",
   lang = "en",
   bodyClass,
-  social = {
-    title: "Frédéric Maquin | Independent iOS developer",
-    description: "Hey, I'm Fred, I'm an independent iOS developer available for hire!",
-  },
+  social = defaultSocial,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const socialImage = new URL("/social.png", Astro.site);
+// The version changes with the image's content, so social networks fetch it again.
+const socialImageVersion = createHash("sha256").update(`${availability}\n${intro}`).digest("hex").slice(0, 8);
+const socialImage = new URL(`/social.png?v=${socialImageVersion}`, Astro.site);
 ---
 
 <!doctype html>
