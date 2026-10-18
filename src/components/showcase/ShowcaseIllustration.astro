@@ -24,6 +24,24 @@ const imageWidths = {
   device: "w-full",
 };
 
+/** The same widths in vw (base, sm, md, lg, xl), to pick a raster image's size. */
+const imageViewportWidths = {
+  default: [90, 75, 60, 55, 40],
+  phone: [65, 55, 45, 33, 25],
+  wide: [100, 85, 60, 40, 30],
+  panorama: [100, 95, 80, 70, 60],
+  logo: [60, 50, 40, 25, 20],
+  banner: [100, 80, 70, 60, 50],
+  icon: [50, 45, 30, 20, 15],
+  device: [100, 100, 100, 100, 100],
+};
+const breakpoints = ["20.0625em", "45.0625em", "64.0625em", "90.0625em"];
+const [base, ...rest] = imageViewportWidths[layout];
+const sizes = [
+  ...rest.map((vw, i) => `(width >= ${breakpoints[i]}) ${vw}vw`).reverse(),
+  `${base}vw`,
+].join(", ");
+
 // Logos come with a caption and get a taller band.
 const tall = layout === "logo" || layout === "banner";
 
@@ -68,8 +86,8 @@ const imageProps = {
       <Picture
         {...imageProps}
         formats={["avif", "webp"]}
-        widths={[480, 960, image.width]}
-        sizes="(width >= 45.0625em) 60vw, 100vw"
+        widths={[320, 480, 640, 960, 1280, 1920].filter((w) => w < image.width).concat(image.width)}
+        sizes={sizes}
       />
     )
   }

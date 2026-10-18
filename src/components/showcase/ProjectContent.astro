@@ -12,8 +12,11 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const { links, callout } = project.data;
+const { links, callout, illustration } = project.data;
 const { Content } = await render(project);
+
+// Same wash as the information band (see ProjectInformation).
+const tint = illustration?.background === "tint" ? "bg-(--accent)/3" : "bg-(--accent)/6";
 
 const linkKinds = {
   website: { icon: link, label: "View Website", dimmed: false },
@@ -52,7 +55,7 @@ const linkKinds = {
   ))}
 
   {callout && (
-    <div class="measure mb-[2em] rounded-nav bg-(--accent)/6 p-[1em] text-left text-[1.3em]">
+    <div class:list={["measure mb-[2em] rounded-nav p-[1em] text-left text-[1.3em] max-sm:w-auto", tint]}>
       <p set:html={callout} />
     </div>
   )}
