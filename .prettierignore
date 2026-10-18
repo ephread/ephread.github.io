@@ -2,14 +2,3 @@ dist/
 .astro/
 package-lock.json
 public/
-
-# Jekyll site, removed once the Astro one is deployed.
-_site/
-_includes/
-_layouts/
-assets/
-abjapp/
-the-bell/
-thanks/
-index.html
-_config*.yml
