@@ -53,13 +53,12 @@
     background-color: var(--color-app-bg);
     color: var(--color-app-fg);
     font-family: var(--font-app);
-    /* Set on both, as before: the body ends up at 1.21rem. */
-    font-size: 1.1em;
   }
 
-  html {
-    /* normalize.css's value, which these pages were built on (Preflight uses 1.5). */
-    line-height: 1.15;
+  /* One size at every width; sizes below are in rem so they don't compound. */
+  body {
+    font-size: 1.125rem;
+    line-height: 1.5;
   }
 
   ::placeholder {
@@ -71,7 +70,8 @@
 @utility policy {
   & h1 {
     margin-bottom: 1em;
-    font-size: 2em;
+    font-size: 2rem;
+    line-height: 1.25;
     font-weight: bold;
     text-align: center;
     color: var(--color-app-heading);
@@ -87,16 +87,16 @@
   }
 
   & h2 {
-    font-size: 1.2em;
+    font-size: 1.25rem;
   }
 
   & h3 {
-    font-size: 1.1em;
+    font-size: 1.125rem;
   }
 
   & h4 {
     margin-top: 1em;
-    font-size: 1em;
+    font-size: 1.125rem;
   }
 
   & p {

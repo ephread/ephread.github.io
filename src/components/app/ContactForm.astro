@@ -22,15 +22,15 @@ const labels = {
 
 // Shared by the text fields and the submit button. Padding and line height are
 // set per element: conflicting utilities on one element don't override in class order.
-const control = "my-[.5em] w-full rounded-[12px] border-0 text-[1.2em] outline-none";
+const control = "my-[.5em] w-full rounded-[12px] border-0 text-[1.125rem] outline-none";
 const field = `${control} bg-app-field text-app-fg focus:shadow-[0_0_0_2px_var(--color-app-accent)]`;
 const singleLine = "px-[1em] leading-[3em]";
 ---
 
-<div class="mx-auto my-[3em] w-[90%] text-[.8em] lg:w-[50em] lg:text-[1em]">
+<div class="mx-auto my-[3rem] w-[90%] max-w-[45rem]">
   <div>
-    <Image src={icon} alt={iconAlt} class="mx-auto mb-[2em] block size-[8em]" />
-    <p class="my-[1em] text-[1.5em] leading-[1.5em]">
+    <Image src={icon} alt={iconAlt} class="mx-auto mb-[2rem] block size-[8rem]" />
+    <p class="my-[1em] text-[1.25rem] leading-normal">
       <slot />
     </p>
   </div>
