@@ -12,7 +12,7 @@ if (!tile) throw new Error(`Project "${project.id}" has no tile.`);
 
 const large = tile.size === "large";
 const background = tile.background
-  ? `background-image: url(${tile.background.src})`
+  ? `background-image: url(${tile.background.src}); background-size: cover; background-position: center`
   : `background-color: var(--color-${color})`;
 ---
 
