@@ -11,14 +11,12 @@ const profiles = [
 ---
 
 <footer class="flex items-center justify-center gap-8 bg-beige p-12">
-  {
-    profiles.map(({ name, href, icon }) => (
-      <a
-        href={href}
-        class="block size-12 transition-transform duration-300 ease-in-out hover:scale-120 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green"
-      >
-        <img src={icon.src} alt={name} class="size-full" />
-      </a>
-    ))
-  }
+  {profiles.map(({ name, href, icon }) => (
+    <a
+      href={href}
+      class="block size-12 transition-transform duration-300 ease-in-out hover:scale-120 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green"
+    >
+      <img src={icon.src} alt={name} class="size-full" />
+    </a>
+  ))}
 </footer>

@@ -40,28 +40,26 @@ const style = [
     <CloseButton />
     <ShowcaseIllustration project={project} />
 
-    {
-      subprojects.length > 0 ? (
-        <>
-          <h1 class="sr-only">{name}</h1>
-          <section class="text-area *:mt-[2.5em]">
-            <Content />
+    {subprojects.length > 0 ? (
+      <>
+        <h1 class="sr-only">{name}</h1>
+        <section class="text-area *:mt-[2.5em]">
+          <Content />
+        </section>
+        {subprojects.map((subproject) => (
+          <section class="mt-[4em] before:mb-[4em] before:block before:h-[.2em] before:w-full before:bg-(--accent) before:opacity-6 before:content-['']">
+            <ProjectTitle name={subproject.data.name} tagline={subproject.data.tagline} level={2} />
+            <ProjectInformation project={subproject} />
+            <ProjectContent project={subproject} />
           </section>
-          {subprojects.map((subproject) => (
-            <section class="mt-[4em] before:mb-[4em] before:block before:h-[.2em] before:w-full before:bg-(--accent) before:opacity-6 before:content-['']">
-              <ProjectTitle name={subproject.data.name} tagline={subproject.data.tagline} level={2} />
-              <ProjectInformation project={subproject} />
-              <ProjectContent project={subproject} />
-            </section>
-          ))}
-        </>
-      ) : (
-        <>
-          <ProjectTitle name={name} tagline={tagline} />
-          <ProjectInformation project={project} />
-          <ProjectContent project={project} />
-        </>
-      )
-    }
+        ))}
+      </>
+    ) : (
+      <>
+        <ProjectTitle name={name} tagline={tagline} />
+        <ProjectInformation project={project} />
+        <ProjectContent project={project} />
+      </>
+    )}
   </main>
 </BaseLayout>

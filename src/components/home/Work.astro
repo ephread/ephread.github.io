@@ -3,7 +3,10 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import SectionTitle from "../SectionTitle.astro";
 import ProjectTile from "./ProjectTile.astro";
 
-type Project = CollectionEntry<"projects">;
+/** A project shown in the grid, i.e. one with a tile. */
+type Project = CollectionEntry<"projects"> & {
+  data: { tile: NonNullable<CollectionEntry<"projects">["data"]["tile"]> };
+};
 
 const groups = [
   { id: "indie", title: "Indie" },
@@ -11,18 +14,18 @@ const groups = [
   { id: "open-source", title: "Open Source" },
 ] as const;
 
-const projects = (await getCollection("projects", (project) => project.data.tile !== undefined)).sort(
-  (a, b) => a.data.order - b.data.order,
-);
+const projects = (
+  await getCollection("projects", (project): project is Project => project.data.tile !== undefined)
+).sort((a, b) => a.data.order - b.data.order);
 
 /** Splits a group into rows: consecutive tiles of the same size, 2 large or 3 small per row. */
 function rows(group: Project[]): Project[][] {
   const result: Project[][] = [];
   for (const project of group) {
     const row = result.at(-1);
-    const size = project.data.tile!.size;
+    const size = project.data.tile.size;
     const capacity = size === "large" ? 2 : 3;
-    if (row && row[0].data.tile!.size === size && row.length < capacity) {
+    if (row && row[0].data.tile.size === size && row.length < capacity) {
       row.push(project);
     } else {
       result.push([project]);
@@ -36,18 +39,16 @@ function rows(group: Project[]): Project[][] {
   <header>
     <SectionTitle>Work</SectionTitle>
   </header>
-  {
-    groups.map(({ id, title }) => (
-      <>
-        <h4 class="my-[1em] text-center text-[2em] font-normal text-black uppercase">{title}</h4>
-        {rows(projects.filter((project) => project.data.tile!.group === id)).map((row) => (
-          <div class="mx-auto my-[1em] flex max-w-[75em] flex-wrap">
-            {row.map((project) => (
-              <ProjectTile project={project} />
-            ))}
-          </div>
-        ))}
-      </>
-    ))
-  }
+  {groups.map(({ id, title }) => (
+    <>
+      <h4 class="my-[1em] text-center text-[2em] font-normal text-black uppercase">{title}</h4>
+      {rows(projects.filter((project) => project.data.tile.group === id)).map((row) => (
+        <div class="mx-auto my-[1em] flex max-w-[75em] flex-wrap">
+          {row.map((project) => (
+            <ProjectTile project={project} />
+          ))}
+        </div>
+      ))}
+    </>
+  ))}
 </section>

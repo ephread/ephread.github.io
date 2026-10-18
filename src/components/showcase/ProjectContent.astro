@@ -44,10 +44,7 @@ const linkKinds = {
         <Image
           src={linkKinds[kind].icon}
           alt=""
-          class:list={[
-            "mr-[.5em] size-[1em] flex-[0_0_1em]",
-            linkKinds[kind].dimmed && "opacity-70",
-          ]}
+          class:list={["mr-[.5em] size-[1em] flex-[0_0_1em]", linkKinds[kind].dimmed && "opacity-70"]}
         />
         {label ?? linkKinds[kind].label}
       </a>{" "}

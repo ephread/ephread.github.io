@@ -148,7 +148,7 @@
 /* Paragraphs and lists of body copy (from Markdown or hand-written). */
 @utility text-area {
   & :where(p, ul, ol) {
-    @apply text-copy measure;
+    @apply measure text-copy;
     margin-top: 1em;
     margin-bottom: 0;
     text-align: left;
@@ -223,5 +223,4 @@
     /* Keep anchored sections clear of the fixed navigation bar. */
     scroll-margin-top: 4rem;
   }
-
 }

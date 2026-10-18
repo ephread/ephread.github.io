@@ -24,9 +24,9 @@ callout: "Unfortunately, <em>How Many Sleeps?</em> was pulled from the App Store
 ---
 
 For young children, understanding the passing of time and the duration between
-today and future events can be challenging. To help with this, *How Many Sleeps?*
+today and future events can be challenging. To help with this, _How Many Sleeps?_
 is an app that introduces the concept of time through a fun and engaging method
 — by counting the number of sleeps remaining until an event.
 
-With *How Many Sleeps?*, children can learn about time and eagerly
+With _How Many Sleeps?_, children can learn about time and eagerly
 anticipate upcoming events, making it an ideal tool for parents.

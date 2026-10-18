@@ -22,8 +22,7 @@ const labels = {
 
 // Shared by the text fields and the submit button. Padding and line height are
 // set per element: conflicting utilities on one element don't override in class order.
-const control =
-  "my-[.5em] w-full rounded-[12px] border-0 text-[1.2em] outline-none";
+const control = "my-[.5em] w-full rounded-[12px] border-0 text-[1.2em] outline-none";
 const field = `${control} bg-app-field text-app-fg focus:shadow-[0_0_0_2px_var(--color-app-accent)]`;
 const singleLine = "px-[1em] leading-[3em]";
 ---
@@ -51,21 +50,12 @@ const singleLine = "px-[1em] leading-[3em]";
         placeholder="Message"
         aria-label={labels.message}
         required
-        class:list={[
-          field,
-          "min-h-[15em] resize-none p-[1em] align-middle leading-[1.2em]",
-        ]}
+        class:list={[field, "min-h-[15em] resize-none p-[1em] align-middle leading-[1.2em]"]}
       ></textarea>
       {next && <input type="hidden" name="_next" value={next} />}
       <input type="hidden" name="_subject" value={subject} />
       <!-- Honeypot: bots fill it in, people never see it. -->
-      <input
-        type="text"
-        name="_gotcha"
-        class="hidden"
-        tabindex="-1"
-        autocomplete="off"
-      />
+      <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
 
       <input
         type="submit"

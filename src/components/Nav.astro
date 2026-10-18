@@ -13,19 +13,17 @@ const links = [
   class="fixed z-1000 w-full border-b border-transparent bg-beige font-bold uppercase transition-colors data-scrolled:border-black/10"
 >
   <ul class="flex w-full items-center justify-center p-4 md:justify-end">
-    {
-      links.map(({ section, label }) => (
-        <li class="ml-[1em] text-[.9em] sm:ml-[1.5em] sm:text-[1em]">
-          <a
-            href={`${base}#${section}`}
-            data-section={section}
-            class="relative py-[.2em] text-center text-black after:absolute after:bottom-[-.1em] after:block after:h-[.12em] after:w-full after:translate-y-[.3em] after:rounded-[.1em] after:bg-green after:opacity-0 after:transition-all after:duration-300 after:ease-in-out after:content-[''] hover:after:translate-y-0 hover:after:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green aria-[current=location]:after:translate-y-0 aria-[current=location]:after:opacity-100"
-          >
-            {label}
-          </a>
-        </li>
-      ))
-    }
+    {links.map(({ section, label }) => (
+      <li class="ml-[1em] text-[.9em] sm:ml-[1.5em] sm:text-[1em]">
+        <a
+          href={`${base}#${section}`}
+          data-section={section}
+          class="relative py-[.2em] text-center text-black after:absolute after:bottom-[-.1em] after:block after:h-[.12em] after:w-full after:translate-y-[.3em] after:rounded-[.1em] after:bg-green after:opacity-0 after:transition-all after:duration-300 after:ease-in-out after:content-[''] hover:after:translate-y-0 hover:after:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green aria-[current=location]:after:translate-y-0 aria-[current=location]:after:opacity-100"
+        >
+          {label}
+        </a>
+      </li>
+    ))}
     <li class="ml-[1em] text-[.9em] sm:ml-[1.5em] sm:text-[1em]">
       <a
         href={`${base}#get-in-touch`}
@@ -48,7 +46,7 @@ const links = [
 
     const links = new Map<string, HTMLAnchorElement>();
     for (const link of nav.querySelectorAll<HTMLAnchorElement>("a[data-section]")) {
-      links.set(link.dataset.section!, link);
+      if (link.dataset.section) links.set(link.dataset.section, link);
     }
 
     const sections = document.querySelectorAll<HTMLElement>("main section[id]");
@@ -72,7 +70,7 @@ const links = [
       const line = Math.ceil(parseFloat(getComputedStyle(sections[0]).scrollMarginTop)) + 1;
 
       observer?.disconnect();
-      observer = new IntersectionObserver(
+      const current = new IntersectionObserver(
         (entries) => {
           for (const entry of entries) {
             if (entry.isIntersecting) setActive(entry.target.id);
@@ -80,7 +78,8 @@ const links = [
         },
         { rootMargin: `-${line}px 0px ${line + 1 - window.innerHeight}px 0px` },
       );
-      sections.forEach((section) => observer!.observe(section));
+      sections.forEach((section) => current.observe(section));
+      observer = current;
     };
 
     const onScroll = () => nav.toggleAttribute("data-scrolled", window.scrollY > 1);

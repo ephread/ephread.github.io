@@ -11,7 +11,7 @@ import GetInTouch from "../components/home/GetInTouch.astro";
   <script is:inline slot="head">
     // Showcases used to be in-page overlays (/#abjapp-showcase); they now have their own pages.
     (function () {
-      var match = location.hash.match(/^#([a-z-]+)-showcase$/);
+      const match = location.hash.match(/^#([a-z-]+)-showcase$/);
       if (match) location.replace("/work/" + match[1] + "/");
     })();
   </script>

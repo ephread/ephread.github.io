@@ -62,7 +62,9 @@ const projects = defineCollection({
           image: image(),
           alt: z.string(),
           /** Size preset of the image in the header band (see ShowcaseIllustration). */
-          layout: z.enum(["default", "phone", "wide", "panorama", "logo", "banner", "icon", "device"]).default("default"),
+          layout: z
+            .enum(["default", "phone", "wide", "panorama", "logo", "banner", "icon", "device"])
+            .default("default"),
           /**
            * Header band background: a color token (defaults to `color`), "tint" for a
            * faint wash of the accent, or an image drawn with background-size: cover.

@@ -37,10 +37,7 @@ const imageViewportWidths = {
 };
 const breakpoints = ["20.0625em", "45.0625em", "64.0625em", "90.0625em"];
 const [base, ...rest] = imageViewportWidths[layout];
-const sizes = [
-  ...rest.map((vw, i) => `(width >= ${breakpoints[i]}) ${vw}vw`).reverse(),
-  `${base}vw`,
-].join(", ");
+const sizes = [...rest.map((vw, i) => `(width >= ${breakpoints[i]}) ${vw}vw`).reverse(), `${base}vw`].join(", ");
 
 // Logos come with a caption and get a taller band.
 const tall = layout === "logo" || layout === "banner";
@@ -66,39 +63,43 @@ const imageProps = {
   style={style}
   transition:name={`project-${project.id}`}
 >
-  {
-    layout === "device" && video ? (
-      <div class="relative mx-auto w-[75%] md:w-[50%]">
-        <Image {...imageProps} />
-        <div
-          class="absolute top-[6.56%] left-[9.09%] h-[86.98%] w-[82.02%] bg-cover"
-          style={`background-image: url(${video.poster.src})`}
-        >
-          <video class="hidden size-full md:block" data-showcase-video preload="none" muted loop playsinline aria-hidden="true">
-            <source src={video.mp4} type="video/mp4" />
-            <source src={video.webm} type="video/webm" />
-          </video>
-        </div>
-      </div>
-    ) : image.format === "svg" ? (
+  {layout === "device" && video ? (
+    <div class="relative mx-auto w-[75%] md:w-[50%]">
       <Image {...imageProps} />
-    ) : (
-      <Picture
-        {...imageProps}
-        formats={["avif", "webp"]}
-        widths={[320, 480, 640, 960, 1280, 1920].filter((w) => w < image.width).concat(image.width)}
-        sizes={sizes}
-      />
-    )
-  }
-  {
-    caption && (
-      <p class="text-copy mt-[1.5em] text-center font-medium text-white">
-        <span class="sr-only">{caption.hidden}</span>
-        {caption.text}
-      </p>
-    )
-  }
+      <div
+        class="absolute top-[6.56%] left-[9.09%] h-[86.98%] w-[82.02%] bg-cover"
+        style={`background-image: url(${video.poster.src})`}
+      >
+        <video
+          class="hidden size-full md:block"
+          data-showcase-video
+          preload="none"
+          muted
+          loop
+          playsinline
+          aria-hidden="true"
+        >
+          <source src={video.mp4} type="video/mp4" />
+          <source src={video.webm} type="video/webm" />
+        </video>
+      </div>
+    </div>
+  ) : image.format === "svg" ? (
+    <Image {...imageProps} />
+  ) : (
+    <Picture
+      {...imageProps}
+      formats={["avif", "webp"]}
+      widths={[320, 480, 640, 960, 1280, 1920].filter((w) => w < image.width).concat(image.width)}
+      sizes={sizes}
+    />
+  )}
+  {caption && (
+    <p class="text-copy mt-[1.5em] text-center font-medium text-white">
+      <span class="sr-only">{caption.hidden}</span>
+      {caption.text}
+    </p>
+  )}
 </header>
 
 <script>
@@ -114,7 +115,8 @@ const imageProps = {
     if (!video) return;
 
     const update = () => {
-      if (wide.matches && !reducedMotion.matches) video.play().catch(() => {});
+      if (wide.matches && !reducedMotion.matches)
+        video.play().catch(() => undefined); // Autoplay can be refused; the poster stays.
       else video.pause();
     };
 
