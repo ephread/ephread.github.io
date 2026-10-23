@@ -1,7 +1,7 @@
 ---
 import { createHash } from "node:crypto";
 import { ClientRouter } from "astro:transitions";
-import { availability, intro, social as defaultSocial } from "../data/site";
+import { availability, availabilityLabels, intro, social as defaultSocial, socialImageSize } from "../data/site";
 import "../styles/global.css";
 
 interface Props {
@@ -26,8 +26,12 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 // The version changes with the image's content, so social networks fetch it again.
-const socialImageVersion = createHash("sha256").update(`${availability}\n${intro}`).digest("hex").slice(0, 8);
+const socialImageVersion = createHash("sha256")
+  .update(`${availability}\n${intro}\n${socialImageSize.width}x${socialImageSize.height}`)
+  .digest("hex")
+  .slice(0, 8);
 const socialImage = new URL(`/social.png?v=${socialImageVersion}`, Astro.site);
+const socialImageAlt = `Frédéric Maquin's photo, status: ${availabilityLabels[availability]}. ${intro}`;
 ---
 
 <!doctype html>
@@ -46,11 +50,16 @@ const socialImage = new URL(`/social.png?v=${socialImageVersion}`, Astro.site);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:description" content={social.description} />
     <meta property="og:image" content={socialImage} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content={String(socialImageSize.width)} />
+    <meta property="og:image:height" content={String(socialImageSize.height)} />
+    <meta property="og:image:alt" content={socialImageAlt} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={social.title} />
     <meta name="twitter:description" content={social.description} />
     <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="mask-icon" href="/mask-icon.svg" color="#009a9c" />

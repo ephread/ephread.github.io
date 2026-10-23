@@ -8,11 +8,9 @@ import { createRequire } from "node:module";
 import type { APIRoute } from "astro";
 import satori from "satori";
 import sharp from "sharp";
-import { availability, availabilityColors, availabilityLabels, avatar, intro } from "../data/site";
+import { availability, availabilityColors, availabilityLabels, avatar, intro, socialImageSize } from "../data/site";
 
-// The size Facebook, LinkedIn and X recommend for large previews.
-const width = 1200;
-const height = 630;
+const { width, height } = socialImageSize;
 
 const black = "#40434a";
 const badgeStatus = "#555555";

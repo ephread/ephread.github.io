@@ -28,6 +28,9 @@ export const avatar = {
   alt: "Frédéric Maquin / Ephread",
 };
 
+/** The social preview image's size (/social.png), the one Facebook, LinkedIn and X recommend. */
+export const socialImageSize = { width: 1200, height: 630 };
+
 /** Title and description shown when a page is shared on social media. */
 export const social = {
   title: "Frédéric Maquin | Independent iOS developer",
