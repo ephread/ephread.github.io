@@ -31,7 +31,8 @@ const socialImage = new URL(`/social.png?v=${socialImageVersion}`, Astro.site);
 ---
 
 <!doctype html>
-<html lang={lang}>
+<!-- Pages swap instantly: the router's default cross-fade is turned off. -->
+<html lang={lang} transition:animate="none">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

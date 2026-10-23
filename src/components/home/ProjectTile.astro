@@ -24,13 +24,8 @@ const background = tile.background
   >
     <!--
       The image fills the width and stays centered, like the old background-size: 100%.
-      This colored block morphs into the showcase's header when the tile is opened.
     -->
-    <div
-      class="relative aspect-[100/55] overflow-hidden rounded-t-[.5em]"
-      style={background}
-      transition:name={`project-${project.id}`}
-    >
+    <div class="relative aspect-[100/55] overflow-hidden rounded-t-[.5em]" style={background}>
       <Image
         src={tile.image}
         alt={tile.imageAlt}

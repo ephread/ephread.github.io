@@ -58,11 +58,7 @@ const imageProps = {
 } as const;
 ---
 
-<header
-  class:list={[tall ? "px-[3em] py-[8em]" : "p-[3em]", background === "tint" && "bg-(--accent)/6"]}
-  style={style}
-  transition:name={`project-${project.id}`}
->
+<header class:list={[tall ? "px-[3em] py-[8em]" : "p-[3em]", background === "tint" && "bg-(--accent)/6"]} style={style}>
   {layout === "device" && video ? (
     <div class="relative mx-auto w-[75%] md:w-[50%]">
       <Image {...imageProps} />
