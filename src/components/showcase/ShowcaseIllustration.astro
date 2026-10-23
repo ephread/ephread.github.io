@@ -59,37 +59,53 @@ const imageProps = {
 ---
 
 <header class:list={[tall ? "px-[3em] py-[8em]" : "p-[3em]", background === "tint" && "bg-(--accent)/6"]} style={style}>
-  {layout === "device" && video ? (
-    <div class="relative mx-auto w-[75%] md:w-[50%]">
-      <Image {...imageProps} />
-      <div
-        class="absolute top-[6.56%] left-[9.09%] h-[86.98%] w-[82.02%] bg-cover"
-        style={`background-image: url(${video.poster.src})`}
-      >
-        <video
-          class="hidden size-full md:block"
-          data-showcase-video
-          preload="none"
-          muted
-          loop
-          playsinline
-          aria-hidden="true"
-        >
-          <source src={video.mp4} type="video/mp4" />
-          <source src={video.webm} type="video/webm" />
-        </video>
-      </div>
+  <!--
+    While the image loads, the script below hides it and, if loading takes a
+    moment, shows a spinner in the space it takes up.
+  -->
+  <div class="group relative" data-showcase-image>
+    <div class="group-data-loading:invisible">
+      {layout === "device" && video ? (
+        <div class="relative mx-auto w-[75%] md:w-[50%]">
+          <Image {...imageProps} />
+          <div
+            class="absolute top-[6.56%] left-[9.09%] h-[86.98%] w-[82.02%] bg-cover"
+            style={`background-image: url(${video.poster.src})`}
+          >
+            <video
+              class="hidden size-full md:block"
+              data-showcase-video
+              preload="none"
+              muted
+              loop
+              playsinline
+              aria-hidden="true"
+            >
+              <source src={video.mp4} type="video/mp4" />
+              <source src={video.webm} type="video/webm" />
+            </video>
+          </div>
+        </div>
+      ) : image.format === "svg" ? (
+        <Image {...imageProps} />
+      ) : (
+        <Picture
+          {...imageProps}
+          formats={["avif", "webp"]}
+          widths={[320, 480, 640, 960, 1280, 1920].filter((w) => w < image.width).concat(image.width)}
+          sizes={sizes}
+        />
+      )}
     </div>
-  ) : image.format === "svg" ? (
-    <Image {...imageProps} />
-  ) : (
-    <Picture
-      {...imageProps}
-      formats={["avif", "webp"]}
-      widths={[320, 480, 640, 960, 1280, 1920].filter((w) => w < image.width).concat(image.width)}
-      sizes={sizes}
-    />
-  )}
+    <div class="absolute inset-0 hidden items-center justify-center group-data-slow:flex" aria-hidden="true">
+      <div
+        class:list={[
+          "size-[2.5em] animate-spin rounded-full border-[.25em] border-current/25 border-t-current motion-reduce:animate-pulse",
+          background === "tint" ? "text-(--accent)" : "text-white",
+        ]}
+      ></div>
+    </div>
+  </div>
   {caption && (
     <p class="text-copy mt-[1.5em] text-center font-medium text-white">
       <span class="sr-only">{caption.hidden}</span>
@@ -99,6 +115,31 @@ const imageProps = {
 </header>
 
 <script>
+  // Hides the illustration until it has loaded, with a spinner after a short
+  // delay so that images already in the cache don't flash one.
+  const spinnerDelay = 150;
+
+  document.addEventListener("astro:page-load", () => {
+    const container = document.querySelector<HTMLElement>("[data-showcase-image]");
+    const pending = [...(container?.querySelectorAll("img") ?? [])].filter((img) => !img.complete);
+    if (!container || pending.length === 0) return;
+
+    container.dataset.loading = "";
+    const timer = setTimeout(() => (container.dataset.slow = ""), spinnerDelay);
+    let remaining = pending.length;
+    const done = () => {
+      if (--remaining > 0) return;
+      clearTimeout(timer);
+      delete container.dataset.loading;
+      delete container.dataset.slow;
+    };
+    // A broken image is shown (as its alt text) rather than spinning forever.
+    for (const img of pending) {
+      img.addEventListener("load", done, { once: true });
+      img.addEventListener("error", done, { once: true });
+    }
+  });
+
   // The screen recording is decoration over its poster: it's only fetched and
   // played where it's shown (md and up), and not at all with reduced motion.
   const wide = matchMedia("(width >= 45.0625em)");
