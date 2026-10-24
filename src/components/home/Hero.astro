@@ -37,6 +37,7 @@ import AvailabilityBadge from "./AvailabilityBadge.astro";
             loading="eager"
             fetchpriority="high"
             onload="this.closest('.shimmer').dataset.loaded = ''"
+            onerror="this.closest('.shimmer').dataset.loaded = ''"
             pictureAttributes={{ class: "absolute inset-0" }}
             class="block size-full object-cover"
           />

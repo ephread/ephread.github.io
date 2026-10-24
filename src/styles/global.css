@@ -101,7 +101,7 @@
   background-size: 200% 100%;
   animation: shimmer 1.4s ease-in-out infinite;
 
-  /* Set by the image's onload; nothing left to show. */
+  /* Set once the image has loaded or failed; nothing left to animate. */
   &[data-loaded] {
     animation: none;
   }
@@ -208,6 +208,19 @@
 
   p {
     text-wrap: pretty;
+  }
+
+  /*
+   * Browsers draw an image's alt text while it loads or when it fails; transparent text
+   * keeps it readable by screen readers without showing it. Broken images also lose
+   * their icon (see the error listener in BaseLayout).
+   */
+  img {
+    color: transparent;
+  }
+
+  img[data-broken] {
+    opacity: 0;
   }
 
   :target,

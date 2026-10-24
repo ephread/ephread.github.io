@@ -85,6 +85,18 @@ const socialImageAlt = image.alt;
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <ClientRouter />
+    <script is:inline>
+      // An image that fails to load turns invisible instead of showing a broken-image icon.
+      // It's made transparent rather than hidden, so screen readers still read its alt text.
+      // Errors don't bubble, so this listens in the capture phase, before the body is parsed.
+      document.addEventListener(
+        "error",
+        (event) => {
+          if (event.target instanceof HTMLImageElement) event.target.dataset.broken = "";
+        },
+        true,
+      );
+    </script>
     <slot name="head" />
   </head>
 
