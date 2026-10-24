@@ -24,6 +24,9 @@ npm run format    # formats everything with Prettier
 - `src/data/technologies.ts`: the technologies projects can list.
 - `src/pages/the-bell/` and `src/pages/abjapp/`: the apps' contact forms and privacy policies.
 - `src/assets/images/` and `public/videos/`: images (optimized at build time) and videos.
+- `public/.well-known/openpgpkey/`: my OpenPGP key, published with
+  [WKD](https://wiki.gnupg.org/WKD). After changing the key, export it again with
+  `gpg --export --export-options export-minimal fred@ephread.com > public/.well-known/openpgpkey/hu/gryzwhtgcz1k9u1apfexekkrw5judsi9`.
 
 ## Deployment
 
