@@ -9,10 +9,7 @@ technologies:
 links:
   - kind: "website"
     href: "https://github.com/y-lohse/inkjs"
-    label: "View on Github"
+    label: "View on GitHub"
 ---
 
-inkjs is an open source project created and maintained by
-[@y-lohse](https://yannick-lohse.fr/). I'm a regular contributor to the project,
-which closely tracks the state of the
-[original C# library](https://github.com/inkle/ink).
+inkjs is an open source project created and maintained by [@y-lohse](https://yannick-lohse.fr/). I was a regular contributor to the project, which closely tracks the [original C# library](https://github.com/inkle/ink).

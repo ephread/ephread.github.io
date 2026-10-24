@@ -1,30 +1,29 @@
 ---
 name: "Pomme Plate"
-tagline: "Design"
-order: 13
+tagline: "Flat Apple device icons"
+order: 12
 tile:
   group: "open-source"
-  size: "small"
   image: "../../assets/images/pomme-plate.svg"
   imageAlt: "Pomme Plate"
   platforms: "Design"
-color: "pomme-plate"
+color: "#f5515f"
+accent: "#c22636"
 illustration:
   image: "../../assets/images/pomme-plate-mockups.svg"
   alt: "Pomme Plate preview"
+  layout: "wide"
 dates:
   from: "June 2015"
-  to: "Ongoing"
+  to: "2020"
 technologiesLabel: "Software"
 technologies:
   - "sketch"
 links:
   - kind: "website"
     href: "https://github.com/ephread/PommePlate"
-    label: "View on Github"
+    label: "View on GitHub"
 callout: "Pomme Plate has been archived and is no longer maintained."
 ---
 
-Pomme Plate is a set of Apple device icons designed with a flat style.
-The project is licensed under CC0, which means it's freely available
-to everyone at no cost.
+Pomme Plate is a set of flat-style icons of Apple devices, released under CC0, free for any use.

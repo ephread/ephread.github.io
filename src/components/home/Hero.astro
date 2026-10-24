@@ -1,0 +1,87 @@
+---
+import { Image, Picture } from "astro:assets";
+import apple from "../../assets/images/apple.svg";
+import { avatar, headline } from "../../data/site";
+import AvailabilityBadge from "./AvailabilityBadge.astro";
+---
+
+<header id="top" class="wrap flex flex-wrap items-center gap-16 pt-6 pb-20 sm:pt-10 sm:pb-24">
+  <div class="flex min-w-0 flex-[999_1_35rem] flex-col gap-7">
+    <AvailabilityBadge />
+    <h1 class="font-display text-[clamp(2.5rem,6vw,5rem)] leading-[1.02] font-bold tracking-[-0.02em]">{headline}</h1>
+    <p class="max-w-[34em] text-lg/[1.55] text-fg-muted sm:text-xl/[1.55]">
+      I help companies build amazing apps, from designing the user interface to publishing them on the App Store. And I
+      grow <Image src={apple} alt="apples" class="inline size-[1.1em] align-[-0.2em]" /> in my backyard.
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <a href="#work" class="pill bg-teal text-on-teal hover:bg-teal-dark">
+        See my work
+      </a>
+      <a href="mailto:fred@ephread.com" class="pill border border-line bg-surface text-fg hover:border-fg-subtle">
+        fred@ephread.com
+      </a>
+    </div>
+  </div>
+
+  <div class="flex flex-[1_1_18.75rem] justify-center">
+    <div class="relative w-64 max-w-full pb-7 sm:w-85">
+      <div class="rounded-full bg-surface p-2.5 shadow-[0_0_0_1px_var(--color-line),0_24px_48px_-24px_rgb(46_48_54/0.25)]">
+        <!-- The shimmer shows through until the photo has loaded and paints over it. -->
+        <div class="shimmer relative aspect-square overflow-hidden rounded-full">
+          <Picture
+            src={avatar.src}
+            alt={avatar.alt}
+            formats={["avif", "webp"]}
+            widths={[256, 340, 512, 680]}
+            sizes="(width >= 40rem) 320px, 236px"
+            loading="eager"
+            fetchpriority="high"
+            onload="this.closest('.shimmer').dataset.loaded = ''"
+            pictureAttributes={{ class: "absolute inset-0" }}
+            class="block size-full object-cover"
+          />
+        </div>
+      </div>
+      <p class="absolute bottom-0 left-1/2 flex -translate-x-1/2 items-center gap-2.5 rounded-full bg-surface px-4.5 py-3 text-[.9375rem] font-semibold whitespace-nowrap shadow-[0_0_0_1px_var(--color-line),0_8px_24px_rgb(46_48_54/0.1)]">
+        <svg
+          role="img"
+          aria-label="Canadian flag"
+          width="28"
+          height="14"
+          viewBox="0 0 200 100"
+          class="rounded-xs shadow-[0_0_0_1px_rgb(46_48_54/0.12)]"
+        >
+          <rect width="200" height="100" fill="#fff"></rect>
+          <rect width="50" height="100" fill="#d52b1e"></rect>
+          <rect x="150" width="50" height="100" fill="#d52b1e"></rect>
+          <polygon
+            fill="#d52b1e"
+            transform="translate(60 10) scale(0.8)"
+            points="50,5 57,18 64,15 61,38 72,27 75,33 88,30 84,44 90,47 70,63 73,72 53,69 53,90 47,90 47,69 27,72 30,63 10,47 16,44 12,30 25,33 28,27 39,38 36,15 43,18"
+          ></polygon>
+        </svg>
+        Montréal, Canada
+        <!--
+          A snow cap resting on the pill: a pale ice layer peeking out under the white,
+          drips stopping short of the text. It stretches to the pill's width.
+        -->
+        <svg
+          aria-hidden="true"
+          viewBox="0 -3 200 25"
+          preserveAspectRatio="none"
+          class="pointer-events-none absolute inset-x-0 -top-[9px] h-[25px] w-full drop-shadow-[0_1px_1px_rgb(46_48_54/0.07)]"
+        >
+          <path
+            class="fill-snow-ice"
+            transform="translate(0 1.6)"
+            d="M10 9C10 4.5 13 2.4 19 2C30 0.6 40 -2.4 56 -1.6C70 -0.8 78 2.6 94 2C110 1.4 116 -2.6 132 -2C148 -1.4 154 1.8 168 1.4C176 1.2 181 0.6 184 1.8C188 3.2 190 5.6 190 9C190 11 187 12 184 11.5C180 11 177 12.5 176 15C175 17 172 17 171 14.5C170 12 166 10.5 160 11C150 11.5 146 10 140 11.5C136 12.5 134 15 133 17.5C132.5 19 131 19 130.6 17.5C129.8 15 128 12 122 11.5C112 10.8 108 13 104 15C101 16.5 98 16 96 13.5C94 11 88 10.5 80 11C72 11.5 68 11 64 13C61 14.5 60 16.5 58 16.5C56 16.5 55 14 52 12.5C48 10.5 40 11 34 11.5C28 12 26 14.5 24 15C22 15.5 20 14 18 12.5C15 11 10 11.5 10 9Z"
+          ></path>
+          <path
+            fill="#fff"
+            d="M10 9C10 4.5 13 2.4 19 2C30 0.6 40 -2.4 56 -1.6C70 -0.8 78 2.6 94 2C110 1.4 116 -2.6 132 -2C148 -1.4 154 1.8 168 1.4C176 1.2 181 0.6 184 1.8C188 3.2 190 5.6 190 9C190 11 187 12 184 11.5C180 11 177 12.5 176 15C175 17 172 17 171 14.5C170 12 166 10.5 160 11C150 11.5 146 10 140 11.5C136 12.5 134 15 133 17.5C132.5 19 131 19 130.6 17.5C129.8 15 128 12 122 11.5C112 10.8 108 13 104 15C101 16.5 98 16 96 13.5C94 11 88 10.5 80 11C72 11.5 68 11 64 13C61 14.5 60 16.5 58 16.5C56 16.5 55 14 52 12.5C48 10.5 40 11 34 11.5C28 12 26 14.5 24 15C22 15.5 20 14 18 12.5C15 11 10 11.5 10 9Z"
+          ></path>
+        </svg>
+      </p>
+    </div>
+  </div>
+</header>

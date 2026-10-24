@@ -1,39 +1,46 @@
 ---
 name: "The Bell"
-tagline: "Yet another round-based, HIIT timer"
-order: 2
+tagline: "A round-based HIIT timer for Apple Watch"
+order: 4
 tile:
   group: "indie"
-  size: "large"
   image: "../../assets/images/the-bell.svg"
   imageAlt: "The Bell"
-  platforms: "watchOS • Design"
-color: "the-bell"
-accent: "the-bell-showcase"
+  platforms: "watchOS · Design"
+color: "#333333"
+accent: "#806600"
+header:
+  foreground: "#2e2a1a"
 illustration:
   image: "../../assets/images/the-bell-showcase.svg"
   alt: "The Bell preview"
   layout: "phone"
-  background: "the-bell-preview"
+  background: "#f7cd0a"
 dates:
   from: "May 2020"
-  to: "Ongoing"
+  to: "2024"
+role: "Creator: design and development"
 technologies:
-  - "swift"
-  - "swift-ui"
-  - "grdb"
+  - heading: "First version (2020)"
+    items:
+      - "swift"
+      - "watchkit"
+      - "grdb"
+  - heading: "SwiftUI rewrite (2023)"
+    items:
+      - "swift"
+      - "swift-ui"
+      - "grdb"
 links:
-  - kind: "website"
-    href: "https://github.com/ephread/TheBell"
-    label: "View on Github"
   - kind: "watchos"
     href: "http://itunes.apple.com/us/app/apple-store/id1522205874?mt=8"
+  - kind: "website"
+    href: "https://github.com/ephread/TheBell"
+    label: "View on GitHub"
 ---
 
-As the creator of The Bell —a proof of concept watchOS app for recording HIIT workouts—,
-I aimed to create an intuitive and user-friendly tool that closely mirrored the look and feel
-of the stock Workout app.
+The Bell is a watchOS app for timing and recording HIIT workouts. I designed it to feel like a natural part of the Apple Watch, closely mirroring the look and feel of the built-in Workout app.
 
-The Bell's minimalist design prioritizes simplicity, with a focus on tracking elapsed time and
-notifying changes with audio/haptic feedback, as well as logging completed workouts in the
-Activity app.
+Its minimalist design keeps the focus on what matters during a workout: the elapsed time, a sound and a tap on the wrist when a round changes, and every completed workout saved to the Activity app.
+
+I first built it with WatchKit in 2020, then rewrote it with SwiftUI and modern Swift concurrency in 2023.

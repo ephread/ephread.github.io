@@ -1,13 +1,13 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 import Footer from "../components/Footer.astro";
-import Landing from "../components/home/Landing.astro";
+import Hero from "../components/home/Hero.astro";
 import About from "../components/home/About.astro";
 import Work from "../components/home/Work.astro";
 import GetInTouch from "../components/home/GetInTouch.astro";
 ---
 
-<SiteLayout title="Frédéric Maquin | Independent iOS developer">
+<SiteLayout title="Frédéric Maquin | Independent iOS & watchOS developer">
   <script is:inline slot="head">
     // Showcases used to be in-page overlays (/#abjapp-showcase); they now have their own pages.
     (function () {
@@ -15,7 +15,7 @@ import GetInTouch from "../components/home/GetInTouch.astro";
       if (match) location.replace("/work/" + match[1] + "/");
     })();
   </script>
-  <Landing />
+  <Hero />
   <About />
   <Work />
   <GetInTouch />

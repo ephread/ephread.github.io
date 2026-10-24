@@ -1,34 +1,30 @@
 ---
 name: "Sophisticate"
 tagline: "Clean SVGs and use them in interactive web pages"
-order: 11
+order: 10
 tile:
   group: "open-source"
-  size: "small"
   image: "../../assets/images/sophisticate.svg"
   imageAlt: "Sophisticate"
   platforms: "TypeScript"
-color: "sophisticate"
+color: "#333333"
+accent: "#333333"
+header:
+  foreground: "#2e3036"
 illustration:
   image: "../../assets/images/sophisticate-showcase.svg"
   alt: "Sophisticate preview"
   layout: "icon"
-  background: "tint"
+  background: "#ebe8e4"
 technologies:
   - "typescript"
 links:
   - kind: "website"
     href: "https://github.com/ephread/sophisticate"
-    label: "View on Github"
-callout: "Sophisticate has been archived and is no longer maintained."
+    label: "View on GitHub"
+callout: "Sophisticate is no longer maintained."
 ---
 
-Sophisticate is a handy JavaScript tool that I frequently use to tidy up and add
-appropriate metadata to the output of vector editors. The resulting SVGs are
-usually untidy and don't have suitable classes or IDs, making them unusable
-once they're included in an HTML document.
+Sophisticate is a small TypeScript tool I wrote to tidy up the SVGs that vector editors export. Their output is usually messy and lacks meaningful classes or IDs, which makes it hard to style or script once it’s part of a web page.
 
-Sophisticate includes various modification rules and can also run
-[SVGO](https://github.com/svg/svgo "SVGO on Github")
-to further clean up SVGs. As I work with SVGs regularly, this small
-utility saves me a considerable amount of time.
+Sophisticate applies a set of clean-up rules and can also run [SVGO](https://github.com/svg/svgo "SVGO on GitHub") to optimize the files further. Since I worked with SVGs all the time, it saved me a lot of time.

@@ -1,0 +1,158 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Image, Picture } from "astro:assets";
+import type { Placement } from "../../data/case-study";
+
+interface Props {
+  illustration: NonNullable<CollectionEntry<"projects">["data"]["illustration"]>;
+  placement: Placement;
+  /** Spinner color, matching the header text. */
+  lightText: boolean;
+}
+
+const { illustration, placement, lightText } = Astro.props;
+const { image, alt, layout, maxWidth, shadow, caption, video } = illustration;
+
+const containers = {
+  side:
+    layout === "phone"
+      ? "flex-[1_1_18rem] max-w-[22.5rem]"
+      : layout === "device"
+        ? "flex-[1_1_25rem] max-w-[34rem]"
+        : "flex-[1_1_21.25rem] max-w-[27.5rem]",
+  before: layout === "icon" ? "flex-[0_1_10rem]" : "flex-[0_1_15rem]",
+  below: "w-full max-w-[40rem]",
+};
+// Phones and devices sit below the heading on small screens; full width, they'd be huge.
+const narrowOnPhones =
+  placement === "side" &&
+  (layout === "phone" || layout === "device") &&
+  "max-sm:max-w-[min(var(--max-width,100%),60%)]";
+const sizes = {
+  side: `(width >= 64rem) ${maxWidth ?? "544px"}, 100vw`,
+  before: "240px",
+  below: "(width >= 48rem) 640px, 100vw",
+};
+
+const imageProps = {
+  src: image,
+  alt,
+  loading: "eager",
+  fetchpriority: "high",
+  class: "block h-auto w-full",
+  style: shadow ? "filter: drop-shadow(0 24px 40px rgb(0 40 70 / 0.28))" : undefined,
+} as const;
+---
+
+<div
+  class:list={[
+    placement !== "before" && "mx-auto",
+    containers[placement],
+    maxWidth && "max-w-(--max-width)",
+    narrowOnPhones,
+  ]}
+  style={maxWidth && `--max-width: ${maxWidth}; flex-basis: ${maxWidth}`}
+>
+  <div class="group relative" data-showcase-image>
+    <div class="group-data-loading:invisible">
+      {video ? (
+        <div class="relative">
+          <Image {...imageProps} />
+          <div
+            class="absolute top-[6.56%] left-[9.09%] h-[86.98%] w-[82.02%] bg-cover"
+            style={`background-image: url(${video.poster.src})`}
+          >
+            <video
+              class="hidden size-full md:block"
+              data-showcase-video
+              preload="none"
+              muted
+              loop
+              playsinline
+              aria-hidden="true"
+            >
+              <source src={video.mp4} type="video/mp4" />
+              <source src={video.webm} type="video/webm" />
+            </video>
+          </div>
+        </div>
+      ) : image.format === "svg" ? (
+        <Image {...imageProps} />
+      ) : (
+        <Picture
+          {...imageProps}
+          formats={["avif", "webp"]}
+          widths={[320, 480, 640, 960, 1280, 1920].filter((w) => w < image.width).concat(image.width)}
+          sizes={sizes[placement]}
+        />
+      )}
+    </div>
+    <div class="absolute inset-0 hidden items-center justify-center group-data-slow:flex" aria-hidden="true">
+      <div
+        class:list={[
+          "size-10 animate-spin rounded-full border-4 border-current/25 border-t-current motion-reduce:animate-pulse",
+          lightText ? "text-white" : "text-black/60",
+        ]}
+      ></div>
+    </div>
+  </div>
+  {caption && <p class="mt-4 text-sm/normal opacity-90">{caption}</p>}
+</div>
+
+<script>
+  // Hides the illustration until it has loaded, with a spinner after a short
+  // delay so that images already in the cache don't flash one.
+  const spinnerDelay = 150;
+
+  function watchIllustration() {
+    const container = document.querySelector<HTMLElement>("[data-showcase-image]");
+    if (!container || "watched" in container.dataset) return;
+    container.dataset.watched = "";
+
+    const pending = [...container.querySelectorAll("img")].filter((img) => !img.complete);
+    if (pending.length === 0) return;
+
+    container.dataset.loading = "";
+    const timer = setTimeout(() => (container.dataset.slow = ""), spinnerDelay);
+    let remaining = pending.length;
+    const done = () => {
+      if (--remaining > 0) return;
+      clearTimeout(timer);
+      delete container.dataset.loading;
+      delete container.dataset.slow;
+    };
+    // A broken image is shown (as its alt text) rather than spinning forever.
+    for (const img of pending) {
+      img.addEventListener("load", done, { once: true });
+      img.addEventListener("error", done, { once: true });
+    }
+  }
+
+  // On a full page load, astro:page-load only fires after the window's load event,
+  // once every image has loaded, so the script also checks as soon as it runs.
+  watchIllustration();
+  document.addEventListener("astro:page-load", watchIllustration);
+
+  // The screen recording is decoration over its poster: it's only fetched and
+  // played where it's shown (md and up), and not at all with reduced motion.
+  const wide = matchMedia("(width >= 48rem)");
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  let cleanup: AbortController | undefined;
+
+  document.addEventListener("astro:page-load", () => {
+    cleanup?.abort();
+    const video = document.querySelector<HTMLVideoElement>("[data-showcase-video]");
+    if (!video) return;
+
+    const update = () => {
+      if (wide.matches && !reducedMotion.matches)
+        video.play().catch(() => undefined); // Autoplay can be refused; the poster stays.
+      else video.pause();
+    };
+
+    cleanup = new AbortController();
+    wide.addEventListener("change", update, { signal: cleanup.signal });
+    reducedMotion.addEventListener("change", update, { signal: cleanup.signal });
+    update();
+  });
+</script>

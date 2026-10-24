@@ -1,33 +1,36 @@
 ---
-import AvailabilityBadge from "./AvailabilityBadge.astro";
-import Skills from "./Skills.astro";
-import { avatar, intro } from "../../data/site";
+const platforms = ["iOS", "iPadOS", "watchOS", "tvOS", "UI design"];
 ---
 
-<section id="about" class="bg-white pt-[4em] pb-[3em]">
-  <header class="py-[2em] md:mt-[1em]">
-    <img src={avatar.src} alt={avatar.alt} width="400" height="400" class="mx-auto block size-[10em] rounded-full" />
-  </header>
-
-  <AvailabilityBadge />
-
-  <div class="text-area p-[2em] pt-[1em] pb-[5em]">
-    <p>{intro}</p>
-  </div>
-
-  <Skills />
-
-  <div class="text-area p-[2em] pt-[1em] pb-[5em]">
-    <p>
-      Whether you need assistance with app development, from designing the user interface to publishing fully-functional
-      applications, I'm here to help. My code is designed to be easy to understand, maintainable, and testable.
-    </p>
-    <p>
-      You can check out some of my <a href="https://github.com/ephread">open source work</a> or take a look at my entire
-      work history on <a href="https://linkedin.com/in/ephread/">LinkedIn</a>.
-    </p>
-    <p>
-      If you think we should make great apps together, you can <a href="#get-in-touch">hire me</a>!
-    </p>
+<section id="about" class="border-y border-line-soft bg-surface">
+  <div class="wrap flex flex-wrap gap-x-20 gap-y-8 py-16 sm:py-20">
+    <h2 class="flex-[1_1_17.5rem] font-display text-[clamp(1.875rem,3vw,2.5rem)] leading-[1.1] font-bold tracking-[-0.02em]">
+      From the first sketch to the App Store.
+    </h2>
+    <div class="flex min-w-0 flex-[999_1_32.5rem] flex-col gap-5 text-lg/[1.6] text-fg-body sm:text-[1.1875rem]/[1.6]">
+      <p>
+        I can design your app, build it and ship it, or just help with the part you need. My code is clear and well
+        tested, so your team can easily take it over.
+      </p>
+      <p>
+        You can find my full work history on{" "}
+        <a
+          href="https://www.linkedin.com/in/ephread/"
+          class="text-teal underline underline-offset-3 hover:text-teal-dark"
+        >
+          LinkedIn
+        </a>
+        , and my past open source work on{" "}
+        <a href="https://github.com/ephread" class="text-teal underline underline-offset-3 hover:text-teal-dark">
+          GitHub
+        </a>
+        .
+      </p>
+      <ul class="mt-1 flex flex-wrap gap-2" aria-label="Platforms and skills">
+        {platforms.map((platform) => (
+          <li class="rounded-full border border-line bg-beige px-3.5 py-2 text-sm font-semibold text-fg">{platform}</li>
+        ))}
+      </ul>
+    </div>
   </div>
 </section>

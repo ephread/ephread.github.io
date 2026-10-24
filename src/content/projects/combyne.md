@@ -1,46 +1,47 @@
 ---
 name: "combyne"
-tagline: "iOS application"
-order: 3
+tagline: "A social app for creating and sharing outfits"
+order: 5
 tile:
   group: "contracts"
-  size: "small"
   image: "../../assets/images/combyne.svg"
   imageAlt: "combyne"
   background: "../../assets/images/combyne-background.svg"
   platforms: "iOS"
-color: "combyne"
+color: "#ff8338"
+accent: "#b9480a"
 illustration:
   image: "../../assets/images/combyne-showcase@2x.png"
   alt: "combyne preview"
   layout: "wide"
+  maxWidth: "38rem"
   backgroundImage: "../../assets/images/combyne-background.svg"
 dates:
   from: "September 2020"
   to: "June 2021"
 client: "combyne"
+role: "Senior iOS Developer"
+details:
+  - label: "Users"
+    value: "1.3M+ active creators"
 technologies:
   - "objective-c"
   - "swift"
   - "swift-ui"
+  - "graphql"
   - "firebase"
   - "parse"
 links:
-  - kind: "website"
-    href: "https://www.combyne.com/"
   - kind: "ios"
     href: "https://apps.apple.com/us/app/combyne-your-perfect-outfit/id989727742"
+  - kind: "website"
+    href: "https://www.combyne.com/"
 ---
 
-combyne is a social app where creators combine and share outfits with their friends.
+combyne is a social app where more than 1.3 million active creators mix pieces of clothing into outfits and share them with their friends.
 
-Upon joining combyne, I collaborated with fellow team members to migrate a significant portion
-of the codebase from Objective-C to Swift, and in some cases, to SwiftUI, resulting in a
-more modern and efficient codebase.
+When I joined, I worked with the team to migrate 30% of the legacy Objective-C features to Swift, using SwiftUI and UIKit, and built new features on GraphQL to replace old Parse queries.
 
-I redesigned and unified the legacy messaging systems within the app, creating a more cohesive
-and seamless user experience across all messaging features.
+I rewrote the app’s legacy chat systems and brought them together, which cut the tech debt around them significantly, and optimized scrolling in the chat views to remove the freezes users ran into.
 
-I also took the lead on a quality improvement and documentation initiative, where I collaborated
-with all devs and the CTO across the company to identify areas for improvement and establish
-standardized documentation procedures.
+I also led a quality improvement effort across documentation, architecture and processes, working with every developer and the CTO.

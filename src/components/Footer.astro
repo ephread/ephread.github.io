@@ -1,22 +1,28 @@
 ---
-import github from "../assets/images/github.svg";
-import keyoxide from "../assets/images/keyoxide.svg";
-import linkedin from "../assets/images/linkedin.svg";
+import github from "../assets/images/github-icon.svg";
+import keyoxide from "../assets/images/keyoxide-icon.svg";
+import linkedin from "../assets/images/linkedin-icon.svg";
 
+// The icons are inlined as components so they take the link's color (currentColor).
 const profiles = [
-  { name: "GitHub", href: "https://github.com/ephread", icon: github },
-  { name: "LinkedIn", href: "https://linkedin.com/in/ephread/", icon: linkedin },
-  { name: "Keyoxide", href: "https://keyoxide.org/fred%40ephread.com", icon: keyoxide },
+  { name: "GitHub", href: "https://github.com/ephread", Icon: github },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/ephread/", Icon: linkedin },
+  { name: "Keyoxide", href: "https://keyoxide.org/fred%40ephread.com", Icon: keyoxide },
 ];
 ---
 
-<footer class="flex items-center justify-center gap-8 bg-beige p-12">
-  {profiles.map(({ name, href, icon }) => (
-    <a
-      href={href}
-      class="block size-12 transition-transform duration-300 ease-in-out hover:scale-120 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green"
-    >
-      <img src={icon.src} alt={name} class="size-full" />
-    </a>
-  ))}
+<footer class="wrap">
+  <div class="flex flex-wrap items-center justify-between gap-4 border-t border-line pt-8 pb-12 text-sm text-fg-subtle max-sm:justify-center">
+    <p>Built between two harvests.</p>
+    <ul class="flex gap-6">
+      {profiles.map(({ name, href, Icon }) => (
+        <li>
+          <a href={href} class="flex items-center gap-2 text-teal hover:text-teal-dark hover:underline">
+            <Icon aria-hidden="true" width="20" height="20" class="flex-none" />
+            {name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
 </footer>

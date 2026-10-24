@@ -1,6 +1,6 @@
 ---
-name: "Ink TMLanguage"
-tagline: "A Textmate grammar"
+name: "ink TextMate grammar"
+tagline: "Syntax highlighting for ink"
 parent: "ink"
 order: 4
 technologies:
@@ -9,8 +9,7 @@ technologies:
 links:
   - kind: "website"
     href: "https://github.com/inkle/ink-tmlanguage"
-    label: "View on Github"
+    label: "View on GitHub"
 ---
 
-A grammar bringing advanced syntax highlighting in
-any editor supporting Textmate grammars.
+A TextMate grammar that brings full ink syntax highlighting to VS Code, Sublime Text and other editors that support TextMate grammars.

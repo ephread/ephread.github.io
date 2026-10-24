@@ -4,40 +4,76 @@ import { Image } from "astro:assets";
 
 interface Props {
   project: CollectionEntry<"projects">;
+  /** Featured cards are bigger and show the client's logo. */
+  featured?: boolean;
+  /** A featured card on its own, with the logo beside the text from md up. */
+  wide?: boolean;
+  /** The `sizes` attribute for raster tile images. */
+  sizes: string;
 }
 
-const { project } = Astro.props;
-const { tile, color } = project.data;
+const { project, featured = false, wide = false, sizes } = Astro.props;
+const { name, tagline, tile, color } = project.data;
 if (!tile) throw new Error(`Project "${project.id}" has no tile.`);
 
-const large = tile.size === "large";
 const background = tile.background
   ? `background-image: url(${tile.background.src}); background-size: cover; background-position: center`
-  : `background-color: var(--color-${color})`;
+  : `background-color: ${color}`;
 ---
 
-<div class:list={["flex-[0_0_100%] p-[1em] lg:p-[2em]", large ? "md:flex-[0_0_50%]" : "md:flex-[0_0_33.33%]"]}>
-  <a
-    href={`/work/${project.id}/`}
-    class="group block rounded-[.5em] text-black no-underline transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-[0_0_.6em_--alpha(var(--color-black)/10%)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green"
+<a
+  href={`/work/${project.id}/`}
+  class:list={[
+    "group flex flex-col overflow-hidden bg-surface text-fg no-underline shadow-tile transition-shadow duration-200 hover:shadow-lift focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal",
+    featured ? "rounded-3xl" : "rounded-[1.25rem]",
+    wide && "md:flex-row",
+  ]}
+>
+  <div
+    class:list={[
+      "relative flex aspect-[100/55] items-center justify-center overflow-hidden",
+      wide && "md:aspect-auto md:min-h-80 md:w-1/2 md:flex-none",
+    ]}
     style={background}
   >
-    <!--
-      The image fills the width and stays centered, like the old background-size: 100%.
-    -->
-    <div class="relative aspect-[100/55] overflow-hidden rounded-t-[.5em]" style={background}>
+    {featured ? (
       <Image
         src={tile.image}
         alt={tile.imageAlt}
-        {...(tile.image.format !== "svg" && {
-          widths: [400, 800, 1200],
-          sizes: large ? "(width >= 45.0625em) 50vw, 100vw" : "(width >= 45.0625em) 33vw, 100vw",
-        })}
-        class="absolute inset-x-0 top-1/2 w-full -translate-y-1/2 transition-transform duration-300 ease-in-out group-hover:scale-120"
+        class="h-auto transition-transform duration-300 ease-out group-hover:scale-105 motion-reduce:transition-none"
+        style={`width: ${tile.logoWidth}`}
       />
-    </div>
-    <div class="flex w-full rounded-b-[.3em] bg-white p-[1em] text-[1.2em]">
-      <p class:list={["w-full text-center font-bold", !large && "text-[.9em]"]}>{tile.platforms}</p>
-    </div>
-  </a>
-</div>
+    ) : (
+      <Image
+        src={tile.image}
+        alt={tile.imageAlt}
+        {...(tile.image.format !== "svg" && { widths: [400, 800, 1200], sizes })}
+        class="absolute inset-x-0 top-1/2 w-full -translate-y-1/2 transition-transform duration-300 ease-out group-hover:scale-105 motion-reduce:transition-none"
+      />
+    )}
+  </div>
+  <div
+    class:list={[
+      "flex flex-col",
+      featured ? "gap-2 px-7 pt-6 pb-7" : "gap-1.5 px-5 pt-4.5 pb-5",
+      wide && "md:justify-center md:p-12",
+    ]}
+  >
+    {featured && tile.eyebrow && <span class="text-sm font-semibold text-fg-subtle">{tile.eyebrow}</span>}
+    <span
+      class:list={[
+        "font-display font-bold",
+        featured ? "text-[1.75rem] leading-tight tracking-[-0.01em]" : "text-[1.3125rem] leading-snug",
+        wide && "md:text-[2.25rem]",
+      ]}
+    >
+      {name}
+    </span>
+    <span
+      class:list={["text-fg-muted", featured ? "text-base/normal" : "text-[.9375rem]/[1.45]", wide && "md:text-lg"]}
+    >
+      {tagline}
+    </span>
+    <span class="mt-2 text-[.8125rem] font-medium text-fg-subtle">{tile.platforms}</span>
+  </div>
+</a>

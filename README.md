@@ -17,13 +17,25 @@ npm run format    # formats everything with Prettier
 
 ## Where things are
 
-- `src/data/site.ts`: the availability badge, the intro and the social preview text. The social preview image
-  (`/social.png`) is generated from it on every build.
-- `src/content/projects/`: one Markdown file per project in the Work section, with its showcase page at `/work/<name>/`.
-  The schema is in `src/content.config.ts`.
-- `src/data/technologies.ts`: the technologies projects can list.
-- `src/pages/the-bell/` and `src/pages/abjapp/`: the apps' contact forms and privacy policies.
-- `src/assets/images/` and `public/videos/`: images (optimized at build time) and videos.
+- `src/data/site.ts`: the availability pill, the home page's headline and description, and the social preview text.
+- `src/content/projects/`: one Markdown file per project, with its case study at `/work/<name>/`. The schema is in
+  `src/content.config.ts`, which documents each field. A few worth knowing:
+  - `tile.group` places the card on the home page (`featured`, `indie`, `contracts`, or `open-source` for the
+    archive list); `hidden: true` leaves a project out of the site entirely.
+  - `color` is the card and header band color, `accent` the color of links and buttons (dark enough to read on
+    white), and `header.foreground` the text color on the band.
+  - `illustration.layout` decides where the header image sits (beside, before or below the heading), and
+    `illustration.maxWidth` overrides its size.
+  - `details` adds rows to the sidebar (e.g. "Users"), `highlights` a set of cards below the story, `callout` a "no
+    longer maintained" note, and `note` small print at the end.
+- `src/data/technologies.ts`: the technologies projects can list, with their icons.
+- `src/social/`: the social preview images, drawn with Satori on every build: `/social.png` for the home page and
+  `/work/<name>/social.png` for each case study. Bump `designVersion` in `src/social/render.ts` after changing their
+  design, so social networks fetch them again.
+- `src/pages/the-bell/` and `src/pages/abjapp/`: the apps' contact forms and privacy policies, with their own look
+  (`src/styles/app.css`).
+- `src/assets/images/` and `public/videos/`: images (optimized at build time) and videos. Icons drawn in `currentColor`
+  (store buttons, footer links) are inlined, so they take the color of the text around them.
 - `public/.well-known/openpgpkey/`: my OpenPGP key, published with
   [WKD](https://wiki.gnupg.org/WKD). After changing the key, export it again with
   `gpg --export --export-options export-minimal fred@ephread.com > public/.well-known/openpgpkey/hu/gryzwhtgcz1k9u1apfexekkrw5judsi9`.
@@ -49,4 +61,7 @@ Unless explicitly stated otherwise, image and video assets, found respectively i
 - The Swift logo is a trademark of Apple, Inc.
 - The Realm logo is a trademark of Tightdb, Inc.
 - The Bluetooth logo is a trademark of Bluetooth SIG, Inc.
-- The Firebase logo is a trademark of Google, Inc.
+- The Firebase and Jetpack Compose logos are trademarks of Google, Inc.
+- The Kotlin logo is a trademark of JetBrains s.r.o.
+- The GitHub logo is a trademark of GitHub, Inc. and the LinkedIn logo a trademark of LinkedIn Corporation.
+- The Diabeloop and Crave Retail logos are trademarks of their respective owners.

@@ -3,11 +3,10 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
 ---
 
 <SiteLayout title="Frédéric Maquin | Thank you!">
-  <section class="flex h-dvh w-full flex-col items-center justify-center text-[1.2em]">
-    <h1 class="m-[.25em] text-[2.5em] font-normal text-green uppercase sm:text-[3.5em]">Thanks!</h1>
-    <h2 class="mb-[.5em] font-text text-[1.3em] font-medium sm:text-[1.8em]">I will get back to you very soon.</h2>
-
-    <a href="/" class="text-link">
+  <section class="wrap flex min-h-[70svh] flex-col items-start justify-center gap-5">
+    <h1 class="font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-none font-bold tracking-[-0.02em]">Thanks!</h1>
+    <p class="text-xl text-fg-muted">I will get back to you very soon.</p>
+    <a href="/" class="pill mt-2 bg-teal text-on-teal hover:bg-teal-dark">
       Go back to the website
     </a>
   </section>

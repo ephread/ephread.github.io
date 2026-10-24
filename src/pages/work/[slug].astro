@@ -1,14 +1,21 @@
 ---
 import { getCollection, render, type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import archiveIcon from "../../assets/images/archive-icon.svg";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import CloseButton from "../../components/showcase/CloseButton.astro";
-import ShowcaseIllustration from "../../components/showcase/ShowcaseIllustration.astro";
-import ProjectTitle from "../../components/showcase/ProjectTitle.astro";
-import ProjectInformation from "../../components/showcase/ProjectInformation.astro";
-import ProjectContent from "../../components/showcase/ProjectContent.astro";
+import Footer from "../../components/Footer.astro";
+import CaseStudyHeader from "../../components/case-study/CaseStudyHeader.astro";
+import LinkButton from "../../components/case-study/LinkButton.astro";
+import TechnologyList from "../../components/case-study/TechnologyList.astro";
+import { technologies as allTechnologies, type Technology } from "../../data/technologies";
+import { caseStudyHeader } from "../../data/case-study";
+import { version } from "../../social/render";
 
 export async function getStaticPaths() {
-  const projects = await getCollection("projects", (project) => project.data.tile !== undefined);
+  const projects = await getCollection(
+    "projects",
+    (project) => project.data.tile !== undefined && !project.data.hidden,
+  );
   return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
 }
 
@@ -17,49 +24,152 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const { name, tagline, color, accent = color, linksUseAccent } = project.data;
+const { name, tagline, accent, dates, client, role, details, technologies, technologiesLabel } = project.data;
+const { callout, highlights, note } = project.data;
 
 const { Content } = await render(project);
 
-// Sub-projects (ink's) are shown one after the other below the introduction.
-const subprojects = (await getCollection("projects", (entry) => entry.data.parent?.id === project.id)).sort(
-  (a, b) => a.data.order - b.data.order,
+// Sub-projects (ink's) are shown as cards below the introduction.
+const subprojects = await Promise.all(
+  (await getCollection("projects", (entry) => entry.data.parent?.id === project.id))
+    .sort((a, b) => a.data.order - b.data.order)
+    .map(async (subproject) => ({ ...subproject, Content: (await render(subproject)).Content })),
 );
 
-const style = [
-  `--accent: var(--color-${accent})`,
-  `--accent-dark: var(--color-${accent}-dark)`,
-  linksUseAccent && "--link-color: var(--accent); --link-color-hover: var(--accent-dark)",
-]
-  .filter(Boolean)
-  .join("; ");
+// A parent lists every technology its sub-projects use.
+const flat = (list: typeof technologies) =>
+  list.flatMap((entry) => (typeof entry === "string" ? [entry] : entry.items));
+const sidebarTechnologies =
+  technologies.length > 0
+    ? technologies
+    : [...new Set(subprojects.flatMap((subproject) => flat(subproject.data.technologies)))];
+
+const rows = [
+  client && { label: "Client", value: client },
+  dates && { label: "Dates", value: `${dates.from} → ${dates.to}` },
+  role && { label: "Role", value: role },
+  ...details,
+].filter((row) => !!row);
+
+const { title, subtitle } = caseStudyHeader(project);
+const socialImage = {
+  path: `/work/${project.id}/social.png`,
+  version: version(project.data),
+  alt: [title === name ? name : `${name}: ${title}`, subtitle].filter(Boolean).join(". "),
+};
+
+const label = "text-xs font-semibold tracking-[0.08em] text-fg-subtle uppercase";
 ---
 
-<BaseLayout title={`${name} | Frédéric Maquin`} description={tagline} bodyClass="bg-white">
-  <main style={style}>
-    <CloseButton />
-    <ShowcaseIllustration project={project} />
+<BaseLayout
+  title={`${name} | Frédéric Maquin`}
+  description={tagline}
+  social={{ title: `${name} | Frédéric Maquin`, description: tagline }}
+  socialImage={socialImage}
+>
+  <div class="accent-scope" style={`--accent: ${accent}; --focus-color: ${accent}`}>
+    <CaseStudyHeader project={project} />
 
-    {subprojects.length > 0 ? (
-      <>
-        <h1 class="sr-only">{name}</h1>
-        <section class="text-area *:mt-[2.5em]">
+    <main class="wrap flex flex-wrap items-start gap-10 pt-12 pb-20 sm:pt-18 sm:pb-28 lg:gap-16">
+      <aside class="card flex flex-[1_1_16.25rem] flex-col gap-7 p-7 lg:sticky lg:top-6">
+        <dl class="contents">
+          {rows.map(({ label: term, value }) => (
+            <div class="flex flex-col gap-1.5">
+              <dt class={label}>{term}</dt>
+              <dd class="text-base/normal">{value}</dd>
+            </div>
+          ))}
+        </dl>
+        {sidebarTechnologies.length > 0 && (
+          <div class="flex flex-col gap-3">
+            <h2 class={label}>{technologiesLabel}</h2>
+            <TechnologyList technologies={sidebarTechnologies} />
+          </div>
+        )}
+        {subprojects.length > 0 && (
+          <nav class="flex flex-col gap-1.5" aria-labelledby="projects-title">
+            <h2 id="projects-title" class={label}>
+              Projects
+            </h2>
+            <ul>
+              {subprojects.map(({ id, data }) => (
+                <li>
+                  <a href={`#${id}`} class="block py-1 font-medium text-(--accent-text) hover:underline">
+                    {data.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+      </aside>
+
+      <div class="flex min-w-0 flex-[999_1_35rem] flex-col gap-10">
+        <div class="story">
           <Content />
-        </section>
-        {subprojects.map((subproject) => (
-          <section class="mt-[4em] before:mb-[4em] before:block before:h-[.2em] before:w-full before:bg-(--accent) before:opacity-6 before:content-['']">
-            <ProjectTitle name={subproject.data.name} tagline={subproject.data.tagline} level={2} />
-            <ProjectInformation project={subproject} />
-            <ProjectContent project={subproject} />
+        </div>
+
+        {callout && (
+          <div class="flex items-center gap-3.5 rounded-[1.25rem] border border-line bg-surface px-6 py-4 text-base/normal text-fg-body">
+            <Image src={archiveIcon} alt="" class="size-6 flex-none" />
+            <p set:html={callout} />
+          </div>
+        )}
+
+        {highlights && (
+          <section class="flex flex-col gap-5" aria-labelledby="highlights-title">
+            <h2 id="highlights-title" class="font-display text-[1.75rem] font-bold">
+              {highlights.title}
+            </h2>
+            <ul class:list={["grid gap-4 sm:grid-cols-2", highlights.items.length % 3 === 0 && "lg:grid-cols-3"]}>
+              {highlights.items.map(({ title, text }) => (
+                <li class="card flex flex-col gap-2 p-6">
+                  <h3 class="font-display text-xl font-bold">{title}</h3>
+                  <p class="text-base/normal text-fg-muted">{text}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {subprojects.map(({ id, data, Content: SubprojectContent }) => (
+          <section id={id} class="card flex flex-col gap-4 rounded-3xl p-6 sm:p-8" aria-labelledby={`${id}-title`}>
+            <div class="flex flex-wrap items-baseline justify-between gap-3">
+              <h2 id={`${id}-title`} class="font-display text-[1.875rem] font-bold tracking-[-0.01em]">
+                {data.name}
+              </h2>
+              <ul class="flex flex-wrap gap-2" aria-label="Technologies">
+                {flat(data.technologies).map((technology: Technology) => (
+                  <li class="flex items-center gap-1.5 rounded-full bg-beige py-1.5 pr-3 pl-2 text-sm font-medium">
+                    <Image src={allTechnologies[technology].icon} alt="" class="size-4" />
+                    {allTechnologies[technology].label}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p class="text-[1.0625rem] font-medium text-fg-muted">{data.tagline}</p>
+            <div class="story [&>p:first-child]:font-sans [&>p:first-child]:text-lg [&>p:first-child]:font-normal [&>p:first-child]:text-fg-body">
+              <SubprojectContent />
+            </div>
+            {data.links.length > 0 && (
+              <div class="mt-1 flex flex-wrap gap-2.5">
+                {data.links.map(({ kind, href, label: text }) => (
+                  <LinkButton
+                    kind={kind}
+                    href={href}
+                    label={text}
+                    class="bg-(--accent) px-4.5 py-3 text-[.9375rem] text-white hover:opacity-90"
+                  />
+                ))}
+              </div>
+            )}
           </section>
         ))}
-      </>
-    ) : (
-      <>
-        <ProjectTitle name={name} tagline={tagline} />
-        <ProjectInformation project={project} />
-        <ProjectContent project={project} />
-      </>
-    )}
-  </main>
+
+        {note && <p class="text-[.9375rem]/relaxed text-fg-muted">{note}</p>}
+      </div>
+    </main>
+
+    <Footer />
+  </div>
 </BaseLayout>

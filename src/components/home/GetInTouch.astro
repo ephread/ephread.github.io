@@ -1,15 +1,16 @@
----
-import SectionTitle from "../SectionTitle.astro";
----
-
-<section id="get-in-touch" class="bg-white px-[1em] py-[3em] lg:p-[3em]">
-  <header>
-    <SectionTitle>Get in touch</SectionTitle>
-  </header>
-  <div class="text-area">
-    <p>
-      Want to work with me, have questions about my work or just want to say hi?{" "}
-      <a href="mailto:fred@ephread.com">Send me an email</a>!
+<section id="get-in-touch" class="wrap pt-16 pb-20 sm:pb-28">
+  <div class="flex flex-col gap-5 rounded-4xl bg-panel p-[clamp(2rem,6vw,5rem)] text-on-panel">
+    <h2 class="font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] font-bold tracking-[-0.02em]">
+      Let’s make great apps together.
+    </h2>
+    <p class="max-w-[32em] text-lg/normal text-panel-muted sm:text-[1.1875rem]/normal">
+      Want to work with me, have questions about my work or just want to say hi?
     </p>
+    <a
+      href="mailto:fred@ephread.com"
+      class="self-start rounded-sm font-display text-[clamp(1.5rem,3vw,2.25rem)] font-semibold break-all text-on-panel underline decoration-2 underline-offset-6 hover:decoration-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-panel"
+    >
+      fred@ephread.com
+    </a>
   </div>
 </section>

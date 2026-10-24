@@ -1,14 +1,16 @@
 ---
 name: "actiTENS"
-tagline: "iOS & android applications"
-order: 5
+tagline: "A smartphone-controlled TENS device for pain relief"
+order: 7
 tile:
   group: "contracts"
-  size: "small"
   image: "../../assets/images/actitens.svg"
   imageAlt: "actiTENS"
-  platforms: "iOS • android • Design"
-color: "actitens"
+  platforms: "iOS · Android · Design"
+color: "#13b3d5"
+accent: "#0b7891"
+header:
+  foreground: "#062f3a"
 illustration:
   image: "../../assets/images/actitens-showcase.svg"
   alt: "actiTENS preview"
@@ -17,23 +19,22 @@ dates:
   from: "December 2015"
   to: "February 2018"
 client: "Sublimed"
+role: "Freelance: design and development of both apps"
 technologies:
   - "swift"
   - "bluetooth"
   - "realm"
 links:
-  - kind: "website"
-    href: "https://subli-med.com"
   - kind: "ios"
     href: "https://itunes.apple.com/fr/app/actitens/id1273714714?mt=8"
   - kind: "android"
     href: "https://play.google.com/store/apps/details?id=com.sublimed.actitens"
+  - kind: "website"
+    href: "https://subli-med.com"
 ---
 
-I had the privilege of working with Sublimed on the development and launch of actiTENS,
-a new-generation transcutaneous electrical nerve stimulator (TENS) that comprises a
-hardware pulse generator and a smartphone app interface.
+actiTENS is a new-generation transcutaneous electrical nerve stimulator (TENS) for pain relief, made of a small pulse generator and a smartphone app that controls it.
 
-Starting in late 2015, I played an instrumental role in getting the project off the
-ground and leading the design, development, and shipping of the app on both iOS and
-Android over the course of two years.
+I worked with Sublimed from the first prototype, in late 2015. Over two years, I designed and built the iOS and Android apps from scratch, and engineered the communication protocol between the app and the device on top of Bluetooth Low Energy.
+
+As a medical device, actiTENS was developed under the IEC 62304 medical software standard, all the way to launch on both platforms.

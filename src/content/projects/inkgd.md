@@ -8,9 +8,7 @@ technologies:
 links:
   - kind: "website"
     href: "https://github.com/ephread/inkgd"
-    label: "View on Github"
+    label: "View on GitHub"
 ---
 
-In 2018, I started a project called inkgd, which is essentially a complete port
-of the ink runtime in GDScript - Godot's primary programming language. At the time,
-Godot didn't have full support for the mono runtime.
+In 2018, I started inkgd, a complete port of the ink runtime to GDScript, Godot’s main programming language. At the time, Godot didn’t fully support the Mono runtime, so C# libraries like ink couldn’t be used directly.

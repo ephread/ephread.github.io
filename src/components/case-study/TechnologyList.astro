@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+import { technologies as allTechnologies, type Technology } from "../../data/technologies";
+
+interface Props {
+  technologies: Technology[] | { heading: string; items: Technology[] }[];
+}
+
+const { technologies } = Astro.props;
+
+const groups = technologies.every((entry) => typeof entry === "string")
+  ? [{ heading: undefined, items: technologies }]
+  : (technologies as { heading: string; items: Technology[] }[]);
+---
+
+<div class="flex flex-col gap-4">
+  {groups.map(({ heading, items }) => (
+    <div class="flex flex-col gap-2">
+      {heading && <h3 class="text-sm font-semibold">{heading}</h3>}
+      <ul class="flex flex-col gap-2.5">
+        {items.map((technology) => (
+          <li class="flex items-center gap-2.5">
+            <Image src={allTechnologies[technology].icon} alt="" class="size-5 flex-none" />
+            {allTechnologies[technology].label}
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</div>

@@ -1,0 +1,100 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import BackLink from "./BackLink.astro";
+import CaseStudyIllustration from "./CaseStudyIllustration.astro";
+import { caseStudyHeader } from "../../data/case-study";
+import LinkButton from "./LinkButton.astro";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { name, header, illustration, links } = project.data;
+const { eyebrow, title, subtitle, band, lightText, placement } = caseStudyHeader(project);
+
+const style = [
+  `color: ${header.foreground}`,
+  `--focus-color: ${header.foreground}`,
+  illustration?.backgroundImage
+    ? `background: ${band} url(${illustration.backgroundImage.src}) center / cover`
+    : `background-color: ${band}`,
+].join("; ");
+
+// Store buttons are solid; website links are translucent.
+const primary = lightText ? "bg-white hover:bg-white/90" : "text-white hover:opacity-90";
+const primaryStyle = lightText
+  ? `color: color-mix(in oklab, ${band} 25%, black)`
+  : `background-color: ${header.foreground}`;
+// On saturated bands, a dark tint keeps white text readable (4.5:1 on every band); a white one would wash it out.
+const translucent = lightText ? "bg-black/25 hover:bg-black/35" : "bg-white/50 hover:bg-white/70";
+---
+
+<header class="overflow-hidden" style={style}>
+  <div class="wrap pt-6 pb-16 sm:pb-20">
+    <BackLink class={translucent} />
+
+    <div
+      class:list={[
+        "mt-10 flex flex-wrap items-center gap-x-12 gap-y-10",
+        placement === "below" && "flex-col items-stretch",
+      ]}
+    >
+      {illustration && placement === "before" && (
+        <CaseStudyIllustration illustration={illustration} placement={placement} lightText={lightText} />
+      )}
+
+      <div
+        class:list={[
+          "flex min-w-0 flex-col gap-5",
+          placement === "before" ? "flex-[1_1_22.5rem]" : "flex-[999_1_28.75rem]",
+        ]}
+      >
+        {header.logo && <Image src={header.logo} alt={header.logoAlt ?? ""} class="h-auto w-50 sm:w-55" />}
+        {eyebrow && <p class="text-[.8125rem] font-semibold tracking-[0.08em] uppercase">{eyebrow}</p>}
+        <h1
+          class:list={[
+            "font-display tracking-[-0.03em]",
+            title.length > 20
+              ? "text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.02] font-bold"
+              : "text-[clamp(3.5rem,8vw,7rem)] leading-[.95] font-extrabold",
+          ]}
+          style={header.titleColor && `color: ${header.titleColor}`}
+        >
+          {title !== name && <span class="sr-only">{name}: </span>}
+          {title}
+        </h1>
+        {subtitle && (
+          <p
+            class:list={[
+              "max-w-[28em] font-display font-medium",
+              subtitle.length > 80
+                ? "text-lg/normal sm:text-xl/normal"
+                : "text-[clamp(1.375rem,2.4vw,1.875rem)] leading-tight",
+            ]}
+          >
+            {subtitle}
+          </p>
+        )}
+        {links.length > 0 && (
+          <div class="mt-2 flex flex-wrap gap-3">
+            {links.map(({ kind, href, label }) => (
+              <LinkButton
+                kind={kind}
+                href={href}
+                label={label}
+                class={kind === "website" ? translucent : primary}
+                style={kind === "website" ? undefined : primaryStyle}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {illustration && placement && placement !== "before" && (
+        <CaseStudyIllustration illustration={illustration} placement={placement} lightText={lightText} />
+      )}
+    </div>
+  </div>
+</header>

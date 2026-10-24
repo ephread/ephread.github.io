@@ -1,226 +1,218 @@
-@import "@fontsource-variable/dosis";
-@import "@fontsource/fjalla-one/latin.css";
+@import "@fontsource-variable/bricolage-grotesque/opsz.css";
+@import "@fontsource-variable/inter";
 @import "tailwindcss";
 
-/* static: project colors are picked at runtime through var(--color-<project>). */
-@theme static {
-  /* Breakpoints, matching the old $larger-than-* variables (321, 721, 1025, 1441px). */
-  --breakpoint-*: initial;
-  --breakpoint-sm: 20.0625em;
-  --breakpoint-md: 45.0625em;
-  --breakpoint-lg: 64.0625em;
-  --breakpoint-xl: 90.0625em;
-
+@theme {
   /* Typography */
-  --font-headline: "Fjalla One", sans-serif;
-  --font-text: "Dosis Variable", "Dosis", sans-serif;
-  --font-sans: var(--font-text);
+  --font-display: "Bricolage Grotesque Variable", sans-serif;
+  --font-sans: "Inter Variable", system-ui, sans-serif;
 
-  /* Base palette */
+  /*
+   * Palette. Dark values are set further down, under prefers-color-scheme. "white"
+   * stays white in both, for text and buttons on the projects' colored bands.
+   */
   --color-white: #fff;
-  --color-black: #40434a;
   --color-beige: #f9f5f1;
-  --color-beige-dark: #ded9d1;
-  --color-green: #009a9c;
-  --color-green-dark: #006869;
+  /* Cards, pills and the About band. */
+  --color-surface: #fff;
+  --color-line: #e6e0d8;
+  --color-line-soft: #ece6de;
+  --color-fg: #2e3036;
+  --color-fg-body: #3d4047;
+  --color-fg-muted: #555861;
+  --color-fg-subtle: #6b6e76;
+  --color-teal: #006869;
+  --color-teal-dark: #004d4e;
+  /* Text and icons on teal buttons. */
+  --color-on-teal: #fff;
+  /* The icy layer under the snow on the Montréal pill. */
+  --color-snow-ice: #e9f5f4;
+  /* The contact panel; its own colors so it can be quieter in dark mode. */
+  --color-panel: #006869;
+  --color-on-panel: #fff;
+  --color-panel-muted: #d6efef;
 
-  /* Availability badge */
-  --color-badge-status: #555555;
-  --color-badge-status-dark: #3b3b3b;
-  --color-badge-available: #44cc11;
-  --color-badge-available-dark: #349d0d;
-  --color-badge-limited: #fe7d37;
-  --color-badge-limited-dark: #fe5c04;
-  --color-badge-not-available: #e05d44;
-  --color-badge-not-available-dark: #cf3e22;
+  /* Availability, matching availabilityColors in src/data/site.ts. */
+  --color-status-available: #2f9e0b;
+  --color-status-limited: #e8640f;
+  --color-status-unavailable: #d4472c;
 
-  --color-grab-disabled: #9c9c9c;
-
-  /*
-   * Project colors. "-dark" values are the exact results of Sass's
-   * darken($color, 10) so hover states stay identical to the old site.
-   */
-  --color-actitens: #13b3d5;
-  --color-actitens-dark: #0f8ca6;
-  --color-abjapp: #b68bfc;
-  --color-abjapp-dark: #9759fb;
-  --color-instructions: #7abf6a;
-  --color-instructions-dark: #5cac4a;
-  --color-pomme-plate: #f5515f;
-  --color-pomme-plate-dark: #f22133;
-  --color-sophisticate: #333333;
-  --color-sophisticate-dark: #1a1a1a;
-  --color-genetrainer: #4bb19e;
-  --color-genetrainer-dark: #3c8d7e;
-  --color-mynox: #ff8839;
-  --color-mynox-dark: #ff6906;
-  --color-how-many-sleeps: #13253b;
-  --color-how-many-sleeps-dark: #070d14;
-  --color-autodazzler: #00bc8d;
-  --color-autodazzler-dark: #008967;
-  --color-genesis: #464958;
-  --color-genesis-dark: #2f313c;
-  --color-ink: #ececec;
-  --color-ink-dark: #d3d3d3;
-  --color-the-bell: #333333;
-  --color-the-bell-dark: #1a1a1a;
-  --color-combyne: #ff8338;
-  --color-combyne-dark: #ff6305;
-
-  /* Showcase accents that differ from the tile color. */
-  --color-ink-showcase: #c25c5c;
-  --color-ink-showcase-dark: #ab4040;
-  --color-genesis-showcase: #f58025;
-  --color-genesis-showcase-dark: #dd660a;
-  --color-the-bell-preview: #f7cd0a;
-  --color-the-bell-showcase: #e0ba07;
-  --color-the-bell-showcase-dark: #af9105;
-
-  /*
-   * Radii, in px: the old site's rem values never scaled (it scaled body, not
-   * html), so these are its .35rem and .5rem at the 16px default.
-   */
-  --radius-nav: 5.6px;
-  --radius-base: 8px;
+  --shadow-card: 0 0 0 1px rgb(46 48 54 / 0.06);
+  --shadow-tile: 0 1px 2px rgb(46 48 54 / 0.06), 0 0 0 1px rgb(46 48 54 / 0.05);
+  --shadow-lift: 0 1px 2px rgb(46 48 54 / 0.06), 0 0 0 1px rgb(46 48 54 / 0.05), 0 18px 40px -20px rgb(46 48 54 / 0.3);
 }
 
-/* The green underlined link used in body copy across the site. */
-@utility text-link {
-  display: inline-block;
-  position: relative;
-  padding-bottom: 0.1em;
-  border-bottom: 2px solid var(--link-color, var(--color-green));
-  color: var(--link-color, var(--color-green));
-  text-decoration: none;
-  transition-property: color, border-color;
-  transition-duration: 0.1s;
-  transition-timing-function: ease-in-out;
+/* The page's content column. */
+@utility wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
 
-  &:hover {
-    color: var(--link-color-hover, var(--color-green-dark));
-    border-bottom-color: var(--link-color-hover, var(--color-green-dark));
+  @variant max-sm {
+    padding-inline: 1rem;
   }
+}
+
+/* Small uppercase label above a group: "Featured", "Role", "Technologies"… */
+@utility eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-fg-subtle);
+}
+
+/* A raised surface with a hairline outline. */
+@utility card {
+  background-color: var(--color-surface);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-card);
+}
+
+/* Pill-shaped button; colors are set where it's used. */
+@utility pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 999px;
+  padding: 0.875rem 1.5rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  transition-property: background-color, color, box-shadow;
+  transition-duration: 150ms;
 
   &:focus-visible {
-    outline: 2px solid var(--link-color, var(--color-green));
-    outline-offset: 2px;
+    outline: 2px solid var(--focus-color, var(--color-teal));
+    outline-offset: 3px;
   }
 }
 
-/* Body copy size, scaling up with the viewport. */
-@utility text-copy {
-  font-size: 1.3em;
-  line-height: 1.3em;
+/* A grey placeholder with a light sweeping across it, for images while they load. */
+@utility shimmer {
+  background-color: var(--color-line);
+  background-image: linear-gradient(
+    100deg,
+    transparent 30%,
+    color-mix(in oklab, var(--color-surface) 70%, transparent) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
 
-  @variant sm {
-    font-size: 1.4em;
+  /* Set by the image's onload; nothing left to show. */
+  &[data-loaded] {
+    animation: none;
   }
-  @variant md {
-    font-size: 1.5em;
-  }
-  @variant lg {
-    font-size: 1.6em;
-  }
-  @variant xl {
-    font-size: 1.7em;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    background-image: none;
   }
 }
 
-/* Readable line length for body copy, narrowing as the viewport widens. */
-@utility measure {
-  width: 95%;
-  margin-inline: auto;
-
-  @variant sm {
-    width: 90%;
+@keyframes shimmer {
+  from {
+    background-position: 150% 0;
   }
-  @variant md {
-    width: 80%;
-  }
-  @variant lg {
-    width: 75%;
-  }
-  @variant xl {
-    width: 60%;
+  to {
+    background-position: -50% 0;
   }
 }
 
-/* Paragraphs and lists of body copy (from Markdown or hand-written). */
-@utility text-area {
-  & :where(p, ul, ol) {
-    @apply measure text-copy;
-    margin-top: 1em;
-    margin-bottom: 0;
-    text-align: left;
+/* Body copy written in Markdown. The first paragraph is the lead. */
+@utility story {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--color-fg-body);
+
+  & > p:first-child {
+    font-family: var(--font-display);
+    font-size: clamp(1.375rem, 2.4vw, 1.875rem);
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--color-fg);
   }
 
-  & :where(ul, ol) {
-    list-style-position: outside;
+  & a {
+    color: var(--accent-text, var(--color-teal));
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
   }
 
-  & ul {
-    list-style-type: ">";
+  & a:hover {
+    text-decoration-thickness: 2px;
   }
+}
 
-  & ol {
-    list-style-type: decimal;
-  }
+/*
+ * A case study's accent (set on its page as --accent), as text. In dark mode it's
+ * lightened: project colors chosen to read on white would be too dark on near-black.
+ */
+@utility accent-scope {
+  --accent-text: var(--accent);
 
-  & li {
-    padding-left: 1em;
-  }
-
-  & :where(p, li) a {
-    @apply text-link;
+  @media (prefers-color-scheme: dark) {
+    --accent-text: color-mix(in oklab, var(--accent) 50%, white);
   }
 }
 
 @layer base {
-  /*
-   * The old site scaled body font-size per breakpoint and sized everything in
-   * em. Scaling the root instead keeps those proportions for rem-based utilities.
-   */
-  html {
-    background-color: var(--color-beige);
-    font-size: 100%;
-    /* normalize.css's value, which the old layout was built on (Preflight uses 1.5). */
-    line-height: 1.15;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-beige: #181715;
+      --color-surface: #23211e;
+      --color-line: #38342f;
+      --color-line-soft: #2e2b27;
+      --color-fg: #f2ede7;
+      --color-fg-body: #d8d2ca;
+      --color-fg-muted: #b3aca3;
+      --color-fg-subtle: #9b948b;
+      --color-teal: #5cbfbf;
+      /* Hover goes lighter on dark backgrounds, not darker. */
+      --color-teal-dark: #84d4d4;
+      --color-on-teal: #0c2626;
+      --color-snow-ice: #d2ecea;
+      --color-panel: #12494a;
+      --color-on-panel: #fff;
+      --color-panel-muted: #b9e3e3;
 
-    @variant sm {
-      font-size: 90%;
+      --shadow-card: 0 0 0 1px rgb(255 255 255 / 0.07);
+      --shadow-tile: 0 0 0 1px rgb(255 255 255 / 0.07);
+      --shadow-lift: 0 0 0 1px rgb(255 255 255 / 0.12), 0 18px 40px -20px rgb(0 0 0 / 0.6);
     }
-    @variant md {
-      font-size: 100%;
-    }
-    @variant lg {
-      font-size: 110%;
-    }
-    @variant xl {
-      font-size: 130%;
-    }
+  }
+
+  html {
+    color-scheme: light dark;
+    background-color: var(--color-beige);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
   }
 
   body {
     background-color: var(--color-beige);
-    color: var(--color-black);
-    font-family: var(--font-text);
-    -webkit-font-smoothing: antialiased;
   }
 
   h1,
   h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: var(--font-headline);
-    line-height: 1.25em;
-    text-rendering: optimizeLegibility;
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 
   :target,
   section[id] {
-    /* Keep anchored sections clear of the fixed navigation bar. */
-    scroll-margin-top: 4rem;
+    /* Keep anchored sections clear of the sticky navigation bar. */
+    scroll-margin-top: 5rem;
   }
 }

@@ -1,7 +1,15 @@
 ---
-import { createHash } from "node:crypto";
 import { ClientRouter } from "astro:transitions";
-import { availability, availabilityLabels, intro, social as defaultSocial, socialImageSize } from "../data/site";
+import {
+  availability,
+  availabilityLabels,
+  avatar,
+  headline,
+  intro,
+  social as defaultSocial,
+  socialImageSize,
+} from "../data/site";
+import { version } from "../social/render";
 import "../styles/global.css";
 
 interface Props {
@@ -14,24 +22,32 @@ interface Props {
     title: string;
     description: string;
   };
+  /** The page's preview image (see src/social/); defaults to the home page's. */
+  socialImage?: {
+    path: string;
+    /** Changes with the image's content (see version() in src/social/render.ts). */
+    version: string;
+    alt: string;
+  };
 }
 
 const {
   title,
-  description = "Hey, I'm Fred, this is my personal website.",
+  description = intro,
   lang = "en",
   bodyClass,
   social = defaultSocial,
+  socialImage: image = {
+    path: "/social.png",
+    version: version(availability, headline, avatar.src),
+    alt: `Frédéric Maquin's photo, status: ${availabilityLabels[availability]}. ${headline}`,
+  },
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-// The version changes with the image's content, so social networks fetch it again.
-const socialImageVersion = createHash("sha256")
-  .update(`${availability}\n${intro}\n${socialImageSize.width}x${socialImageSize.height}`)
-  .digest("hex")
-  .slice(0, 8);
-const socialImage = new URL(`/social.png?v=${socialImageVersion}`, Astro.site);
-const socialImageAlt = `Frédéric Maquin's photo, status: ${availabilityLabels[availability]}. ${intro}`;
+// The version is in the URL so social networks fetch the image again when it changes.
+const socialImage = new URL(`${image.path}?v=${image.version}`, Astro.site);
+const socialImageAlt = image.alt;
 ---
 
 <!doctype html>
@@ -62,7 +78,10 @@ const socialImageAlt = `Frédéric Maquin's photo, status: ${availabilityLabels[
     <meta name="twitter:image:alt" content={socialImageAlt} />
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="mask-icon" href="/mask-icon.svg" color="#009a9c" />
+    <!-- The phone browser's toolbar, matching the page background in each mode. -->
+    <meta name="theme-color" content="#f9f5f1" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#181715" media="(prefers-color-scheme: dark)" />
+    <link rel="mask-icon" href="/mask-icon.svg" color="#006869" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <ClientRouter />

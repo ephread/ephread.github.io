@@ -1,14 +1,16 @@
 ---
 name: "Instructions"
-tagline: "Coach marks builder"
-order: 9
+tagline: "Coach marks for iOS apps"
+order: 8
 tile:
   group: "open-source"
-  size: "large"
   image: "../../assets/images/instructions.svg"
   imageAlt: "Instructions"
   platforms: "Swift"
-color: "instructions"
+color: "#7abf6a"
+accent: "#3c7a2e"
+header:
+  foreground: "#183012"
 illustration:
   image: "../../assets/images/ipad.svg"
   alt: "Instructions preview"
@@ -19,18 +21,20 @@ illustration:
     poster: "../../assets/images/instructions-placeholder.png"
 dates:
   from: "October 2015"
-  to: "Ongoing"
+  to: "2023"
+role: "Creator and maintainer"
+details:
+  - label: "Community"
+    value: "5,000+ GitHub stars"
 technologies:
   - "swift"
 links:
   - kind: "website"
     href: "https://github.com/ephread/Instructions"
-    label: "View on Github"
+    label: "View on GitHub"
+callout: "Instructions is no longer maintained."
 ---
 
-Instructions is a Swift-based open source iOS library that facilitates
-the display of coach marks. Its simple implementation and extensive
-customizability make it a highly useful tool for developers.
+Instructions is an open source iOS library for showing coach marks, the overlays that walk people through an app’s interface. It’s simple to set up, and almost everything about it can be customized.
 
-This library was originally derived from previous work, and has been ported
-to Swift and further enhanced to make it available to a broader audience.
+It grew into one of my most popular projects, with more than 5,000 stars on GitHub. Over eight years, I kept it up to date through many versions of Swift and iOS, and covered it with unit, UI and snapshot tests.

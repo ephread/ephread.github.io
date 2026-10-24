@@ -1,0 +1,33 @@
+---
+import appStore from "../../assets/images/app-store-icon.svg";
+import externalLink from "../../assets/images/external-link-icon.svg";
+import googlePlay from "../../assets/images/google-play-icon.svg";
+
+interface Props {
+  kind: "website" | "ios" | "watchos" | "android";
+  href: string;
+  label?: string | undefined;
+  class?: string;
+  style?: string | undefined;
+}
+
+const { kind, href, label, class: className, style } = Astro.props;
+
+const labels = {
+  website: "Visit website",
+  ios: "Download on the App Store",
+  watchos: "Download on the App Store",
+  android: "Get it on Google Play",
+};
+
+// Inlined as components so the strokes take the button's text color (currentColor). When
+// reworking them, keep each glyph centered and about 15 units across in the 24-unit box so
+// they look the same size.
+const icons = { website: externalLink, ios: appStore, watchos: appStore, android: googlePlay };
+const Icon = icons[kind];
+---
+
+<a href={href} class:list={["pill", className]} style={style}>
+  <Icon aria-hidden="true" width="18" height="18" class="flex-none" />
+  {label ?? labels[kind]}
+</a>
